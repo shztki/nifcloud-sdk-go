@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
 )
 
 func TestProvider_Passthrough(t *testing.T) {

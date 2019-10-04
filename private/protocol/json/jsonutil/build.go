@@ -12,8 +12,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol"
 )
 
 var timeType = reflect.ValueOf(time.Time{}).Type()

@@ -4,8 +4,8 @@
 package mediastore
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration/smoke"
-	"github.com/alice02/nifcloud-sdk-go/service/mediastore"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration/smoke"
+	"github.com/shztki/nifcloud-sdk-go/service/mediastore"
 	"github.com/gucumber/gucumber"
 )
 

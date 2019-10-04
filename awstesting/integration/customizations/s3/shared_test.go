@@ -7,9 +7,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration"
-	"github.com/alice02/nifcloud-sdk-go/service/s3"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration"
+	"github.com/shztki/nifcloud-sdk-go/service/s3"
 )
 
 const integBucketPrefix = "aws-sdk-go-integration"

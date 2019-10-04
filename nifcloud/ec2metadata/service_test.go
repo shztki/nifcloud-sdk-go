@@ -9,12 +9,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/ec2metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
-	"github.com/alice02/nifcloud-sdk-go/awstesting"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/unit"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/ec2metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/awstesting"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/unit"
 )
 
 func TestClientOverrideDefaultHTTPClientTimeout(t *testing.T) {

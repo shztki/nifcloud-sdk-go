@@ -19,13 +19,13 @@ This repository was forked from [aws-sdk-go](https://github.com/aws/aws-sdk-go) 
 ## Installing
 
 ```
-$ go get -u github.com/alice02/nifcloud-sdk-go
+$ go get -u github.com/shztki/nifcloud-sdk-go
 ```
 
 or if you use dep, within your repo run:
 
 ```
-$ dep ensure -add github.com/alice02/nifcloud-sdk-go
+$ dep ensure -add github.com/shztki/nifcloud-sdk-go
 ```
 
 ## Usage
@@ -38,10 +38,10 @@ package main
 import (
         "fmt"
 
-        "github.com/alice02/nifcloud-sdk-go/nifcloud"
-        "github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
-        "github.com/alice02/nifcloud-sdk-go/nifcloud/session"
-        "github.com/alice02/nifcloud-sdk-go/service/computing"
+        "github.com/shztki/nifcloud-sdk-go/nifcloud"
+        "github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
+        "github.com/shztki/nifcloud-sdk-go/nifcloud/session"
+        "github.com/shztki/nifcloud-sdk-go/service/computing"
 )
 
 func main() {

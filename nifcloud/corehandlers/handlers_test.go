@@ -11,14 +11,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/corehandlers"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
-	"github.com/alice02/nifcloud-sdk-go/awstesting"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/unit"
-	"github.com/alice02/nifcloud-sdk-go/service/s3"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/corehandlers"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/awstesting"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/unit"
+	"github.com/shztki/nifcloud-sdk-go/service/s3"
 )
 
 func TestValidateEndpointHandler(t *testing.T) {

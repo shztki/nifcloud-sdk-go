@@ -10,10 +10,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
 )
 
 // Interface for matching types which also have a Len method.
@@ -73,7 +73,7 @@ var ValidateReqSigHandler = request.NamedHandler{
 		}
 
 		// 10 minutes to allow for some clock skew/delays in transmission.
-		// Would be improved with alice02/nifcloud-sdk-go#423
+		// Would be improved with shztki/nifcloud-sdk-go#423
 		if signedTime.Add(10 * time.Minute).After(time.Now()) {
 			return
 		}

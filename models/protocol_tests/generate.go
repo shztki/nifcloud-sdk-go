@@ -16,8 +16,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/alice02/nifcloud-sdk-go/private/model/api"
-	"github.com/alice02/nifcloud-sdk-go/private/util"
+	"github.com/shztki/nifcloud-sdk-go/private/model/api"
+	"github.com/shztki/nifcloud-sdk-go/private/util"
 )
 
 // TestSuiteTypeInput input test
@@ -93,11 +93,11 @@ var extraImports = []string{
 	"reflect",
 	"net/url",
 	"",
-	"github.com/alice02/nifcloud-sdk-go/awstesting",
-	"github.com/alice02/nifcloud-sdk-go/awstesting/unit",
-	"github.com/alice02/nifcloud-sdk-go/private/protocol",
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/xml/xmlutil",
-	"github.com/alice02/nifcloud-sdk-go/private/util",
+	"github.com/shztki/nifcloud-sdk-go/awstesting",
+	"github.com/shztki/nifcloud-sdk-go/awstesting/unit",
+	"github.com/shztki/nifcloud-sdk-go/private/protocol",
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/xml/xmlutil",
+	"github.com/shztki/nifcloud-sdk-go/private/util",
 }
 
 func addImports(code string) string {

@@ -8,12 +8,12 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client/metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/defaults"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client/metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/defaults"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
 )
 
 // go version 1.4 and 1.5 do not return an error. Version 1.5 will url encode

@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/signer/v4"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/unit"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/signer/v4"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/unit"
 )
 
 func TestStandaloneSign(t *testing.T) {

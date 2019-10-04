@@ -15,15 +15,15 @@ import (
 	"os"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awserr"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/corehandlers"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials/ec2rolecreds"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials/endpointcreds"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/ec2metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/endpoints"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awserr"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/corehandlers"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials/ec2rolecreds"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials/endpointcreds"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/ec2metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/endpoints"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
 )
 
 // A Defaults provides a collection of default values for SDK clients.

@@ -9,10 +9,10 @@ import (
 	"os"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/unit"
-	"github.com/alice02/nifcloud-sdk-go/service/dynamodb"
-	"github.com/alice02/nifcloud-sdk-go/service/dynamodb/dynamodbattribute"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/unit"
+	"github.com/shztki/nifcloud-sdk-go/service/dynamodb"
+	"github.com/shztki/nifcloud-sdk-go/service/dynamodb/dynamodbattribute"
 )
 
 // benchmarkLogger handles all benchmark logging

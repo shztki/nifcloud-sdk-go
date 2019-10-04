@@ -11,14 +11,14 @@ import (
 	"bytes"
 	"encoding/xml"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/credentials"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/endpoints"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/session"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/restxml"
-	"github.com/alice02/nifcloud-sdk-go/service/cloudfront"
-	"github.com/alice02/nifcloud-sdk-go/service/s3"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/credentials"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/endpoints"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/session"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/restxml"
+	"github.com/shztki/nifcloud-sdk-go/service/cloudfront"
+	"github.com/shztki/nifcloud-sdk-go/service/s3"
 )
 
 var (

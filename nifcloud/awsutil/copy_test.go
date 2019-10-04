@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/awsutil"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/awsutil"
 )
 
 func ExampleCopy() {

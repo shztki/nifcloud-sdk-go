@@ -4,8 +4,8 @@
 package cloudfront
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration/smoke"
-	"github.com/alice02/nifcloud-sdk-go/service/cloudfront"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration/smoke"
+	"github.com/shztki/nifcloud-sdk-go/service/cloudfront"
 	"github.com/gucumber/gucumber"
 )
 

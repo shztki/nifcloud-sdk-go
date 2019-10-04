@@ -4,9 +4,9 @@
 package applicationdiscoveryservice
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration/smoke"
-	"github.com/alice02/nifcloud-sdk-go/service/applicationdiscoveryservice"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration/smoke"
+	"github.com/shztki/nifcloud-sdk-go/service/applicationdiscoveryservice"
 	"github.com/gucumber/gucumber"
 )
 

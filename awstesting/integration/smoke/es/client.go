@@ -4,8 +4,8 @@
 package es
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration/smoke"
-	"github.com/alice02/nifcloud-sdk-go/service/elasticsearchservice"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration/smoke"
+	"github.com/shztki/nifcloud-sdk-go/service/elasticsearchservice"
 	"github.com/gucumber/gucumber"
 )
 

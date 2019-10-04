@@ -7,17 +7,17 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client/metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
-	"github.com/alice02/nifcloud-sdk-go/awstesting"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/computing"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/ec2query"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/jsonrpc"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/query"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/rest"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/restjson"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/restxml"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client/metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/awstesting"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/computing"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/ec2query"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/jsonrpc"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/query"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/rest"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/restjson"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/restxml"
 )
 
 func xmlData(set bool, b []byte, size, delta int) {

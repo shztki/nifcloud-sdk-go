@@ -3,9 +3,9 @@ package client
 import (
 	"fmt"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client/metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client/metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
 )
 
 // A Config provides configuration to a service client instance.

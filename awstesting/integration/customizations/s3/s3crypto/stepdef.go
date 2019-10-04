@@ -12,11 +12,11 @@ import (
 
 	"github.com/gucumber/gucumber"
 
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/session"
-	"github.com/alice02/nifcloud-sdk-go/service/kms"
-	"github.com/alice02/nifcloud-sdk-go/service/s3"
-	"github.com/alice02/nifcloud-sdk-go/service/s3/s3crypto"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/session"
+	"github.com/shztki/nifcloud-sdk-go/service/kms"
+	"github.com/shztki/nifcloud-sdk-go/service/s3"
+	"github.com/shztki/nifcloud-sdk-go/service/s3/s3crypto"
 )
 
 func init() {

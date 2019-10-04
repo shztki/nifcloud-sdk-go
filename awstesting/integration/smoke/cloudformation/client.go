@@ -4,8 +4,8 @@
 package cloudformation
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/awstesting/integration/smoke"
-	"github.com/alice02/nifcloud-sdk-go/service/cloudformation"
+	"github.com/shztki/nifcloud-sdk-go/awstesting/integration/smoke"
+	"github.com/shztki/nifcloud-sdk-go/service/cloudformation"
 	"github.com/gucumber/gucumber"
 )
 

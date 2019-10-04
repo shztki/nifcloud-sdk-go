@@ -3,13 +3,13 @@
 package computing
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/client/metadata"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/corehandlers"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/request"
-	"github.com/alice02/nifcloud-sdk-go/private/protocol/computing"
-	"github.com/alice02/nifcloud-sdk-go/private/signer/v2computing"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/client/metadata"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/corehandlers"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
+	"github.com/shztki/nifcloud-sdk-go/private/protocol/computing"
+	"github.com/shztki/nifcloud-sdk-go/private/signer/v2computing"
 )
 
 // Computing provides the API operation methods for making requests to

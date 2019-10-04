@@ -3,12 +3,12 @@
 package main
 
 import (
-	"github.com/alice02/nifcloud-sdk-go/nifcloud"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/endpoints"
-	"github.com/alice02/nifcloud-sdk-go/nifcloud/session"
-	"github.com/alice02/nifcloud-sdk-go/service/dynamodb"
-	"github.com/alice02/nifcloud-sdk-go/service/s3"
-	"github.com/alice02/nifcloud-sdk-go/service/sqs"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/endpoints"
+	"github.com/shztki/nifcloud-sdk-go/nifcloud/session"
+	"github.com/shztki/nifcloud-sdk-go/service/dynamodb"
+	"github.com/shztki/nifcloud-sdk-go/service/s3"
+	"github.com/shztki/nifcloud-sdk-go/service/sqs"
 )
 
 func main() {

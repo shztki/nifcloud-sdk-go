@@ -11,7 +11,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/alice02/nifcloud-sdk-go/private/util"
+	"github.com/shztki/nifcloud-sdk-go/private/util"
 )
 
 type Examples map[string][]Example

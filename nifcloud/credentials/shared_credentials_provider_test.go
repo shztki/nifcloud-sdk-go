@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/alice02/nifcloud-sdk-go/internal/shareddefaults"
+	"github.com/shztki/nifcloud-sdk-go/internal/shareddefaults"
 	"github.com/stretchr/testify/assert"
 )
 
