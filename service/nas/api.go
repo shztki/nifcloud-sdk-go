@@ -84,6 +84,78 @@ func (c *Nas) AuthorizeNASSecurityGroupIngressWithContext(ctx nifcloud.Context, 
 	return out, req.Send()
 }
 
+const opClearNASSession = "ClearNASSession"
+
+// ClearNASSessionRequest generates a "nifcloud/request.Request" representing the
+// client's request for the ClearNASSession operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ClearNASSession for more information on using the ClearNASSession
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ClearNASSessionRequest method.
+//    req, resp := client.ClearNASSessionRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/nas-N2016-02-24/ClearNASSession
+func (c *Nas) ClearNASSessionRequest(input *ClearNASSessionInput) (req *request.Request, output *ClearNASSessionOutput) {
+	op := &request.Operation{
+		Name:       opClearNASSession,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ClearNASSessionInput{}
+	}
+
+	output = &ClearNASSessionOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ClearNASSession API operation for NIFCLOUD NAS.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD NAS's
+// API operation ClearNASSession for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/nas-N2016-02-24/ClearNASSession
+func (c *Nas) ClearNASSession(input *ClearNASSessionInput) (*ClearNASSessionOutput, error) {
+	req, out := c.ClearNASSessionRequest(input)
+	return out, req.Send()
+}
+
+// ClearNASSessionWithContext is the same as ClearNASSession with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ClearNASSession for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Nas) ClearNASSessionWithContext(ctx nifcloud.Context, input *ClearNASSessionInput, opts ...request.Option) (*ClearNASSessionOutput, error) {
+	req, out := c.ClearNASSessionRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateNASInstance = "CreateNASInstance"
 
 // CreateNASInstanceRequest generates a "nifcloud/request.Request" representing the
@@ -866,6 +938,58 @@ func (s *AuthorizeNASSecurityGroupIngressOutput) SetNASSecurityGroup(v *NASSecur
 	return s
 }
 
+type ClearNASSessionInput struct {
+	_ struct{} `type:"structure"`
+
+	NASInstanceIdentifier *string `locationName:"NASInstanceIdentifier" type:"string"`
+
+	SessionClearType *string `locationName:"SessionClearType" type:"string"`
+}
+
+// String returns the string representation
+func (s ClearNASSessionInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClearNASSessionInput) GoString() string {
+	return s.String()
+}
+
+// SetNASInstanceIdentifier sets the NASInstanceIdentifier field's value.
+func (s *ClearNASSessionInput) SetNASInstanceIdentifier(v string) *ClearNASSessionInput {
+	s.NASInstanceIdentifier = &v
+	return s
+}
+
+// SetSessionClearType sets the SessionClearType field's value.
+func (s *ClearNASSessionInput) SetSessionClearType(v string) *ClearNASSessionInput {
+	s.SessionClearType = &v
+	return s
+}
+
+type ClearNASSessionOutput struct {
+	_ struct{} `type:"structure"`
+
+	NASInstance *NASInstance `type:"structure"`
+}
+
+// String returns the string representation
+func (s ClearNASSessionOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ClearNASSessionOutput) GoString() string {
+	return s.String()
+}
+
+// SetNASInstance sets the NASInstance field's value.
+func (s *ClearNASSessionOutput) SetNASInstance(v *NASInstance) *ClearNASSessionOutput {
+	s.NASInstance = v
+	return s
+}
+
 type CreateNASInstanceInput struct {
 	_ struct{} `type:"structure"`
 
@@ -1474,6 +1598,8 @@ type ModifyNASInstanceInput struct {
 	NetworkId *string `locationName:"NetworkId" type:"string"`
 
 	NewNASInstanceIdentifier *string `locationName:"NewNASInstanceIdentifier" type:"string"`
+
+	NoRootSquash *string `locationName:"NoRootSquash" type:"string"`
 }
 
 // String returns the string representation
@@ -1561,6 +1687,12 @@ func (s *ModifyNASInstanceInput) SetNetworkId(v string) *ModifyNASInstanceInput 
 // SetNewNASInstanceIdentifier sets the NewNASInstanceIdentifier field's value.
 func (s *ModifyNASInstanceInput) SetNewNASInstanceIdentifier(v string) *ModifyNASInstanceInput {
 	s.NewNASInstanceIdentifier = &v
+	return s
+}
+
+// SetNoRootSquash sets the NoRootSquash field's value.
+func (s *ModifyNASInstanceInput) SetNoRootSquash(v string) *ModifyNASInstanceInput {
+	s.NoRootSquash = &v
 	return s
 }
 

@@ -1024,6 +1024,78 @@ func (c *Rdb) DeleteEventSubscriptionWithContext(ctx nifcloud.Context, input *De
 	return out, req.Send()
 }
 
+const opDescribeCertificates = "DescribeCertificates"
+
+// DescribeCertificatesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DescribeCertificates operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeCertificates for more information on using the DescribeCertificates
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeCertificatesRequest method.
+//    req, resp := client.DescribeCertificatesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/DescribeCertificates
+func (c *Rdb) DescribeCertificatesRequest(input *DescribeCertificatesInput) (req *request.Request, output *DescribeCertificatesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeCertificates,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &DescribeCertificatesInput{}
+	}
+
+	output = &DescribeCertificatesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeCertificates API operation for NIFCLOUD RDB.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD RDB's
+// API operation DescribeCertificates for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/DescribeCertificates
+func (c *Rdb) DescribeCertificates(input *DescribeCertificatesInput) (*DescribeCertificatesOutput, error) {
+	req, out := c.DescribeCertificatesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeCertificatesWithContext is the same as DescribeCertificates with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeCertificates for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Rdb) DescribeCertificatesWithContext(ctx nifcloud.Context, input *DescribeCertificatesInput, opts ...request.Option) (*DescribeCertificatesOutput, error) {
+	req, out := c.DescribeCertificatesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeDBEngineVersions = "DescribeDBEngineVersions"
 
 // DescribeDBEngineVersionsRequest generates a "nifcloud/request.Request" representing the
@@ -2536,6 +2608,78 @@ func (c *Rdb) ResetDBParameterGroupWithContext(ctx nifcloud.Context, input *Rese
 	return out, req.Send()
 }
 
+const opResetExternalMaster = "ResetExternalMaster"
+
+// ResetExternalMasterRequest generates a "nifcloud/request.Request" representing the
+// client's request for the ResetExternalMaster operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ResetExternalMaster for more information on using the ResetExternalMaster
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ResetExternalMasterRequest method.
+//    req, resp := client.ResetExternalMasterRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/ResetExternalMaster
+func (c *Rdb) ResetExternalMasterRequest(input *ResetExternalMasterInput) (req *request.Request, output *ResetExternalMasterOutput) {
+	op := &request.Operation{
+		Name:       opResetExternalMaster,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &ResetExternalMasterInput{}
+	}
+
+	output = &ResetExternalMasterOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ResetExternalMaster API operation for NIFCLOUD RDB.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD RDB's
+// API operation ResetExternalMaster for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/ResetExternalMaster
+func (c *Rdb) ResetExternalMaster(input *ResetExternalMasterInput) (*ResetExternalMasterOutput, error) {
+	req, out := c.ResetExternalMasterRequest(input)
+	return out, req.Send()
+}
+
+// ResetExternalMasterWithContext is the same as ResetExternalMaster with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ResetExternalMaster for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Rdb) ResetExternalMasterWithContext(ctx nifcloud.Context, input *ResetExternalMasterInput, opts ...request.Option) (*ResetExternalMasterOutput, error) {
+	req, out := c.ResetExternalMasterRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opRestoreDBInstanceFromDBSnapshot = "RestoreDBInstanceFromDBSnapshot"
 
 // RestoreDBInstanceFromDBSnapshotRequest generates a "nifcloud/request.Request" representing the
@@ -2752,6 +2896,222 @@ func (c *Rdb) RevokeDBSecurityGroupIngressWithContext(ctx nifcloud.Context, inpu
 	return out, req.Send()
 }
 
+const opSetExternalMaster = "SetExternalMaster"
+
+// SetExternalMasterRequest generates a "nifcloud/request.Request" representing the
+// client's request for the SetExternalMaster operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SetExternalMaster for more information on using the SetExternalMaster
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the SetExternalMasterRequest method.
+//    req, resp := client.SetExternalMasterRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/SetExternalMaster
+func (c *Rdb) SetExternalMasterRequest(input *SetExternalMasterInput) (req *request.Request, output *SetExternalMasterOutput) {
+	op := &request.Operation{
+		Name:       opSetExternalMaster,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &SetExternalMasterInput{}
+	}
+
+	output = &SetExternalMasterOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// SetExternalMaster API operation for NIFCLOUD RDB.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD RDB's
+// API operation SetExternalMaster for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/SetExternalMaster
+func (c *Rdb) SetExternalMaster(input *SetExternalMasterInput) (*SetExternalMasterOutput, error) {
+	req, out := c.SetExternalMasterRequest(input)
+	return out, req.Send()
+}
+
+// SetExternalMasterWithContext is the same as SetExternalMaster with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetExternalMaster for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Rdb) SetExternalMasterWithContext(ctx nifcloud.Context, input *SetExternalMasterInput, opts ...request.Option) (*SetExternalMasterOutput, error) {
+	req, out := c.SetExternalMasterRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStartReplication = "StartReplication"
+
+// StartReplicationRequest generates a "nifcloud/request.Request" representing the
+// client's request for the StartReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StartReplication for more information on using the StartReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the StartReplicationRequest method.
+//    req, resp := client.StartReplicationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/StartReplication
+func (c *Rdb) StartReplicationRequest(input *StartReplicationInput) (req *request.Request, output *StartReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStartReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &StartReplicationInput{}
+	}
+
+	output = &StartReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StartReplication API operation for NIFCLOUD RDB.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD RDB's
+// API operation StartReplication for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/StartReplication
+func (c *Rdb) StartReplication(input *StartReplicationInput) (*StartReplicationOutput, error) {
+	req, out := c.StartReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StartReplicationWithContext is the same as StartReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StartReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Rdb) StartReplicationWithContext(ctx nifcloud.Context, input *StartReplicationInput, opts ...request.Option) (*StartReplicationOutput, error) {
+	req, out := c.StartReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opStopReplication = "StopReplication"
+
+// StopReplicationRequest generates a "nifcloud/request.Request" representing the
+// client's request for the StopReplication operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See StopReplication for more information on using the StopReplication
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the StopReplicationRequest method.
+//    req, resp := client.StopReplicationRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/StopReplication
+func (c *Rdb) StopReplicationRequest(input *StopReplicationInput) (req *request.Request, output *StopReplicationOutput) {
+	op := &request.Operation{
+		Name:       opStopReplication,
+		HTTPMethod: "POST",
+		HTTPPath:   "/",
+	}
+
+	if input == nil {
+		input = &StopReplicationInput{}
+	}
+
+	output = &StopReplicationOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// StopReplication API operation for NIFCLOUD RDB.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD RDB's
+// API operation StopReplication for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/rdb-2013-05-15N2013-12-16/StopReplication
+func (c *Rdb) StopReplication(input *StopReplicationInput) (*StopReplicationOutput, error) {
+	req, out := c.StopReplicationRequest(input)
+	return out, req.Send()
+}
+
+// StopReplicationWithContext is the same as StopReplication with the addition of
+// the ability to pass a context and additional request options.
+//
+// See StopReplication for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Rdb) StopReplicationWithContext(ctx nifcloud.Context, input *StopReplicationInput, opts ...request.Option) (*StopReplicationOutput, error) {
+	req, out := c.StopReplicationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 type AddSourceIdentifierToSubscriptionInput struct {
 	_ struct{} `type:"structure"`
 
@@ -2899,6 +3259,60 @@ func (s *AvailabilityZone) SetNiftyStorageTypes(v []*int64) *AvailabilityZone {
 // SetProvisionedIopsCapable sets the ProvisionedIopsCapable field's value.
 func (s *AvailabilityZone) SetProvisionedIopsCapable(v bool) *AvailabilityZone {
 	s.ProvisionedIopsCapable = &v
+	return s
+}
+
+type Certificate struct {
+	_ struct{} `type:"structure"`
+
+	CertificateIdentifier *string `type:"string"`
+
+	CertificateType *string `type:"string"`
+
+	Thumbprint *string `type:"string"`
+
+	ValidFrom *string `type:"string"`
+
+	ValidTill *string `type:"string"`
+}
+
+// String returns the string representation
+func (s Certificate) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Certificate) GoString() string {
+	return s.String()
+}
+
+// SetCertificateIdentifier sets the CertificateIdentifier field's value.
+func (s *Certificate) SetCertificateIdentifier(v string) *Certificate {
+	s.CertificateIdentifier = &v
+	return s
+}
+
+// SetCertificateType sets the CertificateType field's value.
+func (s *Certificate) SetCertificateType(v string) *Certificate {
+	s.CertificateType = &v
+	return s
+}
+
+// SetThumbprint sets the Thumbprint field's value.
+func (s *Certificate) SetThumbprint(v string) *Certificate {
+	s.Thumbprint = &v
+	return s
+}
+
+// SetValidFrom sets the ValidFrom field's value.
+func (s *Certificate) SetValidFrom(v string) *Certificate {
+	s.ValidFrom = &v
+	return s
+}
+
+// SetValidTill sets the ValidTill field's value.
+func (s *Certificate) SetValidTill(v string) *Certificate {
+	s.ValidTill = &v
 	return s
 }
 
@@ -3603,6 +4017,10 @@ type DBInstance struct {
 
 	BackupRetentionPeriod *string `type:"string"`
 
+	BinlogRetentionPeriod *string `type:"string"`
+
+	CACertificateIdentifier *string `type:"string"`
+
 	DBInstanceClass *string `type:"string"`
 
 	DBInstanceIdentifier *string `type:"string"`
@@ -3620,6 +4038,8 @@ type DBInstance struct {
 	Engine *string `type:"string"`
 
 	EngineVersion *string `type:"string"`
+
+	ExternalReplicationInfo *ExternalReplicationInfo `type:"structure"`
 
 	InstanceCreateTime *string `type:"string"`
 
@@ -3696,6 +4116,18 @@ func (s *DBInstance) SetBackupRetentionPeriod(v string) *DBInstance {
 	return s
 }
 
+// SetBinlogRetentionPeriod sets the BinlogRetentionPeriod field's value.
+func (s *DBInstance) SetBinlogRetentionPeriod(v string) *DBInstance {
+	s.BinlogRetentionPeriod = &v
+	return s
+}
+
+// SetCACertificateIdentifier sets the CACertificateIdentifier field's value.
+func (s *DBInstance) SetCACertificateIdentifier(v string) *DBInstance {
+	s.CACertificateIdentifier = &v
+	return s
+}
+
 // SetDBInstanceClass sets the DBInstanceClass field's value.
 func (s *DBInstance) SetDBInstanceClass(v string) *DBInstance {
 	s.DBInstanceClass = &v
@@ -3747,6 +4179,12 @@ func (s *DBInstance) SetEngine(v string) *DBInstance {
 // SetEngineVersion sets the EngineVersion field's value.
 func (s *DBInstance) SetEngineVersion(v string) *DBInstance {
 	s.EngineVersion = &v
+	return s
+}
+
+// SetExternalReplicationInfo sets the ExternalReplicationInfo field's value.
+func (s *DBInstance) SetExternalReplicationInfo(v *ExternalReplicationInfo) *DBInstance {
+	s.ExternalReplicationInfo = v
 	return s
 }
 
@@ -4359,6 +4797,74 @@ func (s DeleteEventSubscriptionOutput) GoString() string {
 // SetEventSubscription sets the EventSubscription field's value.
 func (s *DeleteEventSubscriptionOutput) SetEventSubscription(v *EventSubscription) *DeleteEventSubscriptionOutput {
 	s.EventSubscription = v
+	return s
+}
+
+type DescribeCertificatesInput struct {
+	_ struct{} `type:"structure"`
+
+	CertificateIdentifier *string `locationName:"CertificateIdentifier" type:"string"`
+
+	Marker *string `locationName:"Marker" type:"string"`
+
+	MaxRecords *int64 `locationName:"MaxRecords" type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeCertificatesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeCertificatesInput) GoString() string {
+	return s.String()
+}
+
+// SetCertificateIdentifier sets the CertificateIdentifier field's value.
+func (s *DescribeCertificatesInput) SetCertificateIdentifier(v string) *DescribeCertificatesInput {
+	s.CertificateIdentifier = &v
+	return s
+}
+
+// SetMarker sets the Marker field's value.
+func (s *DescribeCertificatesInput) SetMarker(v string) *DescribeCertificatesInput {
+	s.Marker = &v
+	return s
+}
+
+// SetMaxRecords sets the MaxRecords field's value.
+func (s *DescribeCertificatesInput) SetMaxRecords(v int64) *DescribeCertificatesInput {
+	s.MaxRecords = &v
+	return s
+}
+
+type DescribeCertificatesOutput struct {
+	_ struct{} `type:"structure"`
+
+	Certificates []*Certificate `locationNameList:"Certificate" type:"list"`
+
+	Marker *string `type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeCertificatesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeCertificatesOutput) GoString() string {
+	return s.String()
+}
+
+// SetCertificates sets the Certificates field's value.
+func (s *DescribeCertificatesOutput) SetCertificates(v []*Certificate) *DescribeCertificatesOutput {
+	s.Certificates = v
+	return s
+}
+
+// SetMarker sets the Marker field's value.
+func (s *DescribeCertificatesOutput) SetMarker(v string) *DescribeCertificatesOutput {
+	s.Marker = &v
 	return s
 }
 
@@ -5688,6 +6194,52 @@ func (s *EventSubscription) SetSubscriptionCreationTime(v string) *EventSubscrip
 	return s
 }
 
+type ExternalReplicationInfo struct {
+	_ struct{} `type:"structure"`
+
+	ExternalMasterAddress *string `type:"string"`
+
+	ExternalReplicationMessage *string `type:"string"`
+
+	ExternalReplicationStatus *string `type:"string"`
+
+	ReplicationAddresses []*string `type:"list"`
+}
+
+// String returns the string representation
+func (s ExternalReplicationInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExternalReplicationInfo) GoString() string {
+	return s.String()
+}
+
+// SetExternalMasterAddress sets the ExternalMasterAddress field's value.
+func (s *ExternalReplicationInfo) SetExternalMasterAddress(v string) *ExternalReplicationInfo {
+	s.ExternalMasterAddress = &v
+	return s
+}
+
+// SetExternalReplicationMessage sets the ExternalReplicationMessage field's value.
+func (s *ExternalReplicationInfo) SetExternalReplicationMessage(v string) *ExternalReplicationInfo {
+	s.ExternalReplicationMessage = &v
+	return s
+}
+
+// SetExternalReplicationStatus sets the ExternalReplicationStatus field's value.
+func (s *ExternalReplicationInfo) SetExternalReplicationStatus(v string) *ExternalReplicationInfo {
+	s.ExternalReplicationStatus = &v
+	return s
+}
+
+// SetReplicationAddresses sets the ReplicationAddresses field's value.
+func (s *ExternalReplicationInfo) SetReplicationAddresses(v []*string) *ExternalReplicationInfo {
+	s.ReplicationAddresses = v
+	return s
+}
+
 type IPRange struct {
 	_ struct{} `type:"structure"`
 
@@ -5773,6 +6325,12 @@ type ModifyDBInstanceInput struct {
 
 	BackupRetentionPeriod *int64 `locationName:"BackupRetentionPeriod" type:"integer"`
 
+	BinlogRetentionPeriod *int64 `locationName:"BinlogRetentionPeriod" type:"integer"`
+
+	CACertificateIdentifier *string `locationName:"CACertificateIdentifier" type:"string"`
+
+	CustomBinlogRetentionPeriod *int64 `locationName:"CustomBinlogRetentionPeriod" type:"integer"`
+
 	DBInstanceClass *string `locationName:"DBInstanceClass" type:"string"`
 
 	DBInstanceIdentifier *string `locationName:"DBInstanceIdentifier" type:"string"`
@@ -5825,6 +6383,24 @@ func (s *ModifyDBInstanceInput) SetApplyImmediately(v bool) *ModifyDBInstanceInp
 // SetBackupRetentionPeriod sets the BackupRetentionPeriod field's value.
 func (s *ModifyDBInstanceInput) SetBackupRetentionPeriod(v int64) *ModifyDBInstanceInput {
 	s.BackupRetentionPeriod = &v
+	return s
+}
+
+// SetBinlogRetentionPeriod sets the BinlogRetentionPeriod field's value.
+func (s *ModifyDBInstanceInput) SetBinlogRetentionPeriod(v int64) *ModifyDBInstanceInput {
+	s.BinlogRetentionPeriod = &v
+	return s
+}
+
+// SetCACertificateIdentifier sets the CACertificateIdentifier field's value.
+func (s *ModifyDBInstanceInput) SetCACertificateIdentifier(v string) *ModifyDBInstanceInput {
+	s.CACertificateIdentifier = &v
+	return s
+}
+
+// SetCustomBinlogRetentionPeriod sets the CustomBinlogRetentionPeriod field's value.
+func (s *ModifyDBInstanceInput) SetCustomBinlogRetentionPeriod(v int64) *ModifyDBInstanceInput {
+	s.CustomBinlogRetentionPeriod = &v
 	return s
 }
 
@@ -6734,6 +7310,50 @@ func (s *ResetDBParameterGroupOutput) SetDBParameterGroupName(v string) *ResetDB
 	return s
 }
 
+type ResetExternalMasterInput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstanceIdentifier *string `locationName:"DBInstanceIdentifier" type:"string"`
+}
+
+// String returns the string representation
+func (s ResetExternalMasterInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResetExternalMasterInput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstanceIdentifier sets the DBInstanceIdentifier field's value.
+func (s *ResetExternalMasterInput) SetDBInstanceIdentifier(v string) *ResetExternalMasterInput {
+	s.DBInstanceIdentifier = &v
+	return s
+}
+
+type ResetExternalMasterOutput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstance *DBInstance `type:"structure"`
+}
+
+// String returns the string representation
+func (s ResetExternalMasterOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ResetExternalMasterOutput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstance sets the DBInstance field's value.
+func (s *ResetExternalMasterOutput) SetDBInstance(v *DBInstance) *ResetExternalMasterOutput {
+	s.DBInstance = v
+	return s
+}
+
 type RestoreDBInstanceFromDBSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
@@ -7199,6 +7819,186 @@ func (s RevokeDBSecurityGroupIngressOutput) GoString() string {
 // SetDBSecurityGroup sets the DBSecurityGroup field's value.
 func (s *RevokeDBSecurityGroupIngressOutput) SetDBSecurityGroup(v *DBSecurityGroup) *RevokeDBSecurityGroupIngressOutput {
 	s.DBSecurityGroup = v
+	return s
+}
+
+type SetExternalMasterInput struct {
+	_ struct{} `type:"structure"`
+
+	BinlogFileName *string `locationName:"BinlogFileName" type:"string"`
+
+	BinlogPosition *int64 `locationName:"BinlogPosition" type:"integer"`
+
+	DBInstanceIdentifier *string `locationName:"DBInstanceIdentifier" type:"string"`
+
+	MasterHost *string `locationName:"MasterHost" type:"string"`
+
+	MasterPort *int64 `locationName:"MasterPort" type:"integer"`
+
+	ReplicationUserName *string `locationName:"ReplicationUserName" type:"string"`
+
+	ReplicationUserPassword *string `locationName:"ReplicationUserPassword" type:"string"`
+}
+
+// String returns the string representation
+func (s SetExternalMasterInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetExternalMasterInput) GoString() string {
+	return s.String()
+}
+
+// SetBinlogFileName sets the BinlogFileName field's value.
+func (s *SetExternalMasterInput) SetBinlogFileName(v string) *SetExternalMasterInput {
+	s.BinlogFileName = &v
+	return s
+}
+
+// SetBinlogPosition sets the BinlogPosition field's value.
+func (s *SetExternalMasterInput) SetBinlogPosition(v int64) *SetExternalMasterInput {
+	s.BinlogPosition = &v
+	return s
+}
+
+// SetDBInstanceIdentifier sets the DBInstanceIdentifier field's value.
+func (s *SetExternalMasterInput) SetDBInstanceIdentifier(v string) *SetExternalMasterInput {
+	s.DBInstanceIdentifier = &v
+	return s
+}
+
+// SetMasterHost sets the MasterHost field's value.
+func (s *SetExternalMasterInput) SetMasterHost(v string) *SetExternalMasterInput {
+	s.MasterHost = &v
+	return s
+}
+
+// SetMasterPort sets the MasterPort field's value.
+func (s *SetExternalMasterInput) SetMasterPort(v int64) *SetExternalMasterInput {
+	s.MasterPort = &v
+	return s
+}
+
+// SetReplicationUserName sets the ReplicationUserName field's value.
+func (s *SetExternalMasterInput) SetReplicationUserName(v string) *SetExternalMasterInput {
+	s.ReplicationUserName = &v
+	return s
+}
+
+// SetReplicationUserPassword sets the ReplicationUserPassword field's value.
+func (s *SetExternalMasterInput) SetReplicationUserPassword(v string) *SetExternalMasterInput {
+	s.ReplicationUserPassword = &v
+	return s
+}
+
+type SetExternalMasterOutput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstance *DBInstance `type:"structure"`
+}
+
+// String returns the string representation
+func (s SetExternalMasterOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetExternalMasterOutput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstance sets the DBInstance field's value.
+func (s *SetExternalMasterOutput) SetDBInstance(v *DBInstance) *SetExternalMasterOutput {
+	s.DBInstance = v
+	return s
+}
+
+type StartReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstanceIdentifier *string `locationName:"DBInstanceIdentifier" type:"string"`
+}
+
+// String returns the string representation
+func (s StartReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StartReplicationInput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstanceIdentifier sets the DBInstanceIdentifier field's value.
+func (s *StartReplicationInput) SetDBInstanceIdentifier(v string) *StartReplicationInput {
+	s.DBInstanceIdentifier = &v
+	return s
+}
+
+type StartReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstance *DBInstance `type:"structure"`
+}
+
+// String returns the string representation
+func (s StartReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StartReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstance sets the DBInstance field's value.
+func (s *StartReplicationOutput) SetDBInstance(v *DBInstance) *StartReplicationOutput {
+	s.DBInstance = v
+	return s
+}
+
+type StopReplicationInput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstanceIdentifier *string `locationName:"DBInstanceIdentifier" type:"string"`
+}
+
+// String returns the string representation
+func (s StopReplicationInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StopReplicationInput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstanceIdentifier sets the DBInstanceIdentifier field's value.
+func (s *StopReplicationInput) SetDBInstanceIdentifier(v string) *StopReplicationInput {
+	s.DBInstanceIdentifier = &v
+	return s
+}
+
+type StopReplicationOutput struct {
+	_ struct{} `type:"structure"`
+
+	DBInstance *DBInstance `type:"structure"`
+}
+
+// String returns the string representation
+func (s StopReplicationOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s StopReplicationOutput) GoString() string {
+	return s.String()
+}
+
+// SetDBInstance sets the DBInstance field's value.
+func (s *StopReplicationOutput) SetDBInstance(v *DBInstance) *StopReplicationOutput {
+	s.DBInstance = v
 	return s
 }
 

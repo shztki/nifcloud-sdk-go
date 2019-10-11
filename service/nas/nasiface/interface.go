@@ -64,6 +64,10 @@ type NasAPI interface {
 	AuthorizeNASSecurityGroupIngressWithContext(nifcloud.Context, *nas.AuthorizeNASSecurityGroupIngressInput, ...request.Option) (*nas.AuthorizeNASSecurityGroupIngressOutput, error)
 	AuthorizeNASSecurityGroupIngressRequest(*nas.AuthorizeNASSecurityGroupIngressInput) (*request.Request, *nas.AuthorizeNASSecurityGroupIngressOutput)
 
+	ClearNASSession(*nas.ClearNASSessionInput) (*nas.ClearNASSessionOutput, error)
+	ClearNASSessionWithContext(nifcloud.Context, *nas.ClearNASSessionInput, ...request.Option) (*nas.ClearNASSessionOutput, error)
+	ClearNASSessionRequest(*nas.ClearNASSessionInput) (*request.Request, *nas.ClearNASSessionOutput)
+
 	CreateNASInstance(*nas.CreateNASInstanceInput) (*nas.CreateNASInstanceOutput, error)
 	CreateNASInstanceWithContext(nifcloud.Context, *nas.CreateNASInstanceInput, ...request.Option) (*nas.CreateNASInstanceOutput, error)
 	CreateNASInstanceRequest(*nas.CreateNASInstanceInput) (*request.Request, *nas.CreateNASInstanceOutput)

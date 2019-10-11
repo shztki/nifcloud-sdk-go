@@ -3,8 +3,6 @@
 package computing
 
 import (
-	"time"
-
 	"github.com/shztki/nifcloud-sdk-go/nifcloud"
 	"github.com/shztki/nifcloud-sdk-go/nifcloud/awsutil"
 	"github.com/shztki/nifcloud-sdk-go/nifcloud/request"
@@ -293,6 +291,78 @@ func (c *Computing) AssociateUsers(input *AssociateUsersInput) (*AssociateUsersO
 // for more information on using Contexts.
 func (c *Computing) AssociateUsersWithContext(ctx nifcloud.Context, input *AssociateUsersInput, opts ...request.Option) (*AssociateUsersOutput, error) {
 	req, out := c.AssociateUsersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opAttachNetworkInterface = "AttachNetworkInterface"
+
+// AttachNetworkInterfaceRequest generates a "nifcloud/request.Request" representing the
+// client's request for the AttachNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See AttachNetworkInterface for more information on using the AttachNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the AttachNetworkInterfaceRequest method.
+//    req, resp := client.AttachNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/AttachNetworkInterface
+func (c *Computing) AttachNetworkInterfaceRequest(input *AttachNetworkInterfaceInput) (req *request.Request, output *AttachNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opAttachNetworkInterface,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &AttachNetworkInterfaceInput{}
+	}
+
+	output = &AttachNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// AttachNetworkInterface API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation AttachNetworkInterface for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/AttachNetworkInterface
+func (c *Computing) AttachNetworkInterface(input *AttachNetworkInterfaceInput) (*AttachNetworkInterfaceOutput, error) {
+	req, out := c.AttachNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// AttachNetworkInterfaceWithContext is the same as AttachNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See AttachNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) AttachNetworkInterfaceWithContext(ctx nifcloud.Context, input *AttachNetworkInterfaceInput, opts ...request.Option) (*AttachNetworkInterfaceOutput, error) {
+	req, out := c.AttachNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -730,6 +800,78 @@ func (c *Computing) ConfigureHealthCheckWithContext(ctx nifcloud.Context, input 
 	return out, req.Send()
 }
 
+const opCopyFromBackupInstance = "CopyFromBackupInstance"
+
+// CopyFromBackupInstanceRequest generates a "nifcloud/request.Request" representing the
+// client's request for the CopyFromBackupInstance operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CopyFromBackupInstance for more information on using the CopyFromBackupInstance
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CopyFromBackupInstanceRequest method.
+//    req, resp := client.CopyFromBackupInstanceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CopyFromBackupInstance
+func (c *Computing) CopyFromBackupInstanceRequest(input *CopyFromBackupInstanceInput) (req *request.Request, output *CopyFromBackupInstanceOutput) {
+	op := &request.Operation{
+		Name:       opCopyFromBackupInstance,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &CopyFromBackupInstanceInput{}
+	}
+
+	output = &CopyFromBackupInstanceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CopyFromBackupInstance API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation CopyFromBackupInstance for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CopyFromBackupInstance
+func (c *Computing) CopyFromBackupInstance(input *CopyFromBackupInstanceInput) (*CopyFromBackupInstanceOutput, error) {
+	req, out := c.CopyFromBackupInstanceRequest(input)
+	return out, req.Send()
+}
+
+// CopyFromBackupInstanceWithContext is the same as CopyFromBackupInstance with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CopyFromBackupInstance for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) CopyFromBackupInstanceWithContext(ctx nifcloud.Context, input *CopyFromBackupInstanceInput, opts ...request.Option) (*CopyFromBackupInstanceOutput, error) {
+	req, out := c.CopyFromBackupInstanceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCopyInstances = "CopyInstances"
 
 // CopyInstancesRequest generates a "nifcloud/request.Request" representing the
@@ -797,6 +939,78 @@ func (c *Computing) CopyInstances(input *CopyInstancesInput) (*CopyInstancesOutp
 // for more information on using Contexts.
 func (c *Computing) CopyInstancesWithContext(ctx nifcloud.Context, input *CopyInstancesInput, opts ...request.Option) (*CopyInstancesOutput, error) {
 	req, out := c.CopyInstancesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateBackupInstances = "CreateBackupInstances"
+
+// CreateBackupInstancesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the CreateBackupInstances operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateBackupInstances for more information on using the CreateBackupInstances
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateBackupInstancesRequest method.
+//    req, resp := client.CreateBackupInstancesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateBackupInstances
+func (c *Computing) CreateBackupInstancesRequest(input *CreateBackupInstancesInput) (req *request.Request, output *CreateBackupInstancesOutput) {
+	op := &request.Operation{
+		Name:       opCreateBackupInstances,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &CreateBackupInstancesInput{}
+	}
+
+	output = &CreateBackupInstancesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateBackupInstances API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation CreateBackupInstances for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateBackupInstances
+func (c *Computing) CreateBackupInstances(input *CreateBackupInstancesInput) (*CreateBackupInstancesOutput, error) {
+	req, out := c.CreateBackupInstancesRequest(input)
+	return out, req.Send()
+}
+
+// CreateBackupInstancesWithContext is the same as CreateBackupInstances with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateBackupInstances for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) CreateBackupInstancesWithContext(ctx nifcloud.Context, input *CreateBackupInstancesInput, opts ...request.Option) (*CreateBackupInstancesOutput, error) {
+	req, out := c.CreateBackupInstancesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1018,6 +1232,78 @@ func (c *Computing) CreateImageWithContext(ctx nifcloud.Context, input *CreateIm
 	return out, req.Send()
 }
 
+const opCreateInstanceBackupRule = "CreateInstanceBackupRule"
+
+// CreateInstanceBackupRuleRequest generates a "nifcloud/request.Request" representing the
+// client's request for the CreateInstanceBackupRule operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateInstanceBackupRule for more information on using the CreateInstanceBackupRule
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateInstanceBackupRuleRequest method.
+//    req, resp := client.CreateInstanceBackupRuleRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateInstanceBackupRule
+func (c *Computing) CreateInstanceBackupRuleRequest(input *CreateInstanceBackupRuleInput) (req *request.Request, output *CreateInstanceBackupRuleOutput) {
+	op := &request.Operation{
+		Name:       opCreateInstanceBackupRule,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &CreateInstanceBackupRuleInput{}
+	}
+
+	output = &CreateInstanceBackupRuleOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateInstanceBackupRule API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation CreateInstanceBackupRule for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateInstanceBackupRule
+func (c *Computing) CreateInstanceBackupRule(input *CreateInstanceBackupRuleInput) (*CreateInstanceBackupRuleOutput, error) {
+	req, out := c.CreateInstanceBackupRuleRequest(input)
+	return out, req.Send()
+}
+
+// CreateInstanceBackupRuleWithContext is the same as CreateInstanceBackupRule with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateInstanceBackupRule for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) CreateInstanceBackupRuleWithContext(ctx nifcloud.Context, input *CreateInstanceBackupRuleInput, opts ...request.Option) (*CreateInstanceBackupRuleOutput, error) {
+	req, out := c.CreateInstanceBackupRuleRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opCreateKeyPair = "CreateKeyPair"
 
 // CreateKeyPairRequest generates a "nifcloud/request.Request" representing the
@@ -1157,6 +1443,78 @@ func (c *Computing) CreateLoadBalancer(input *CreateLoadBalancerInput) (*CreateL
 // for more information on using Contexts.
 func (c *Computing) CreateLoadBalancerWithContext(ctx nifcloud.Context, input *CreateLoadBalancerInput, opts ...request.Option) (*CreateLoadBalancerOutput, error) {
 	req, out := c.CreateLoadBalancerRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opCreateNetworkInterface = "CreateNetworkInterface"
+
+// CreateNetworkInterfaceRequest generates a "nifcloud/request.Request" representing the
+// client's request for the CreateNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See CreateNetworkInterface for more information on using the CreateNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the CreateNetworkInterfaceRequest method.
+//    req, resp := client.CreateNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateNetworkInterface
+func (c *Computing) CreateNetworkInterfaceRequest(input *CreateNetworkInterfaceInput) (req *request.Request, output *CreateNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opCreateNetworkInterface,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &CreateNetworkInterfaceInput{}
+	}
+
+	output = &CreateNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// CreateNetworkInterface API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation CreateNetworkInterface for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/CreateNetworkInterface
+func (c *Computing) CreateNetworkInterface(input *CreateNetworkInterfaceInput) (*CreateNetworkInterfaceOutput, error) {
+	req, out := c.CreateNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// CreateNetworkInterfaceWithContext is the same as CreateNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See CreateNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) CreateNetworkInterfaceWithContext(ctx nifcloud.Context, input *CreateNetworkInterfaceInput, opts ...request.Option) (*CreateNetworkInterfaceOutput, error) {
+	req, out := c.CreateNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -1882,6 +2240,78 @@ func (c *Computing) DeleteImageWithContext(ctx nifcloud.Context, input *DeleteIm
 	return out, req.Send()
 }
 
+const opDeleteInstanceBackupRule = "DeleteInstanceBackupRule"
+
+// DeleteInstanceBackupRuleRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DeleteInstanceBackupRule operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteInstanceBackupRule for more information on using the DeleteInstanceBackupRule
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteInstanceBackupRuleRequest method.
+//    req, resp := client.DeleteInstanceBackupRuleRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DeleteInstanceBackupRule
+func (c *Computing) DeleteInstanceBackupRuleRequest(input *DeleteInstanceBackupRuleInput) (req *request.Request, output *DeleteInstanceBackupRuleOutput) {
+	op := &request.Operation{
+		Name:       opDeleteInstanceBackupRule,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DeleteInstanceBackupRuleInput{}
+	}
+
+	output = &DeleteInstanceBackupRuleOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteInstanceBackupRule API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DeleteInstanceBackupRule for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DeleteInstanceBackupRule
+func (c *Computing) DeleteInstanceBackupRule(input *DeleteInstanceBackupRuleInput) (*DeleteInstanceBackupRuleOutput, error) {
+	req, out := c.DeleteInstanceBackupRuleRequest(input)
+	return out, req.Send()
+}
+
+// DeleteInstanceBackupRuleWithContext is the same as DeleteInstanceBackupRule with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteInstanceBackupRule for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DeleteInstanceBackupRuleWithContext(ctx nifcloud.Context, input *DeleteInstanceBackupRuleInput, opts ...request.Option) (*DeleteInstanceBackupRuleOutput, error) {
+	req, out := c.DeleteInstanceBackupRuleRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDeleteKeyPair = "DeleteKeyPair"
 
 // DeleteKeyPairRequest generates a "nifcloud/request.Request" representing the
@@ -2021,6 +2451,78 @@ func (c *Computing) DeleteLoadBalancer(input *DeleteLoadBalancerInput) (*DeleteL
 // for more information on using Contexts.
 func (c *Computing) DeleteLoadBalancerWithContext(ctx nifcloud.Context, input *DeleteLoadBalancerInput, opts ...request.Option) (*DeleteLoadBalancerOutput, error) {
 	req, out := c.DeleteLoadBalancerRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDeleteNetworkInterface = "DeleteNetworkInterface"
+
+// DeleteNetworkInterfaceRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DeleteNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DeleteNetworkInterface for more information on using the DeleteNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DeleteNetworkInterfaceRequest method.
+//    req, resp := client.DeleteNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DeleteNetworkInterface
+func (c *Computing) DeleteNetworkInterfaceRequest(input *DeleteNetworkInterfaceInput) (req *request.Request, output *DeleteNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opDeleteNetworkInterface,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DeleteNetworkInterfaceInput{}
+	}
+
+	output = &DeleteNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DeleteNetworkInterface API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DeleteNetworkInterface for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DeleteNetworkInterface
+func (c *Computing) DeleteNetworkInterface(input *DeleteNetworkInterfaceInput) (*DeleteNetworkInterfaceOutput, error) {
+	req, out := c.DeleteNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// DeleteNetworkInterfaceWithContext is the same as DeleteNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DeleteNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DeleteNetworkInterfaceWithContext(ctx nifcloud.Context, input *DeleteNetworkInterfaceInput, opts ...request.Option) (*DeleteNetworkInterfaceOutput, error) {
+	req, out := c.DeleteNetworkInterfaceRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -3178,6 +3680,150 @@ func (c *Computing) DescribeInstanceAttributeWithContext(ctx nifcloud.Context, i
 	return out, req.Send()
 }
 
+const opDescribeInstanceBackupRuleActivities = "DescribeInstanceBackupRuleActivities"
+
+// DescribeInstanceBackupRuleActivitiesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DescribeInstanceBackupRuleActivities operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceBackupRuleActivities for more information on using the DescribeInstanceBackupRuleActivities
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceBackupRuleActivitiesRequest method.
+//    req, resp := client.DescribeInstanceBackupRuleActivitiesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeInstanceBackupRuleActivities
+func (c *Computing) DescribeInstanceBackupRuleActivitiesRequest(input *DescribeInstanceBackupRuleActivitiesInput) (req *request.Request, output *DescribeInstanceBackupRuleActivitiesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceBackupRuleActivities,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DescribeInstanceBackupRuleActivitiesInput{}
+	}
+
+	output = &DescribeInstanceBackupRuleActivitiesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeInstanceBackupRuleActivities API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DescribeInstanceBackupRuleActivities for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeInstanceBackupRuleActivities
+func (c *Computing) DescribeInstanceBackupRuleActivities(input *DescribeInstanceBackupRuleActivitiesInput) (*DescribeInstanceBackupRuleActivitiesOutput, error) {
+	req, out := c.DescribeInstanceBackupRuleActivitiesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceBackupRuleActivitiesWithContext is the same as DescribeInstanceBackupRuleActivities with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceBackupRuleActivities for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DescribeInstanceBackupRuleActivitiesWithContext(ctx nifcloud.Context, input *DescribeInstanceBackupRuleActivitiesInput, opts ...request.Option) (*DescribeInstanceBackupRuleActivitiesOutput, error) {
+	req, out := c.DescribeInstanceBackupRuleActivitiesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeInstanceBackupRules = "DescribeInstanceBackupRules"
+
+// DescribeInstanceBackupRulesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DescribeInstanceBackupRules operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeInstanceBackupRules for more information on using the DescribeInstanceBackupRules
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeInstanceBackupRulesRequest method.
+//    req, resp := client.DescribeInstanceBackupRulesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeInstanceBackupRules
+func (c *Computing) DescribeInstanceBackupRulesRequest(input *DescribeInstanceBackupRulesInput) (req *request.Request, output *DescribeInstanceBackupRulesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeInstanceBackupRules,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DescribeInstanceBackupRulesInput{}
+	}
+
+	output = &DescribeInstanceBackupRulesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeInstanceBackupRules API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DescribeInstanceBackupRules for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeInstanceBackupRules
+func (c *Computing) DescribeInstanceBackupRules(input *DescribeInstanceBackupRulesInput) (*DescribeInstanceBackupRulesOutput, error) {
+	req, out := c.DescribeInstanceBackupRulesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeInstanceBackupRulesWithContext is the same as DescribeInstanceBackupRules with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeInstanceBackupRules for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DescribeInstanceBackupRulesWithContext(ctx nifcloud.Context, input *DescribeInstanceBackupRulesInput, opts ...request.Option) (*DescribeInstanceBackupRulesOutput, error) {
+	req, out := c.DescribeInstanceBackupRulesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDescribeInstanceHealth = "DescribeInstanceHealth"
 
 // DescribeInstanceHealthRequest generates a "nifcloud/request.Request" representing the
@@ -3461,6 +4107,78 @@ func (c *Computing) DescribeLoadBalancers(input *DescribeLoadBalancersInput) (*D
 // for more information on using Contexts.
 func (c *Computing) DescribeLoadBalancersWithContext(ctx nifcloud.Context, input *DescribeLoadBalancersInput, opts ...request.Option) (*DescribeLoadBalancersOutput, error) {
 	req, out := c.DescribeLoadBalancersRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opDescribeNetworkInterfaces = "DescribeNetworkInterfaces"
+
+// DescribeNetworkInterfacesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DescribeNetworkInterfaces operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DescribeNetworkInterfaces for more information on using the DescribeNetworkInterfaces
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DescribeNetworkInterfacesRequest method.
+//    req, resp := client.DescribeNetworkInterfacesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeNetworkInterfaces
+func (c *Computing) DescribeNetworkInterfacesRequest(input *DescribeNetworkInterfacesInput) (req *request.Request, output *DescribeNetworkInterfacesOutput) {
+	op := &request.Operation{
+		Name:       opDescribeNetworkInterfaces,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DescribeNetworkInterfacesInput{}
+	}
+
+	output = &DescribeNetworkInterfacesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DescribeNetworkInterfaces API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DescribeNetworkInterfaces for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DescribeNetworkInterfaces
+func (c *Computing) DescribeNetworkInterfaces(input *DescribeNetworkInterfacesInput) (*DescribeNetworkInterfacesOutput, error) {
+	req, out := c.DescribeNetworkInterfacesRequest(input)
+	return out, req.Send()
+}
+
+// DescribeNetworkInterfacesWithContext is the same as DescribeNetworkInterfaces with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DescribeNetworkInterfaces for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DescribeNetworkInterfacesWithContext(ctx nifcloud.Context, input *DescribeNetworkInterfacesInput, opts ...request.Option) (*DescribeNetworkInterfacesOutput, error) {
+	req, out := c.DescribeNetworkInterfacesRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -4546,6 +5264,78 @@ func (c *Computing) DescribeVpnGatewaysWithContext(ctx nifcloud.Context, input *
 	return out, req.Send()
 }
 
+const opDetachNetworkInterface = "DetachNetworkInterface"
+
+// DetachNetworkInterfaceRequest generates a "nifcloud/request.Request" representing the
+// client's request for the DetachNetworkInterface operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See DetachNetworkInterface for more information on using the DetachNetworkInterface
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the DetachNetworkInterfaceRequest method.
+//    req, resp := client.DetachNetworkInterfaceRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DetachNetworkInterface
+func (c *Computing) DetachNetworkInterfaceRequest(input *DetachNetworkInterfaceInput) (req *request.Request, output *DetachNetworkInterfaceOutput) {
+	op := &request.Operation{
+		Name:       opDetachNetworkInterface,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &DetachNetworkInterfaceInput{}
+	}
+
+	output = &DetachNetworkInterfaceOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// DetachNetworkInterface API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation DetachNetworkInterface for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/DetachNetworkInterface
+func (c *Computing) DetachNetworkInterface(input *DetachNetworkInterfaceInput) (*DetachNetworkInterfaceOutput, error) {
+	req, out := c.DetachNetworkInterfaceRequest(input)
+	return out, req.Send()
+}
+
+// DetachNetworkInterfaceWithContext is the same as DetachNetworkInterface with the addition of
+// the ability to pass a context and additional request options.
+//
+// See DetachNetworkInterface for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) DetachNetworkInterfaceWithContext(ctx nifcloud.Context, input *DetachNetworkInterfaceInput, opts ...request.Option) (*DetachNetworkInterfaceOutput, error) {
+	req, out := c.DetachNetworkInterfaceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opDetachVolume = "DetachVolume"
 
 // DetachVolumeRequest generates a "nifcloud/request.Request" representing the
@@ -5194,6 +5984,150 @@ func (c *Computing) ModifyInstanceAttributeWithContext(ctx nifcloud.Context, inp
 	return out, req.Send()
 }
 
+const opModifyInstanceBackupRuleAttribute = "ModifyInstanceBackupRuleAttribute"
+
+// ModifyInstanceBackupRuleAttributeRequest generates a "nifcloud/request.Request" representing the
+// client's request for the ModifyInstanceBackupRuleAttribute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyInstanceBackupRuleAttribute for more information on using the ModifyInstanceBackupRuleAttribute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyInstanceBackupRuleAttributeRequest method.
+//    req, resp := client.ModifyInstanceBackupRuleAttributeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/ModifyInstanceBackupRuleAttribute
+func (c *Computing) ModifyInstanceBackupRuleAttributeRequest(input *ModifyInstanceBackupRuleAttributeInput) (req *request.Request, output *ModifyInstanceBackupRuleAttributeOutput) {
+	op := &request.Operation{
+		Name:       opModifyInstanceBackupRuleAttribute,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &ModifyInstanceBackupRuleAttributeInput{}
+	}
+
+	output = &ModifyInstanceBackupRuleAttributeOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyInstanceBackupRuleAttribute API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation ModifyInstanceBackupRuleAttribute for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/ModifyInstanceBackupRuleAttribute
+func (c *Computing) ModifyInstanceBackupRuleAttribute(input *ModifyInstanceBackupRuleAttributeInput) (*ModifyInstanceBackupRuleAttributeOutput, error) {
+	req, out := c.ModifyInstanceBackupRuleAttributeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyInstanceBackupRuleAttributeWithContext is the same as ModifyInstanceBackupRuleAttribute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyInstanceBackupRuleAttribute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) ModifyInstanceBackupRuleAttributeWithContext(ctx nifcloud.Context, input *ModifyInstanceBackupRuleAttributeInput, opts ...request.Option) (*ModifyInstanceBackupRuleAttributeOutput, error) {
+	req, out := c.ModifyInstanceBackupRuleAttributeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opModifyNetworkInterfaceAttribute = "ModifyNetworkInterfaceAttribute"
+
+// ModifyNetworkInterfaceAttributeRequest generates a "nifcloud/request.Request" representing the
+// client's request for the ModifyNetworkInterfaceAttribute operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See ModifyNetworkInterfaceAttribute for more information on using the ModifyNetworkInterfaceAttribute
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the ModifyNetworkInterfaceAttributeRequest method.
+//    req, resp := client.ModifyNetworkInterfaceAttributeRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/ModifyNetworkInterfaceAttribute
+func (c *Computing) ModifyNetworkInterfaceAttributeRequest(input *ModifyNetworkInterfaceAttributeInput) (req *request.Request, output *ModifyNetworkInterfaceAttributeOutput) {
+	op := &request.Operation{
+		Name:       opModifyNetworkInterfaceAttribute,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &ModifyNetworkInterfaceAttributeInput{}
+	}
+
+	output = &ModifyNetworkInterfaceAttributeOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// ModifyNetworkInterfaceAttribute API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation ModifyNetworkInterfaceAttribute for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/ModifyNetworkInterfaceAttribute
+func (c *Computing) ModifyNetworkInterfaceAttribute(input *ModifyNetworkInterfaceAttributeInput) (*ModifyNetworkInterfaceAttributeOutput, error) {
+	req, out := c.ModifyNetworkInterfaceAttributeRequest(input)
+	return out, req.Send()
+}
+
+// ModifyNetworkInterfaceAttributeWithContext is the same as ModifyNetworkInterfaceAttribute with the addition of
+// the ability to pass a context and additional request options.
+//
+// See ModifyNetworkInterfaceAttribute for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) ModifyNetworkInterfaceAttributeWithContext(ctx nifcloud.Context, input *ModifyNetworkInterfaceAttributeInput, opts ...request.Option) (*ModifyNetworkInterfaceAttributeOutput, error) {
+	req, out := c.ModifyNetworkInterfaceAttributeRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opModifySslCertificateAttribute = "ModifySslCertificateAttribute"
 
 // ModifySslCertificateAttributeRequest generates a "nifcloud/request.Request" representing the
@@ -5477,6 +6411,78 @@ func (c *Computing) NiftyAssociateNatTable(input *NiftyAssociateNatTableInput) (
 // for more information on using Contexts.
 func (c *Computing) NiftyAssociateNatTableWithContext(ctx nifcloud.Context, input *NiftyAssociateNatTableInput, opts ...request.Option) (*NiftyAssociateNatTableOutput, error) {
 	req, out := c.NiftyAssociateNatTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNiftyAssociateRouteTableWithElasticLoadBalancer = "NiftyAssociateRouteTableWithElasticLoadBalancer"
+
+// NiftyAssociateRouteTableWithElasticLoadBalancerRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyAssociateRouteTableWithElasticLoadBalancer operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyAssociateRouteTableWithElasticLoadBalancer for more information on using the NiftyAssociateRouteTableWithElasticLoadBalancer
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyAssociateRouteTableWithElasticLoadBalancerRequest method.
+//    req, resp := client.NiftyAssociateRouteTableWithElasticLoadBalancerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyAssociateRouteTableWithElasticLoadBalancer
+func (c *Computing) NiftyAssociateRouteTableWithElasticLoadBalancerRequest(input *NiftyAssociateRouteTableWithElasticLoadBalancerInput) (req *request.Request, output *NiftyAssociateRouteTableWithElasticLoadBalancerOutput) {
+	op := &request.Operation{
+		Name:       opNiftyAssociateRouteTableWithElasticLoadBalancer,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyAssociateRouteTableWithElasticLoadBalancerInput{}
+	}
+
+	output = &NiftyAssociateRouteTableWithElasticLoadBalancerOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyAssociateRouteTableWithElasticLoadBalancer API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyAssociateRouteTableWithElasticLoadBalancer for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyAssociateRouteTableWithElasticLoadBalancer
+func (c *Computing) NiftyAssociateRouteTableWithElasticLoadBalancer(input *NiftyAssociateRouteTableWithElasticLoadBalancerInput) (*NiftyAssociateRouteTableWithElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyAssociateRouteTableWithElasticLoadBalancerRequest(input)
+	return out, req.Send()
+}
+
+// NiftyAssociateRouteTableWithElasticLoadBalancerWithContext is the same as NiftyAssociateRouteTableWithElasticLoadBalancer with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyAssociateRouteTableWithElasticLoadBalancer for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyAssociateRouteTableWithElasticLoadBalancerWithContext(ctx nifcloud.Context, input *NiftyAssociateRouteTableWithElasticLoadBalancerInput, opts ...request.Option) (*NiftyAssociateRouteTableWithElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyAssociateRouteTableWithElasticLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -8578,6 +9584,78 @@ func (c *Computing) NiftyDescribeInstanceSnapshotsWithContext(ctx nifcloud.Conte
 	return out, req.Send()
 }
 
+const opNiftyDescribeLoadBalancerSSLPolicies = "NiftyDescribeLoadBalancerSSLPolicies"
+
+// NiftyDescribeLoadBalancerSSLPoliciesRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyDescribeLoadBalancerSSLPolicies operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyDescribeLoadBalancerSSLPolicies for more information on using the NiftyDescribeLoadBalancerSSLPolicies
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyDescribeLoadBalancerSSLPoliciesRequest method.
+//    req, resp := client.NiftyDescribeLoadBalancerSSLPoliciesRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyDescribeLoadBalancerSSLPolicies
+func (c *Computing) NiftyDescribeLoadBalancerSSLPoliciesRequest(input *NiftyDescribeLoadBalancerSSLPoliciesInput) (req *request.Request, output *NiftyDescribeLoadBalancerSSLPoliciesOutput) {
+	op := &request.Operation{
+		Name:       opNiftyDescribeLoadBalancerSSLPolicies,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyDescribeLoadBalancerSSLPoliciesInput{}
+	}
+
+	output = &NiftyDescribeLoadBalancerSSLPoliciesOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyDescribeLoadBalancerSSLPolicies API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyDescribeLoadBalancerSSLPolicies for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyDescribeLoadBalancerSSLPolicies
+func (c *Computing) NiftyDescribeLoadBalancerSSLPolicies(input *NiftyDescribeLoadBalancerSSLPoliciesInput) (*NiftyDescribeLoadBalancerSSLPoliciesOutput, error) {
+	req, out := c.NiftyDescribeLoadBalancerSSLPoliciesRequest(input)
+	return out, req.Send()
+}
+
+// NiftyDescribeLoadBalancerSSLPoliciesWithContext is the same as NiftyDescribeLoadBalancerSSLPolicies with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyDescribeLoadBalancerSSLPolicies for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyDescribeLoadBalancerSSLPoliciesWithContext(ctx nifcloud.Context, input *NiftyDescribeLoadBalancerSSLPoliciesInput, opts ...request.Option) (*NiftyDescribeLoadBalancerSSLPoliciesOutput, error) {
+	req, out := c.NiftyDescribeLoadBalancerSSLPoliciesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opNiftyDescribeNatTables = "NiftyDescribeNatTables"
 
 // NiftyDescribeNatTablesRequest generates a "nifcloud/request.Request" representing the
@@ -9293,6 +10371,78 @@ func (c *Computing) NiftyDisassociateNatTable(input *NiftyDisassociateNatTableIn
 // for more information on using Contexts.
 func (c *Computing) NiftyDisassociateNatTableWithContext(ctx nifcloud.Context, input *NiftyDisassociateNatTableInput, opts ...request.Option) (*NiftyDisassociateNatTableOutput, error) {
 	req, out := c.NiftyDisassociateNatTableRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNiftyDisassociateRouteTableFromElasticLoadBalancer = "NiftyDisassociateRouteTableFromElasticLoadBalancer"
+
+// NiftyDisassociateRouteTableFromElasticLoadBalancerRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyDisassociateRouteTableFromElasticLoadBalancer operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyDisassociateRouteTableFromElasticLoadBalancer for more information on using the NiftyDisassociateRouteTableFromElasticLoadBalancer
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyDisassociateRouteTableFromElasticLoadBalancerRequest method.
+//    req, resp := client.NiftyDisassociateRouteTableFromElasticLoadBalancerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyDisassociateRouteTableFromElasticLoadBalancer
+func (c *Computing) NiftyDisassociateRouteTableFromElasticLoadBalancerRequest(input *NiftyDisassociateRouteTableFromElasticLoadBalancerInput) (req *request.Request, output *NiftyDisassociateRouteTableFromElasticLoadBalancerOutput) {
+	op := &request.Operation{
+		Name:       opNiftyDisassociateRouteTableFromElasticLoadBalancer,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyDisassociateRouteTableFromElasticLoadBalancerInput{}
+	}
+
+	output = &NiftyDisassociateRouteTableFromElasticLoadBalancerOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyDisassociateRouteTableFromElasticLoadBalancer API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyDisassociateRouteTableFromElasticLoadBalancer for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyDisassociateRouteTableFromElasticLoadBalancer
+func (c *Computing) NiftyDisassociateRouteTableFromElasticLoadBalancer(input *NiftyDisassociateRouteTableFromElasticLoadBalancerInput) (*NiftyDisassociateRouteTableFromElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyDisassociateRouteTableFromElasticLoadBalancerRequest(input)
+	return out, req.Send()
+}
+
+// NiftyDisassociateRouteTableFromElasticLoadBalancerWithContext is the same as NiftyDisassociateRouteTableFromElasticLoadBalancer with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyDisassociateRouteTableFromElasticLoadBalancer for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyDisassociateRouteTableFromElasticLoadBalancerWithContext(ctx nifcloud.Context, input *NiftyDisassociateRouteTableFromElasticLoadBalancerInput, opts ...request.Option) (*NiftyDisassociateRouteTableFromElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyDisassociateRouteTableFromElasticLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -10954,6 +12104,78 @@ func (c *Computing) NiftyReplaceElasticLoadBalancerLatestVersionWithContext(ctx 
 	return out, req.Send()
 }
 
+const opNiftyReplaceElasticLoadBalancerListenerSSLCertificate = "NiftyReplaceElasticLoadBalancerListenerSSLCertificate"
+
+// NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyReplaceElasticLoadBalancerListenerSSLCertificate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyReplaceElasticLoadBalancerListenerSSLCertificate for more information on using the NiftyReplaceElasticLoadBalancerListenerSSLCertificate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest method.
+//    req, resp := client.NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyReplaceElasticLoadBalancerListenerSSLCertificate
+func (c *Computing) NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest(input *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) (req *request.Request, output *NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput) {
+	op := &request.Operation{
+		Name:       opNiftyReplaceElasticLoadBalancerListenerSSLCertificate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput{}
+	}
+
+	output = &NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyReplaceElasticLoadBalancerListenerSSLCertificate API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyReplaceElasticLoadBalancerListenerSSLCertificate for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyReplaceElasticLoadBalancerListenerSSLCertificate
+func (c *Computing) NiftyReplaceElasticLoadBalancerListenerSSLCertificate(input *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) (*NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest(input)
+	return out, req.Send()
+}
+
+// NiftyReplaceElasticLoadBalancerListenerSSLCertificateWithContext is the same as NiftyReplaceElasticLoadBalancerListenerSSLCertificate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyReplaceElasticLoadBalancerListenerSSLCertificate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyReplaceElasticLoadBalancerListenerSSLCertificateWithContext(ctx nifcloud.Context, input *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput, opts ...request.Option) (*NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opNiftyReplaceNatRule = "NiftyReplaceNatRule"
 
 // NiftyReplaceNatRuleRequest generates a "nifcloud/request.Request" representing the
@@ -11093,6 +12315,78 @@ func (c *Computing) NiftyReplaceNatTableAssociation(input *NiftyReplaceNatTableA
 // for more information on using Contexts.
 func (c *Computing) NiftyReplaceNatTableAssociationWithContext(ctx nifcloud.Context, input *NiftyReplaceNatTableAssociationInput, opts ...request.Option) (*NiftyReplaceNatTableAssociationOutput, error) {
 	req, out := c.NiftyReplaceNatTableAssociationRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNiftyReplaceRouteTableAssociationWithElasticLoadBalancer = "NiftyReplaceRouteTableAssociationWithElasticLoadBalancer"
+
+// NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyReplaceRouteTableAssociationWithElasticLoadBalancer operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyReplaceRouteTableAssociationWithElasticLoadBalancer for more information on using the NiftyReplaceRouteTableAssociationWithElasticLoadBalancer
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest method.
+//    req, resp := client.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyReplaceRouteTableAssociationWithElasticLoadBalancer
+func (c *Computing) NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest(input *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) (req *request.Request, output *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput) {
+	op := &request.Operation{
+		Name:       opNiftyReplaceRouteTableAssociationWithElasticLoadBalancer,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput{}
+	}
+
+	output = &NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyReplaceRouteTableAssociationWithElasticLoadBalancer API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyReplaceRouteTableAssociationWithElasticLoadBalancer for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyReplaceRouteTableAssociationWithElasticLoadBalancer
+func (c *Computing) NiftyReplaceRouteTableAssociationWithElasticLoadBalancer(input *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) (*NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest(input)
+	return out, req.Send()
+}
+
+// NiftyReplaceRouteTableAssociationWithElasticLoadBalancerWithContext is the same as NiftyReplaceRouteTableAssociationWithElasticLoadBalancer with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyReplaceRouteTableAssociationWithElasticLoadBalancer for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyReplaceRouteTableAssociationWithElasticLoadBalancerWithContext(ctx nifcloud.Context, input *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput, opts ...request.Option) (*NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput, error) {
+	req, out := c.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -11597,6 +12891,150 @@ func (c *Computing) NiftyRetryImportInstance(input *NiftyRetryImportInstanceInpu
 // for more information on using Contexts.
 func (c *Computing) NiftyRetryImportInstanceWithContext(ctx nifcloud.Context, input *NiftyRetryImportInstanceInput, opts ...request.Option) (*NiftyRetryImportInstanceOutput, error) {
 	req, out := c.NiftyRetryImportInstanceRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNiftySetLoadBalancerSSLPoliciesOfListener = "NiftySetLoadBalancerSSLPoliciesOfListener"
+
+// NiftySetLoadBalancerSSLPoliciesOfListenerRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftySetLoadBalancerSSLPoliciesOfListener operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftySetLoadBalancerSSLPoliciesOfListener for more information on using the NiftySetLoadBalancerSSLPoliciesOfListener
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftySetLoadBalancerSSLPoliciesOfListenerRequest method.
+//    req, resp := client.NiftySetLoadBalancerSSLPoliciesOfListenerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftySetLoadBalancerSSLPoliciesOfListener
+func (c *Computing) NiftySetLoadBalancerSSLPoliciesOfListenerRequest(input *NiftySetLoadBalancerSSLPoliciesOfListenerInput) (req *request.Request, output *NiftySetLoadBalancerSSLPoliciesOfListenerOutput) {
+	op := &request.Operation{
+		Name:       opNiftySetLoadBalancerSSLPoliciesOfListener,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftySetLoadBalancerSSLPoliciesOfListenerInput{}
+	}
+
+	output = &NiftySetLoadBalancerSSLPoliciesOfListenerOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftySetLoadBalancerSSLPoliciesOfListener API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftySetLoadBalancerSSLPoliciesOfListener for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftySetLoadBalancerSSLPoliciesOfListener
+func (c *Computing) NiftySetLoadBalancerSSLPoliciesOfListener(input *NiftySetLoadBalancerSSLPoliciesOfListenerInput) (*NiftySetLoadBalancerSSLPoliciesOfListenerOutput, error) {
+	req, out := c.NiftySetLoadBalancerSSLPoliciesOfListenerRequest(input)
+	return out, req.Send()
+}
+
+// NiftySetLoadBalancerSSLPoliciesOfListenerWithContext is the same as NiftySetLoadBalancerSSLPoliciesOfListener with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftySetLoadBalancerSSLPoliciesOfListener for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftySetLoadBalancerSSLPoliciesOfListenerWithContext(ctx nifcloud.Context, input *NiftySetLoadBalancerSSLPoliciesOfListenerInput, opts ...request.Option) (*NiftySetLoadBalancerSSLPoliciesOfListenerOutput, error) {
+	req, out := c.NiftySetLoadBalancerSSLPoliciesOfListenerRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opNiftyUnsetLoadBalancerSSLPoliciesOfListener = "NiftyUnsetLoadBalancerSSLPoliciesOfListener"
+
+// NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest generates a "nifcloud/request.Request" representing the
+// client's request for the NiftyUnsetLoadBalancerSSLPoliciesOfListener operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See NiftyUnsetLoadBalancerSSLPoliciesOfListener for more information on using the NiftyUnsetLoadBalancerSSLPoliciesOfListener
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest method.
+//    req, resp := client.NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyUnsetLoadBalancerSSLPoliciesOfListener
+func (c *Computing) NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest(input *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) (req *request.Request, output *NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput) {
+	op := &request.Operation{
+		Name:       opNiftyUnsetLoadBalancerSSLPoliciesOfListener,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput{}
+	}
+
+	output = &NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// NiftyUnsetLoadBalancerSSLPoliciesOfListener API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation NiftyUnsetLoadBalancerSSLPoliciesOfListener for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/NiftyUnsetLoadBalancerSSLPoliciesOfListener
+func (c *Computing) NiftyUnsetLoadBalancerSSLPoliciesOfListener(input *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) (*NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput, error) {
+	req, out := c.NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest(input)
+	return out, req.Send()
+}
+
+// NiftyUnsetLoadBalancerSSLPoliciesOfListenerWithContext is the same as NiftyUnsetLoadBalancerSSLPoliciesOfListener with the addition of
+// the ability to pass a context and additional request options.
+//
+// See NiftyUnsetLoadBalancerSSLPoliciesOfListener for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) NiftyUnsetLoadBalancerSSLPoliciesOfListenerWithContext(ctx nifcloud.Context, input *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput, opts ...request.Option) (*NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput, error) {
+	req, out := c.NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -12173,6 +13611,78 @@ func (c *Computing) RebootInstances(input *RebootInstancesInput) (*RebootInstanc
 // for more information on using Contexts.
 func (c *Computing) RebootInstancesWithContext(ctx nifcloud.Context, input *RebootInstancesInput, opts ...request.Option) (*RebootInstancesOutput, error) {
 	req, out := c.RebootInstancesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opRefreshInstanceBackupRule = "RefreshInstanceBackupRule"
+
+// RefreshInstanceBackupRuleRequest generates a "nifcloud/request.Request" representing the
+// client's request for the RefreshInstanceBackupRule operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See RefreshInstanceBackupRule for more information on using the RefreshInstanceBackupRule
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the RefreshInstanceBackupRuleRequest method.
+//    req, resp := client.RefreshInstanceBackupRuleRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/RefreshInstanceBackupRule
+func (c *Computing) RefreshInstanceBackupRuleRequest(input *RefreshInstanceBackupRuleInput) (req *request.Request, output *RefreshInstanceBackupRuleOutput) {
+	op := &request.Operation{
+		Name:       opRefreshInstanceBackupRule,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &RefreshInstanceBackupRuleInput{}
+	}
+
+	output = &RefreshInstanceBackupRuleOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// RefreshInstanceBackupRule API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation RefreshInstanceBackupRule for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/RefreshInstanceBackupRule
+func (c *Computing) RefreshInstanceBackupRule(input *RefreshInstanceBackupRuleInput) (*RefreshInstanceBackupRuleOutput, error) {
+	req, out := c.RefreshInstanceBackupRuleRequest(input)
+	return out, req.Send()
+}
+
+// RefreshInstanceBackupRuleWithContext is the same as RefreshInstanceBackupRule with the addition of
+// the ability to pass a context and additional request options.
+//
+// See RefreshInstanceBackupRule for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) RefreshInstanceBackupRuleWithContext(ctx nifcloud.Context, input *RefreshInstanceBackupRuleInput, opts ...request.Option) (*RefreshInstanceBackupRuleOutput, error) {
+	req, out := c.RefreshInstanceBackupRuleRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -12898,6 +14408,78 @@ func (c *Computing) SetFilterForLoadBalancerWithContext(ctx nifcloud.Context, in
 	return out, req.Send()
 }
 
+const opSetLoadBalancerListenerSSLCertificate = "SetLoadBalancerListenerSSLCertificate"
+
+// SetLoadBalancerListenerSSLCertificateRequest generates a "nifcloud/request.Request" representing the
+// client's request for the SetLoadBalancerListenerSSLCertificate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See SetLoadBalancerListenerSSLCertificate for more information on using the SetLoadBalancerListenerSSLCertificate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the SetLoadBalancerListenerSSLCertificateRequest method.
+//    req, resp := client.SetLoadBalancerListenerSSLCertificateRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/SetLoadBalancerListenerSSLCertificate
+func (c *Computing) SetLoadBalancerListenerSSLCertificateRequest(input *SetLoadBalancerListenerSSLCertificateInput) (req *request.Request, output *SetLoadBalancerListenerSSLCertificateOutput) {
+	op := &request.Operation{
+		Name:       opSetLoadBalancerListenerSSLCertificate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &SetLoadBalancerListenerSSLCertificateInput{}
+	}
+
+	output = &SetLoadBalancerListenerSSLCertificateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// SetLoadBalancerListenerSSLCertificate API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation SetLoadBalancerListenerSSLCertificate for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/SetLoadBalancerListenerSSLCertificate
+func (c *Computing) SetLoadBalancerListenerSSLCertificate(input *SetLoadBalancerListenerSSLCertificateInput) (*SetLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.SetLoadBalancerListenerSSLCertificateRequest(input)
+	return out, req.Send()
+}
+
+// SetLoadBalancerListenerSSLCertificateWithContext is the same as SetLoadBalancerListenerSSLCertificate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See SetLoadBalancerListenerSSLCertificate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) SetLoadBalancerListenerSSLCertificateWithContext(ctx nifcloud.Context, input *SetLoadBalancerListenerSSLCertificateInput, opts ...request.Option) (*SetLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.SetLoadBalancerListenerSSLCertificateRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
 const opStartInstances = "StartInstances"
 
 // StartInstancesRequest generates a "nifcloud/request.Request" representing the
@@ -13109,6 +14691,78 @@ func (c *Computing) TerminateInstances(input *TerminateInstancesInput) (*Termina
 // for more information on using Contexts.
 func (c *Computing) TerminateInstancesWithContext(ctx nifcloud.Context, input *TerminateInstancesInput, opts ...request.Option) (*TerminateInstancesOutput, error) {
 	req, out := c.TerminateInstancesRequest(input)
+	req.SetContext(ctx)
+	req.ApplyOptions(opts...)
+	return out, req.Send()
+}
+
+const opUnsetLoadBalancerListenerSSLCertificate = "UnsetLoadBalancerListenerSSLCertificate"
+
+// UnsetLoadBalancerListenerSSLCertificateRequest generates a "nifcloud/request.Request" representing the
+// client's request for the UnsetLoadBalancerListenerSSLCertificate operation. The "output" return
+// value will be populated with the request's response once the request completes
+// successfuly.
+//
+// Use "Send" method on the returned Request to send the API call to the service.
+// the "output" return value is not valid until after Send returns without error.
+//
+// See UnsetLoadBalancerListenerSSLCertificate for more information on using the UnsetLoadBalancerListenerSSLCertificate
+// API call, and error handling.
+//
+// This method is useful when you want to inject custom logic or configuration
+// into the SDK's request lifecycle. Such as custom headers, or retry logic.
+//
+//
+//    // Example sending a request using the UnsetLoadBalancerListenerSSLCertificateRequest method.
+//    req, resp := client.UnsetLoadBalancerListenerSSLCertificateRequest(params)
+//
+//    err := req.Send()
+//    if err == nil { // resp is now filled
+//        fmt.Println(resp)
+//    }
+//
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/UnsetLoadBalancerListenerSSLCertificate
+func (c *Computing) UnsetLoadBalancerListenerSSLCertificateRequest(input *UnsetLoadBalancerListenerSSLCertificateInput) (req *request.Request, output *UnsetLoadBalancerListenerSSLCertificateOutput) {
+	op := &request.Operation{
+		Name:       opUnsetLoadBalancerListenerSSLCertificate,
+		HTTPMethod: "POST",
+		HTTPPath:   "/api/",
+	}
+
+	if input == nil {
+		input = &UnsetLoadBalancerListenerSSLCertificateInput{}
+	}
+
+	output = &UnsetLoadBalancerListenerSSLCertificateOutput{}
+	req = c.newRequest(op, input, output)
+	return
+}
+
+// UnsetLoadBalancerListenerSSLCertificate API operation for NIFCLOUD Computing.
+//
+// Returns awserr.Error for service API and SDK errors. Use runtime type assertions
+// with awserr.Error's Code and Message methods to get detailed information about
+// the error.
+//
+// See the AWS API reference guide for NIFCLOUD Computing's
+// API operation UnsetLoadBalancerListenerSSLCertificate for usage and error information.
+// See also, https://docs.aws.amazon.com/goto/WebAPI/computing-2.2/UnsetLoadBalancerListenerSSLCertificate
+func (c *Computing) UnsetLoadBalancerListenerSSLCertificate(input *UnsetLoadBalancerListenerSSLCertificateInput) (*UnsetLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.UnsetLoadBalancerListenerSSLCertificateRequest(input)
+	return out, req.Send()
+}
+
+// UnsetLoadBalancerListenerSSLCertificateWithContext is the same as UnsetLoadBalancerListenerSSLCertificate with the addition of
+// the ability to pass a context and additional request options.
+//
+// See UnsetLoadBalancerListenerSSLCertificate for details on how to use this API operation.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *Computing) UnsetLoadBalancerListenerSSLCertificateWithContext(ctx nifcloud.Context, input *UnsetLoadBalancerListenerSSLCertificateInput, opts ...request.Option) (*UnsetLoadBalancerListenerSSLCertificateOutput, error) {
+	req, out := c.UnsetLoadBalancerListenerSSLCertificateRequest(input)
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
@@ -13496,6 +15150,76 @@ func (s *AccountingType) SetValue(v string) *AccountingType {
 	return s
 }
 
+type ActivitiesSetItem struct {
+	_ struct{} `type:"structure"`
+
+	BackupInstanceUniqueId *string `locationName:"backupInstanceUniqueId" type:"string"`
+
+	Detail *string `locationName:"detail" type:"string"`
+
+	EndDateTime *string `locationName:"endDateTime" type:"string"`
+
+	InstanceUniqueId *string `locationName:"instanceUniqueId" type:"string"`
+
+	Operation *string `locationName:"operation" type:"string"`
+
+	StartDateTime *string `locationName:"startDateTime" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+}
+
+// String returns the string representation
+func (s ActivitiesSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ActivitiesSetItem) GoString() string {
+	return s.String()
+}
+
+// SetBackupInstanceUniqueId sets the BackupInstanceUniqueId field's value.
+func (s *ActivitiesSetItem) SetBackupInstanceUniqueId(v string) *ActivitiesSetItem {
+	s.BackupInstanceUniqueId = &v
+	return s
+}
+
+// SetDetail sets the Detail field's value.
+func (s *ActivitiesSetItem) SetDetail(v string) *ActivitiesSetItem {
+	s.Detail = &v
+	return s
+}
+
+// SetEndDateTime sets the EndDateTime field's value.
+func (s *ActivitiesSetItem) SetEndDateTime(v string) *ActivitiesSetItem {
+	s.EndDateTime = &v
+	return s
+}
+
+// SetInstanceUniqueId sets the InstanceUniqueId field's value.
+func (s *ActivitiesSetItem) SetInstanceUniqueId(v string) *ActivitiesSetItem {
+	s.InstanceUniqueId = &v
+	return s
+}
+
+// SetOperation sets the Operation field's value.
+func (s *ActivitiesSetItem) SetOperation(v string) *ActivitiesSetItem {
+	s.Operation = &v
+	return s
+}
+
+// SetStartDateTime sets the StartDateTime field's value.
+func (s *ActivitiesSetItem) SetStartDateTime(v string) *ActivitiesSetItem {
+	s.StartDateTime = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *ActivitiesSetItem) SetStatus(v string) *ActivitiesSetItem {
+	s.Status = &v
+	return s
+}
+
 type AddressesSetItem struct {
 	_ struct{} `type:"structure"`
 
@@ -13633,7 +15357,7 @@ type AlarmEventHistorySetItem struct {
 
 	AlarmEvent *string `locationName:"alarmEvent" type:"string"`
 
-	AlarmEventDatetime *time.Time `locationName:"alarmEventDatetime" type:"timestamp" timestampFormat:""`
+	AlarmEventDatetime *string `locationName:"alarmEventDatetime" type:"string"`
 }
 
 // String returns the string representation
@@ -13653,7 +15377,7 @@ func (s *AlarmEventHistorySetItem) SetAlarmEvent(v string) *AlarmEventHistorySet
 }
 
 // SetAlarmEventDatetime sets the AlarmEventDatetime field's value.
-func (s *AlarmEventHistorySetItem) SetAlarmEventDatetime(v time.Time) *AlarmEventHistorySetItem {
+func (s *AlarmEventHistorySetItem) SetAlarmEventDatetime(v string) *AlarmEventHistorySetItem {
 	s.AlarmEventDatetime = &v
 	return s
 }
@@ -13693,7 +15417,7 @@ type AlarmRulesActivitiesEventSetItem struct {
 
 	AlarmRulesActivitiesEvent *string `locationName:"alarmRulesActivitiesEvent" type:"string"`
 
-	AlarmRulesActivitiesEventDatetime *time.Time `locationName:"alarmRulesActivitiesEventDatetime" type:"timestamp" timestampFormat:""`
+	AlarmRulesActivitiesEventDatetime *string `locationName:"alarmRulesActivitiesEventDatetime" type:"string"`
 
 	ResourceName *string `locationName:"resourceName" type:"string"`
 
@@ -13717,7 +15441,7 @@ func (s *AlarmRulesActivitiesEventSetItem) SetAlarmRulesActivitiesEvent(v string
 }
 
 // SetAlarmRulesActivitiesEventDatetime sets the AlarmRulesActivitiesEventDatetime field's value.
-func (s *AlarmRulesActivitiesEventSetItem) SetAlarmRulesActivitiesEventDatetime(v time.Time) *AlarmRulesActivitiesEventSetItem {
+func (s *AlarmRulesActivitiesEventSetItem) SetAlarmRulesActivitiesEventDatetime(v string) *AlarmRulesActivitiesEventSetItem {
 	s.AlarmRulesActivitiesEventDatetime = &v
 	return s
 }
@@ -14207,6 +15931,10 @@ func (s *AssociateUsersOutput) SetUsers(v []*UsersMemberItem) *AssociateUsersOut
 type Association struct {
 	_ struct{} `type:"structure"`
 
+	AllocationId *string `locationName:"allocationId" type:"string"`
+
+	AssociationId *string `locationName:"associationId" type:"string"`
+
 	IpOwnerId *string `locationName:"ipOwnerId" type:"string"`
 
 	PublicDnsName *string `locationName:"publicDnsName" type:"string"`
@@ -14224,6 +15952,18 @@ func (s Association) String() string {
 // GoString returns the string representation
 func (s Association) GoString() string {
 	return s.String()
+}
+
+// SetAllocationId sets the AllocationId field's value.
+func (s *Association) SetAllocationId(v string) *Association {
+	s.AllocationId = &v
+	return s
+}
+
+// SetAssociationId sets the AssociationId field's value.
+func (s *Association) SetAssociationId(v string) *Association {
+	s.AssociationId = &v
+	return s
 }
 
 // SetIpOwnerId sets the IpOwnerId field's value.
@@ -14328,6 +16068,90 @@ func (s *AssociationSetItem) SetSubnetId(v string) *AssociationSetItem {
 	return s
 }
 
+type AttachNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceId *string `locationName:"InstanceId" type:"string"`
+
+	InstanceUniqueId *string `locationName:"InstanceUniqueId" type:"string"`
+
+	NetworkInterfaceId *string `locationName:"NetworkInterfaceId" type:"string"`
+
+	NiftyReboot *string `locationName:"NiftyReboot" type:"string"`
+}
+
+// String returns the string representation
+func (s AttachNetworkInterfaceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *AttachNetworkInterfaceInput) SetInstanceId(v string) *AttachNetworkInterfaceInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceUniqueId sets the InstanceUniqueId field's value.
+func (s *AttachNetworkInterfaceInput) SetInstanceUniqueId(v string) *AttachNetworkInterfaceInput {
+	s.InstanceUniqueId = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *AttachNetworkInterfaceInput) SetNetworkInterfaceId(v string) *AttachNetworkInterfaceInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNiftyReboot sets the NiftyReboot field's value.
+func (s *AttachNetworkInterfaceInput) SetNiftyReboot(v string) *AttachNetworkInterfaceInput {
+	s.NiftyReboot = &v
+	return s
+}
+
+type AttachNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	AttachmentId *string `locationName:"attachmentId" type:"string"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s AttachNetworkInterfaceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s AttachNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetAttachmentId sets the AttachmentId field's value.
+func (s *AttachNetworkInterfaceOutput) SetAttachmentId(v string) *AttachNetworkInterfaceOutput {
+	s.AttachmentId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *AttachNetworkInterfaceOutput) SetRequestId(v string) *AttachNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *AttachNetworkInterfaceOutput) SetReturn(v bool) *AttachNetworkInterfaceOutput {
+	s.Return = &v
+	return s
+}
+
 type AttachVolumeInput struct {
 	_ struct{} `type:"structure"`
 
@@ -14361,7 +16185,7 @@ func (s *AttachVolumeInput) SetVolumeId(v string) *AttachVolumeInput {
 type AttachVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:""`
+	AttachTime *string `locationName:"attachTime" type:"string"`
 
 	Device *string `locationName:"device" type:"string"`
 
@@ -14387,7 +16211,7 @@ func (s AttachVolumeOutput) GoString() string {
 }
 
 // SetAttachTime sets the AttachTime field's value.
-func (s *AttachVolumeOutput) SetAttachTime(v time.Time) *AttachVolumeOutput {
+func (s *AttachVolumeOutput) SetAttachTime(v string) *AttachVolumeOutput {
 	s.AttachTime = &v
 	return s
 }
@@ -14431,13 +16255,19 @@ func (s *AttachVolumeOutput) SetVolumeId(v string) *AttachVolumeOutput {
 type Attachment struct {
 	_ struct{} `type:"structure"`
 
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:""`
+	AttachTime *string `locationName:"attachTime" type:"string"`
 
 	AttachmentID *string `locationName:"attachmentID" type:"string"`
+
+	AttachmentId *string `locationName:"attachmentId" type:"string"`
 
 	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
 
 	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+
+	InstanceId *string `locationName:"instanceId" type:"string"`
+
+	InstanceOwnerId *string `locationName:"instanceOwnerId" type:"string"`
 
 	Status *string `locationName:"status" type:"string"`
 }
@@ -14453,7 +16283,7 @@ func (s Attachment) GoString() string {
 }
 
 // SetAttachTime sets the AttachTime field's value.
-func (s *Attachment) SetAttachTime(v time.Time) *Attachment {
+func (s *Attachment) SetAttachTime(v string) *Attachment {
 	s.AttachTime = &v
 	return s
 }
@@ -14461,6 +16291,12 @@ func (s *Attachment) SetAttachTime(v time.Time) *Attachment {
 // SetAttachmentID sets the AttachmentID field's value.
 func (s *Attachment) SetAttachmentID(v string) *Attachment {
 	s.AttachmentID = &v
+	return s
+}
+
+// SetAttachmentId sets the AttachmentId field's value.
+func (s *Attachment) SetAttachmentId(v string) *Attachment {
+	s.AttachmentId = &v
 	return s
 }
 
@@ -14476,6 +16312,18 @@ func (s *Attachment) SetDeviceIndex(v int64) *Attachment {
 	return s
 }
 
+// SetInstanceId sets the InstanceId field's value.
+func (s *Attachment) SetInstanceId(v string) *Attachment {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceOwnerId sets the InstanceOwnerId field's value.
+func (s *Attachment) SetInstanceOwnerId(v string) *Attachment {
+	s.InstanceOwnerId = &v
+	return s
+}
+
 // SetStatus sets the Status field's value.
 func (s *Attachment) SetStatus(v string) *Attachment {
 	s.Status = &v
@@ -14485,7 +16333,7 @@ func (s *Attachment) SetStatus(v string) *Attachment {
 type AttachmentSetItem struct {
 	_ struct{} `type:"structure"`
 
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:""`
+	AttachTime *string `locationName:"attachTime" type:"string"`
 
 	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
 
@@ -14511,7 +16359,7 @@ func (s AttachmentSetItem) GoString() string {
 }
 
 // SetAttachTime sets the AttachTime field's value.
-func (s *AttachmentSetItem) SetAttachTime(v time.Time) *AttachmentSetItem {
+func (s *AttachmentSetItem) SetAttachTime(v string) *AttachmentSetItem {
 	s.AttachTime = &v
 	return s
 }
@@ -14751,7 +16599,7 @@ type AutoScalingReservationSetItem struct {
 
 	ChangeInCapacity *int64 `locationName:"changeInCapacity" type:"integer"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	DefaultCooldown *int64 `locationName:"defaultCooldown" type:"integer"`
 
@@ -14813,7 +16661,7 @@ func (s *AutoScalingReservationSetItem) SetChangeInCapacity(v int64) *AutoScalin
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *AutoScalingReservationSetItem) SetCreatedTime(v time.Time) *AutoScalingReservationSetItem {
+func (s *AutoScalingReservationSetItem) SetCreatedTime(v string) *AutoScalingReservationSetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -14913,7 +16761,7 @@ type Autoscaling struct {
 
 	AutoScalingGroupName *string `locationName:"autoScalingGroupName" type:"string"`
 
-	ExpireTime *time.Time `locationName:"expireTime" type:"timestamp" timestampFormat:""`
+	ExpireTime *string `locationName:"expireTime" type:"string"`
 }
 
 // String returns the string representation
@@ -14933,7 +16781,7 @@ func (s *Autoscaling) SetAutoScalingGroupName(v string) *Autoscaling {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *Autoscaling) SetExpireTime(v time.Time) *Autoscaling {
+func (s *Autoscaling) SetExpireTime(v string) *Autoscaling {
 	s.ExpireTime = &v
 	return s
 }
@@ -14987,7 +16835,7 @@ func (s *AvailabilityZoneInfoSetItem) SetZoneState(v string) *AvailabilityZoneIn
 type BackupInformation struct {
 	_ struct{} `type:"structure"`
 
-	ExpirationDate *time.Time `locationName:"expirationDate" type:"timestamp" timestampFormat:""`
+	ExpirationDate *string `locationName:"expirationDate" type:"string"`
 
 	IsBackup *bool `locationName:"isBackup" type:"boolean"`
 }
@@ -15003,7 +16851,7 @@ func (s BackupInformation) GoString() string {
 }
 
 // SetExpirationDate sets the ExpirationDate field's value.
-func (s *BackupInformation) SetExpirationDate(v time.Time) *BackupInformation {
+func (s *BackupInformation) SetExpirationDate(v string) *BackupInformation {
 	s.ExpirationDate = &v
 	return s
 }
@@ -15011,6 +16859,44 @@ func (s *BackupInformation) SetExpirationDate(v time.Time) *BackupInformation {
 // SetIsBackup sets the IsBackup field's value.
 func (s *BackupInformation) SetIsBackup(v bool) *BackupInformation {
 	s.IsBackup = &v
+	return s
+}
+
+type BackupInstancesSetItem struct {
+	_ struct{} `type:"structure"`
+
+	BackupInstanceCreateTime *string `locationName:"backupInstanceCreateTime" type:"string"`
+
+	BackupInstanceUniqueId *string `locationName:"backupInstanceUniqueId" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+}
+
+// String returns the string representation
+func (s BackupInstancesSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s BackupInstancesSetItem) GoString() string {
+	return s.String()
+}
+
+// SetBackupInstanceCreateTime sets the BackupInstanceCreateTime field's value.
+func (s *BackupInstancesSetItem) SetBackupInstanceCreateTime(v string) *BackupInstancesSetItem {
+	s.BackupInstanceCreateTime = &v
+	return s
+}
+
+// SetBackupInstanceUniqueId sets the BackupInstanceUniqueId field's value.
+func (s *BackupInstancesSetItem) SetBackupInstanceUniqueId(v string) *BackupInstancesSetItem {
+	s.BackupInstanceUniqueId = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *BackupInstancesSetItem) SetStatus(v string) *BackupInstancesSetItem {
+	s.Status = &v
 	return s
 }
 
@@ -15698,6 +17584,146 @@ func (s *ConversionTask) SetTagSet(v []*TagSetItem) *ConversionTask {
 	return s
 }
 
+type CopyFromBackupInstanceInput struct {
+	_ struct{} `type:"structure"`
+
+	AccountingType *string `locationName:"AccountingType" type:"string"`
+
+	BackupInstanceUniqueId *string `locationName:"BackupInstanceUniqueId" type:"string"`
+
+	Description *string `locationName:"Description" type:"string"`
+
+	DisableApiTermination *bool `locationName:"DisableApiTermination" type:"boolean"`
+
+	InstanceId *string `locationName:"InstanceId" type:"string"`
+
+	InstanceType *string `locationName:"InstanceType" type:"string"`
+
+	NetworkInterface []*RequestNetworkInterfaceStruct `locationName:"NetworkInterface" type:"list"`
+
+	SecurityGroup []*string `locationName:"SecurityGroup" type:"list"`
+}
+
+// String returns the string representation
+func (s CopyFromBackupInstanceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CopyFromBackupInstanceInput) GoString() string {
+	return s.String()
+}
+
+// SetAccountingType sets the AccountingType field's value.
+func (s *CopyFromBackupInstanceInput) SetAccountingType(v string) *CopyFromBackupInstanceInput {
+	s.AccountingType = &v
+	return s
+}
+
+// SetBackupInstanceUniqueId sets the BackupInstanceUniqueId field's value.
+func (s *CopyFromBackupInstanceInput) SetBackupInstanceUniqueId(v string) *CopyFromBackupInstanceInput {
+	s.BackupInstanceUniqueId = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CopyFromBackupInstanceInput) SetDescription(v string) *CopyFromBackupInstanceInput {
+	s.Description = &v
+	return s
+}
+
+// SetDisableApiTermination sets the DisableApiTermination field's value.
+func (s *CopyFromBackupInstanceInput) SetDisableApiTermination(v bool) *CopyFromBackupInstanceInput {
+	s.DisableApiTermination = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *CopyFromBackupInstanceInput) SetInstanceId(v string) *CopyFromBackupInstanceInput {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *CopyFromBackupInstanceInput) SetInstanceType(v string) *CopyFromBackupInstanceInput {
+	s.InstanceType = &v
+	return s
+}
+
+// SetNetworkInterface sets the NetworkInterface field's value.
+func (s *CopyFromBackupInstanceInput) SetNetworkInterface(v []*RequestNetworkInterfaceStruct) *CopyFromBackupInstanceInput {
+	s.NetworkInterface = v
+	return s
+}
+
+// SetSecurityGroup sets the SecurityGroup field's value.
+func (s *CopyFromBackupInstanceInput) SetSecurityGroup(v []*string) *CopyFromBackupInstanceInput {
+	s.SecurityGroup = v
+	return s
+}
+
+type CopyFromBackupInstanceOutput struct {
+	_ struct{} `type:"structure"`
+
+	GroupSet []*GroupSetItem `locationName:"groupSet" locationNameList:"item" type:"list"`
+
+	Instance *Instance `locationName:"instance" type:"structure"`
+
+	OwnerId *string `locationName:"ownerId" type:"string"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	ReservationId *string `locationName:"reservationId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s CopyFromBackupInstanceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CopyFromBackupInstanceOutput) GoString() string {
+	return s.String()
+}
+
+// SetGroupSet sets the GroupSet field's value.
+func (s *CopyFromBackupInstanceOutput) SetGroupSet(v []*GroupSetItem) *CopyFromBackupInstanceOutput {
+	s.GroupSet = v
+	return s
+}
+
+// SetInstance sets the Instance field's value.
+func (s *CopyFromBackupInstanceOutput) SetInstance(v *Instance) *CopyFromBackupInstanceOutput {
+	s.Instance = v
+	return s
+}
+
+// SetOwnerId sets the OwnerId field's value.
+func (s *CopyFromBackupInstanceOutput) SetOwnerId(v string) *CopyFromBackupInstanceOutput {
+	s.OwnerId = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CopyFromBackupInstanceOutput) SetRequestId(v string) *CopyFromBackupInstanceOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReservationId sets the ReservationId field's value.
+func (s *CopyFromBackupInstanceOutput) SetReservationId(v string) *CopyFromBackupInstanceOutput {
+	s.ReservationId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *CopyFromBackupInstanceOutput) SetReturn(v bool) *CopyFromBackupInstanceOutput {
+	s.Return = &v
+	return s
+}
+
 type CopyInfo struct {
 	_ struct{} `type:"structure"`
 
@@ -15861,6 +17887,66 @@ func (s Count) GoString() string {
 // SetValue sets the Value field's value.
 func (s *Count) SetValue(v string) *Count {
 	s.Value = &v
+	return s
+}
+
+type CreateBackupInstancesInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRuleId *string `locationName:"InstanceBackupRuleId" type:"string"`
+}
+
+// String returns the string representation
+func (s CreateBackupInstancesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateBackupInstancesInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *CreateBackupInstancesInput) SetInstanceBackupRuleId(v string) *CreateBackupInstancesInput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+type CreateBackupInstancesOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRule *InstanceBackupRule `locationName:"instanceBackupRule" type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s CreateBackupInstancesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateBackupInstancesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRule sets the InstanceBackupRule field's value.
+func (s *CreateBackupInstancesOutput) SetInstanceBackupRule(v *InstanceBackupRule) *CreateBackupInstancesOutput {
+	s.InstanceBackupRule = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateBackupInstancesOutput) SetRequestId(v string) *CreateBackupInstancesOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *CreateBackupInstancesOutput) SetReturn(v bool) *CreateBackupInstancesOutput {
+	s.Return = &v
 	return s
 }
 
@@ -16138,6 +18224,98 @@ func (s *CreateImageOutput) SetRequestId(v string) *CreateImageOutput {
 	return s
 }
 
+type CreateInstanceBackupRuleInput struct {
+	_ struct{} `type:"structure"`
+
+	BackupInstanceMaxCount *int64 `locationName:"BackupInstanceMaxCount" type:"integer"`
+
+	Description *string `locationName:"Description" type:"string"`
+
+	InstanceBackupRuleName *string `locationName:"InstanceBackupRuleName" type:"string"`
+
+	InstanceUniqueId []*string `locationName:"InstanceUniqueId" type:"list"`
+
+	TimeSlotId *string `locationName:"TimeSlotId" type:"string"`
+}
+
+// String returns the string representation
+func (s CreateInstanceBackupRuleInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateInstanceBackupRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetBackupInstanceMaxCount sets the BackupInstanceMaxCount field's value.
+func (s *CreateInstanceBackupRuleInput) SetBackupInstanceMaxCount(v int64) *CreateInstanceBackupRuleInput {
+	s.BackupInstanceMaxCount = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateInstanceBackupRuleInput) SetDescription(v string) *CreateInstanceBackupRuleInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceBackupRuleName sets the InstanceBackupRuleName field's value.
+func (s *CreateInstanceBackupRuleInput) SetInstanceBackupRuleName(v string) *CreateInstanceBackupRuleInput {
+	s.InstanceBackupRuleName = &v
+	return s
+}
+
+// SetInstanceUniqueId sets the InstanceUniqueId field's value.
+func (s *CreateInstanceBackupRuleInput) SetInstanceUniqueId(v []*string) *CreateInstanceBackupRuleInput {
+	s.InstanceUniqueId = v
+	return s
+}
+
+// SetTimeSlotId sets the TimeSlotId field's value.
+func (s *CreateInstanceBackupRuleInput) SetTimeSlotId(v string) *CreateInstanceBackupRuleInput {
+	s.TimeSlotId = &v
+	return s
+}
+
+type CreateInstanceBackupRuleOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRule *InstanceBackupRule `locationName:"instanceBackupRule" type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s CreateInstanceBackupRuleOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateInstanceBackupRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRule sets the InstanceBackupRule field's value.
+func (s *CreateInstanceBackupRuleOutput) SetInstanceBackupRule(v *InstanceBackupRule) *CreateInstanceBackupRuleOutput {
+	s.InstanceBackupRule = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateInstanceBackupRuleOutput) SetRequestId(v string) *CreateInstanceBackupRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *CreateInstanceBackupRuleOutput) SetReturn(v bool) *CreateInstanceBackupRuleOutput {
+	s.Return = &v
+	return s
+}
+
 type CreateKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
@@ -16236,6 +18414,8 @@ type CreateLoadBalancerInput struct {
 	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
 
 	NetworkVolume *int64 `locationName:"NetworkVolume" type:"integer"`
+
+	PolicyType *string `locationName:"PolicyType" type:"string"`
 }
 
 // String returns the string representation
@@ -16284,6 +18464,12 @@ func (s *CreateLoadBalancerInput) SetNetworkVolume(v int64) *CreateLoadBalancerI
 	return s
 }
 
+// SetPolicyType sets the PolicyType field's value.
+func (s *CreateLoadBalancerInput) SetPolicyType(v string) *CreateLoadBalancerInput {
+	s.PolicyType = &v
+	return s
+}
+
 type CreateLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
@@ -16319,6 +18505,90 @@ func (s *CreateLoadBalancerOutput) SetDNSName(v string) *CreateLoadBalancerOutpu
 // SetResponseMetadata sets the ResponseMetadata field's value.
 func (s *CreateLoadBalancerOutput) SetResponseMetadata(v *ResponseMetadata) *CreateLoadBalancerOutput {
 	s.ResponseMetadata = v
+	return s
+}
+
+type CreateNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `locationName:"Description" type:"string"`
+
+	IpAddress *string `locationName:"IpAddress" type:"string"`
+
+	NiftyNetworkId *string `locationName:"NiftyNetworkId" type:"string"`
+
+	Placement *RequestPlacementStruct `locationName:"Placement" type:"structure"`
+}
+
+// String returns the string representation
+func (s CreateNetworkInterfaceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *CreateNetworkInterfaceInput) SetDescription(v string) *CreateNetworkInterfaceInput {
+	s.Description = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *CreateNetworkInterfaceInput) SetIpAddress(v string) *CreateNetworkInterfaceInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetNiftyNetworkId sets the NiftyNetworkId field's value.
+func (s *CreateNetworkInterfaceInput) SetNiftyNetworkId(v string) *CreateNetworkInterfaceInput {
+	s.NiftyNetworkId = &v
+	return s
+}
+
+// SetPlacement sets the Placement field's value.
+func (s *CreateNetworkInterfaceInput) SetPlacement(v *RequestPlacementStruct) *CreateNetworkInterfaceInput {
+	s.Placement = v
+	return s
+}
+
+type CreateNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterface *NetworkInterface `locationName:"networkInterface" type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s CreateNetworkInterfaceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s CreateNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterface sets the NetworkInterface field's value.
+func (s *CreateNetworkInterfaceOutput) SetNetworkInterface(v *NetworkInterface) *CreateNetworkInterfaceOutput {
+	s.NetworkInterface = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *CreateNetworkInterfaceOutput) SetRequestId(v string) *CreateNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *CreateNetworkInterfaceOutput) SetReturn(v bool) *CreateNetworkInterfaceOutput {
+	s.Return = &v
 	return s
 }
 
@@ -16781,7 +19051,7 @@ type CreateVolumeOutput struct {
 
 	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
 
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:""`
+	CreateTime *string `locationName:"createTime" type:"string"`
 
 	DiskType *string `locationName:"diskType" type:"string"`
 
@@ -16819,7 +19089,7 @@ func (s *CreateVolumeOutput) SetAvailabilityZone(v string) *CreateVolumeOutput {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *CreateVolumeOutput) SetCreateTime(v time.Time) *CreateVolumeOutput {
+func (s *CreateVolumeOutput) SetCreateTime(v string) *CreateVolumeOutput {
 	s.CreateTime = &v
 	return s
 }
@@ -16869,8 +19139,6 @@ type CreateVpnConnectionInput struct {
 
 	NiftyCustomerGatewayName *string `locationName:"NiftyCustomerGatewayName" type:"string"`
 
-	NiftyIPsecConfiguration *RequestNiftyIPsecConfigurationStruct `locationName:"NiftyIPsecConfiguration" type:"structure"`
-
 	NiftyIpsecConfiguration *RequestNiftyIpsecConfigurationStruct `locationName:"NiftyIpsecConfiguration" type:"structure"`
 
 	NiftyTunnel *RequestNiftyTunnelStruct `locationName:"NiftyTunnel" type:"structure"`
@@ -16911,12 +19179,6 @@ func (s *CreateVpnConnectionInput) SetCustomerGatewayId(v string) *CreateVpnConn
 // SetNiftyCustomerGatewayName sets the NiftyCustomerGatewayName field's value.
 func (s *CreateVpnConnectionInput) SetNiftyCustomerGatewayName(v string) *CreateVpnConnectionInput {
 	s.NiftyCustomerGatewayName = &v
-	return s
-}
-
-// SetNiftyIPsecConfiguration sets the NiftyIPsecConfiguration field's value.
-func (s *CreateVpnConnectionInput) SetNiftyIPsecConfiguration(v *RequestNiftyIPsecConfigurationStruct) *CreateVpnConnectionInput {
-	s.NiftyIPsecConfiguration = v
 	return s
 }
 
@@ -17135,6 +19397,8 @@ type CustomerGateway struct {
 
 	BgpAsn *string `locationName:"bgpAsn" type:"string"`
 
+	CreatedTime *string `locationName:"createdTime" type:"string"`
+
 	CustomerGatewayId *string `locationName:"customerGatewayId" type:"string"`
 
 	IpAddress *string `locationName:"ipAddress" type:"string"`
@@ -17167,6 +19431,12 @@ func (s CustomerGateway) GoString() string {
 // SetBgpAsn sets the BgpAsn field's value.
 func (s *CustomerGateway) SetBgpAsn(v string) *CustomerGateway {
 	s.BgpAsn = &v
+	return s
+}
+
+// SetCreatedTime sets the CreatedTime field's value.
+func (s *CustomerGateway) SetCreatedTime(v string) *CustomerGateway {
+	s.CreatedTime = &v
 	return s
 }
 
@@ -17229,7 +19499,7 @@ type CustomerGatewaySetItem struct {
 
 	BgpAsn *string `locationName:"bgpAsn" type:"string"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	CustomerGatewayId *string `locationName:"customerGatewayId" type:"string"`
 
@@ -17267,7 +19537,7 @@ func (s *CustomerGatewaySetItem) SetBgpAsn(v string) *CustomerGatewaySetItem {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *CustomerGatewaySetItem) SetCreatedTime(v time.Time) *CustomerGatewaySetItem {
+func (s *CustomerGatewaySetItem) SetCreatedTime(v string) *CustomerGatewaySetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -17612,6 +19882,58 @@ func (s *DeleteImageOutput) SetRequestId(v string) *DeleteImageOutput {
 	return s
 }
 
+type DeleteInstanceBackupRuleInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRuleId *string `locationName:"InstanceBackupRuleId" type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteInstanceBackupRuleInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteInstanceBackupRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *DeleteInstanceBackupRuleInput) SetInstanceBackupRuleId(v string) *DeleteInstanceBackupRuleInput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+type DeleteInstanceBackupRuleOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s DeleteInstanceBackupRuleOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteInstanceBackupRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteInstanceBackupRuleOutput) SetRequestId(v string) *DeleteInstanceBackupRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *DeleteInstanceBackupRuleOutput) SetReturn(v bool) *DeleteInstanceBackupRuleOutput {
+	s.Return = &v
+	return s
+}
+
 type DeleteKeyPairInput struct {
 	_ struct{} `type:"structure"`
 
@@ -17721,6 +20043,58 @@ func (s DeleteLoadBalancerOutput) GoString() string {
 // SetResponseMetadata sets the ResponseMetadata field's value.
 func (s *DeleteLoadBalancerOutput) SetResponseMetadata(v *ResponseMetadata) *DeleteLoadBalancerOutput {
 	s.ResponseMetadata = v
+	return s
+}
+
+type DeleteNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceId *string `locationName:"NetworkInterfaceId" type:"string"`
+}
+
+// String returns the string representation
+func (s DeleteNetworkInterfaceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DeleteNetworkInterfaceInput) SetNetworkInterfaceId(v string) *DeleteNetworkInterfaceInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type DeleteNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s DeleteNetworkInterfaceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DeleteNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DeleteNetworkInterfaceOutput) SetRequestId(v string) *DeleteNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *DeleteNetworkInterfaceOutput) SetReturn(v bool) *DeleteNetworkInterfaceOutput {
+	s.Return = &v
 	return s
 }
 
@@ -18529,7 +20903,7 @@ func (s *DescribeDhcpOptionsInput) SetFilter(v []*RequestFilterStruct) *Describe
 type DescribeDhcpOptionsOutput struct {
 	_ struct{} `type:"structure"`
 
-	DhcpOptionsSet *DhcpOptionsSet `locationName:"dhcpOptionsSet" type:"structure"`
+	DhcpOptionsSet []*DhcpOptionsSetItem `locationName:"dhcpOptionsSet" locationNameList:"item" type:"list"`
 
 	RequestId *string `locationName:"requestId" type:"string"`
 }
@@ -18545,7 +20919,7 @@ func (s DescribeDhcpOptionsOutput) GoString() string {
 }
 
 // SetDhcpOptionsSet sets the DhcpOptionsSet field's value.
-func (s *DescribeDhcpOptionsOutput) SetDhcpOptionsSet(v *DhcpOptionsSet) *DescribeDhcpOptionsOutput {
+func (s *DescribeDhcpOptionsOutput) SetDhcpOptionsSet(v []*DhcpOptionsSetItem) *DescribeDhcpOptionsOutput {
 	s.DhcpOptionsSet = v
 	return s
 }
@@ -18844,6 +21218,150 @@ func (s *DescribeInstanceAttributeOutput) SetUserData(v *UserData) *DescribeInst
 	return s
 }
 
+type DescribeInstanceBackupRuleActivitiesInput struct {
+	_ struct{} `type:"structure"`
+
+	Duration *int64 `locationName:"Duration" type:"integer"`
+
+	EndDateTime *string `locationName:"EndDateTime" type:"string"`
+
+	InstanceBackupRuleId *string `locationName:"InstanceBackupRuleId" type:"string"`
+
+	MaxRecords *int64 `locationName:"MaxRecords" type:"integer"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceBackupRuleActivitiesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceBackupRuleActivitiesInput) GoString() string {
+	return s.String()
+}
+
+// SetDuration sets the Duration field's value.
+func (s *DescribeInstanceBackupRuleActivitiesInput) SetDuration(v int64) *DescribeInstanceBackupRuleActivitiesInput {
+	s.Duration = &v
+	return s
+}
+
+// SetEndDateTime sets the EndDateTime field's value.
+func (s *DescribeInstanceBackupRuleActivitiesInput) SetEndDateTime(v string) *DescribeInstanceBackupRuleActivitiesInput {
+	s.EndDateTime = &v
+	return s
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *DescribeInstanceBackupRuleActivitiesInput) SetInstanceBackupRuleId(v string) *DescribeInstanceBackupRuleActivitiesInput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+// SetMaxRecords sets the MaxRecords field's value.
+func (s *DescribeInstanceBackupRuleActivitiesInput) SetMaxRecords(v int64) *DescribeInstanceBackupRuleActivitiesInput {
+	s.MaxRecords = &v
+	return s
+}
+
+type DescribeInstanceBackupRuleActivitiesOutput struct {
+	_ struct{} `type:"structure"`
+
+	ActivitiesSet []*ActivitiesSetItem `locationName:"activitiesSet" locationNameList:"item" type:"list"`
+
+	InstanceBackupRuleId *string `locationName:"instanceBackupRuleId" type:"string"`
+
+	InstanceBackupRuleName *string `locationName:"instanceBackupRuleName" type:"string"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceBackupRuleActivitiesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceBackupRuleActivitiesOutput) GoString() string {
+	return s.String()
+}
+
+// SetActivitiesSet sets the ActivitiesSet field's value.
+func (s *DescribeInstanceBackupRuleActivitiesOutput) SetActivitiesSet(v []*ActivitiesSetItem) *DescribeInstanceBackupRuleActivitiesOutput {
+	s.ActivitiesSet = v
+	return s
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *DescribeInstanceBackupRuleActivitiesOutput) SetInstanceBackupRuleId(v string) *DescribeInstanceBackupRuleActivitiesOutput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+// SetInstanceBackupRuleName sets the InstanceBackupRuleName field's value.
+func (s *DescribeInstanceBackupRuleActivitiesOutput) SetInstanceBackupRuleName(v string) *DescribeInstanceBackupRuleActivitiesOutput {
+	s.InstanceBackupRuleName = &v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeInstanceBackupRuleActivitiesOutput) SetRequestId(v string) *DescribeInstanceBackupRuleActivitiesOutput {
+	s.RequestId = &v
+	return s
+}
+
+type DescribeInstanceBackupRulesInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRuleId []*string `locationName:"InstanceBackupRuleId" type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceBackupRulesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceBackupRulesInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *DescribeInstanceBackupRulesInput) SetInstanceBackupRuleId(v []*string) *DescribeInstanceBackupRulesInput {
+	s.InstanceBackupRuleId = v
+	return s
+}
+
+type DescribeInstanceBackupRulesOutput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRulesSet []*InstanceBackupRulesSetItem `locationName:"instanceBackupRulesSet" locationNameList:"item" type:"list"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeInstanceBackupRulesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeInstanceBackupRulesOutput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRulesSet sets the InstanceBackupRulesSet field's value.
+func (s *DescribeInstanceBackupRulesOutput) SetInstanceBackupRulesSet(v []*InstanceBackupRulesSetItem) *DescribeInstanceBackupRulesOutput {
+	s.InstanceBackupRulesSet = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeInstanceBackupRulesOutput) SetRequestId(v string) *DescribeInstanceBackupRulesOutput {
+	s.RequestId = &v
+	return s
+}
+
 type DescribeInstanceHealthInput struct {
 	_ struct{} `type:"structure"`
 
@@ -19044,6 +21562,8 @@ type DescribeLoadBalancersInput struct {
 	_ struct{} `type:"structure"`
 
 	LoadBalancerNames []*RequestLoadBalancerNamesStruct `locationName:"LoadBalancerNames" locationNameList:"member" type:"list"`
+
+	Owner *string `locationName:"Owner" type:"string"`
 }
 
 // String returns the string representation
@@ -19059,6 +21579,12 @@ func (s DescribeLoadBalancersInput) GoString() string {
 // SetLoadBalancerNames sets the LoadBalancerNames field's value.
 func (s *DescribeLoadBalancersInput) SetLoadBalancerNames(v []*RequestLoadBalancerNamesStruct) *DescribeLoadBalancersInput {
 	s.LoadBalancerNames = v
+	return s
+}
+
+// SetOwner sets the Owner field's value.
+func (s *DescribeLoadBalancersInput) SetOwner(v string) *DescribeLoadBalancersInput {
+	s.Owner = &v
 	return s
 }
 
@@ -19097,6 +21623,66 @@ func (s *DescribeLoadBalancersOutput) SetLoadBalancerDescriptions(v []*LoadBalan
 // SetResponseMetadata sets the ResponseMetadata field's value.
 func (s *DescribeLoadBalancersOutput) SetResponseMetadata(v *ResponseMetadata) *DescribeLoadBalancersOutput {
 	s.ResponseMetadata = v
+	return s
+}
+
+type DescribeNetworkInterfacesInput struct {
+	_ struct{} `type:"structure"`
+
+	Filter []*RequestFilterStruct `locationName:"Filter" type:"list"`
+
+	NetworkInterfaceId []*string `locationName:"NetworkInterfaceId" type:"list"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfacesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfacesInput) GoString() string {
+	return s.String()
+}
+
+// SetFilter sets the Filter field's value.
+func (s *DescribeNetworkInterfacesInput) SetFilter(v []*RequestFilterStruct) *DescribeNetworkInterfacesInput {
+	s.Filter = v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *DescribeNetworkInterfacesInput) SetNetworkInterfaceId(v []*string) *DescribeNetworkInterfacesInput {
+	s.NetworkInterfaceId = v
+	return s
+}
+
+type DescribeNetworkInterfacesOutput struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceSet []*NetworkInterfaceSetItem `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+}
+
+// String returns the string representation
+func (s DescribeNetworkInterfacesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DescribeNetworkInterfacesOutput) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceSet sets the NetworkInterfaceSet field's value.
+func (s *DescribeNetworkInterfacesOutput) SetNetworkInterfaceSet(v []*NetworkInterfaceSetItem) *DescribeNetworkInterfacesOutput {
+	s.NetworkInterfaceSet = v
+	return s
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DescribeNetworkInterfacesOutput) SetRequestId(v string) *DescribeNetworkInterfacesOutput {
+	s.RequestId = &v
 	return s
 }
 
@@ -19803,6 +22389,8 @@ type DescribeUsageOutput struct {
 
 	ImageInfo *ImageInfo `locationName:"imageInfo" type:"structure"`
 
+	InstanceBackupInfo *InstanceBackupInfo `locationName:"instanceBackupInfo" type:"structure"`
+
 	InstanceInfo *InstanceInfo `locationName:"instanceInfo" type:"structure"`
 
 	InternetVpnInfo *InternetVpnInfo `locationName:"internetVpnInfo" type:"structure"`
@@ -19817,6 +22405,8 @@ type DescribeUsageOutput struct {
 
 	NetworkInfo *NetworkInfo `locationName:"networkInfo" type:"structure"`
 
+	NetworkInterfaceInfo *NetworkInterfaceInfo `locationName:"networkInterfaceInfo" type:"structure"`
+
 	OptionCommonInfo []*OptionCommonInfoSetItem `locationName:"optionCommonInfo" locationNameList:"item" type:"list"`
 
 	OptionInfo []*OptionInfoSetItem `locationName:"optionInfo" locationNameList:"item" type:"list"`
@@ -19830,6 +22420,8 @@ type DescribeUsageOutput struct {
 	PrivateLanInfo *PrivateLanInfo `locationName:"privateLanInfo" type:"structure"`
 
 	PrivateNetworkInfo *PrivateNetworkInfo `locationName:"privateNetworkInfo" type:"structure"`
+
+	RemoteAccessVpnGatewayInfo *RemoteAccessVpnGatewayInfo `locationName:"remoteAccessVpnGatewayInfo" type:"structure"`
 
 	RequestId *string `locationName:"requestId" type:"string"`
 
@@ -19904,6 +22496,12 @@ func (s *DescribeUsageOutput) SetImageInfo(v *ImageInfo) *DescribeUsageOutput {
 	return s
 }
 
+// SetInstanceBackupInfo sets the InstanceBackupInfo field's value.
+func (s *DescribeUsageOutput) SetInstanceBackupInfo(v *InstanceBackupInfo) *DescribeUsageOutput {
+	s.InstanceBackupInfo = v
+	return s
+}
+
 // SetInstanceInfo sets the InstanceInfo field's value.
 func (s *DescribeUsageOutput) SetInstanceInfo(v *InstanceInfo) *DescribeUsageOutput {
 	s.InstanceInfo = v
@@ -19946,6 +22544,12 @@ func (s *DescribeUsageOutput) SetNetworkInfo(v *NetworkInfo) *DescribeUsageOutpu
 	return s
 }
 
+// SetNetworkInterfaceInfo sets the NetworkInterfaceInfo field's value.
+func (s *DescribeUsageOutput) SetNetworkInterfaceInfo(v *NetworkInterfaceInfo) *DescribeUsageOutput {
+	s.NetworkInterfaceInfo = v
+	return s
+}
+
 // SetOptionCommonInfo sets the OptionCommonInfo field's value.
 func (s *DescribeUsageOutput) SetOptionCommonInfo(v []*OptionCommonInfoSetItem) *DescribeUsageOutput {
 	s.OptionCommonInfo = v
@@ -19985,6 +22589,12 @@ func (s *DescribeUsageOutput) SetPrivateLanInfo(v *PrivateLanInfo) *DescribeUsag
 // SetPrivateNetworkInfo sets the PrivateNetworkInfo field's value.
 func (s *DescribeUsageOutput) SetPrivateNetworkInfo(v *PrivateNetworkInfo) *DescribeUsageOutput {
 	s.PrivateNetworkInfo = v
+	return s
+}
+
+// SetRemoteAccessVpnGatewayInfo sets the RemoteAccessVpnGatewayInfo field's value.
+func (s *DescribeUsageOutput) SetRemoteAccessVpnGatewayInfo(v *RemoteAccessVpnGatewayInfo) *DescribeUsageOutput {
+	s.RemoteAccessVpnGatewayInfo = v
 	return s
 }
 
@@ -20340,6 +22950,66 @@ func (s *Destination) SetPort(v int64) *Destination {
 	return s
 }
 
+type DetachNetworkInterfaceInput struct {
+	_ struct{} `type:"structure"`
+
+	AttachmentId *string `locationName:"AttachmentId" type:"string"`
+
+	NiftyReboot *string `locationName:"NiftyReboot" type:"string"`
+}
+
+// String returns the string representation
+func (s DetachNetworkInterfaceInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetachNetworkInterfaceInput) GoString() string {
+	return s.String()
+}
+
+// SetAttachmentId sets the AttachmentId field's value.
+func (s *DetachNetworkInterfaceInput) SetAttachmentId(v string) *DetachNetworkInterfaceInput {
+	s.AttachmentId = &v
+	return s
+}
+
+// SetNiftyReboot sets the NiftyReboot field's value.
+func (s *DetachNetworkInterfaceInput) SetNiftyReboot(v string) *DetachNetworkInterfaceInput {
+	s.NiftyReboot = &v
+	return s
+}
+
+type DetachNetworkInterfaceOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s DetachNetworkInterfaceOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s DetachNetworkInterfaceOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *DetachNetworkInterfaceOutput) SetRequestId(v string) *DetachNetworkInterfaceOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *DetachNetworkInterfaceOutput) SetReturn(v bool) *DetachNetworkInterfaceOutput {
+	s.Return = &v
+	return s
+}
+
 type DetachVolumeInput struct {
 	_ struct{} `type:"structure"`
 
@@ -20381,7 +23051,7 @@ func (s *DetachVolumeInput) SetVolumeId(v string) *DetachVolumeInput {
 type DetachVolumeOutput struct {
 	_ struct{} `type:"structure"`
 
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:""`
+	AttachTime *string `locationName:"attachTime" type:"string"`
 
 	Device *string `locationName:"device" type:"string"`
 
@@ -20407,7 +23077,7 @@ func (s DetachVolumeOutput) GoString() string {
 }
 
 // SetAttachTime sets the AttachTime field's value.
-func (s *DetachVolumeOutput) SetAttachTime(v time.Time) *DetachVolumeOutput {
+func (s *DetachVolumeOutput) SetAttachTime(v string) *DetachVolumeOutput {
 	s.AttachTime = &v
 	return s
 }
@@ -20630,7 +23300,7 @@ func (s *DhcpConfigurationSetTypeSetItem) SetValueSet(v []*ValueSetItem) *DhcpCo
 	return s
 }
 
-type DhcpIpAddressInformationSet struct {
+type DhcpIpAddressInformation struct {
 	_ struct{} `type:"structure"`
 
 	DhcpIpAddressSet []*DhcpIpAddressSetItem `locationName:"dhcpIpAddressSet" locationNameList:"item" type:"list"`
@@ -20639,23 +23309,23 @@ type DhcpIpAddressInformationSet struct {
 }
 
 // String returns the string representation
-func (s DhcpIpAddressInformationSet) String() string {
+func (s DhcpIpAddressInformation) String() string {
 	return awsutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DhcpIpAddressInformationSet) GoString() string {
+func (s DhcpIpAddressInformation) GoString() string {
 	return s.String()
 }
 
 // SetDhcpIpAddressSet sets the DhcpIpAddressSet field's value.
-func (s *DhcpIpAddressInformationSet) SetDhcpIpAddressSet(v []*DhcpIpAddressSetItem) *DhcpIpAddressInformationSet {
+func (s *DhcpIpAddressInformation) SetDhcpIpAddressSet(v []*DhcpIpAddressSetItem) *DhcpIpAddressInformation {
 	s.DhcpIpAddressSet = v
 	return s
 }
 
 // SetIpAddressPoolSet sets the IpAddressPoolSet field's value.
-func (s *DhcpIpAddressInformationSet) SetIpAddressPoolSet(v []*IpAddressPoolSetItem) *DhcpIpAddressInformationSet {
+func (s *DhcpIpAddressInformation) SetIpAddressPoolSet(v []*IpAddressPoolSetItem) *DhcpIpAddressInformation {
 	s.IpAddressPoolSet = v
 	return s
 }
@@ -20728,7 +23398,7 @@ func (s *DhcpOptions) SetDhcpOptionsId(v string) *DhcpOptions {
 	return s
 }
 
-type DhcpOptionsSet struct {
+type DhcpOptionsSetItem struct {
 	_ struct{} `type:"structure"`
 
 	DhcpConfigurationSet []*DhcpConfigurationSetItem `locationName:"dhcpConfigurationSet" locationNameList:"item" type:"list"`
@@ -20737,23 +23407,23 @@ type DhcpOptionsSet struct {
 }
 
 // String returns the string representation
-func (s DhcpOptionsSet) String() string {
+func (s DhcpOptionsSetItem) String() string {
 	return awsutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s DhcpOptionsSet) GoString() string {
+func (s DhcpOptionsSetItem) GoString() string {
 	return s.String()
 }
 
 // SetDhcpConfigurationSet sets the DhcpConfigurationSet field's value.
-func (s *DhcpOptionsSet) SetDhcpConfigurationSet(v []*DhcpConfigurationSetItem) *DhcpOptionsSet {
+func (s *DhcpOptionsSetItem) SetDhcpConfigurationSet(v []*DhcpConfigurationSetItem) *DhcpOptionsSetItem {
 	s.DhcpConfigurationSet = v
 	return s
 }
 
 // SetDhcpOptionsId sets the DhcpOptionsId field's value.
-func (s *DhcpOptionsSet) SetDhcpOptionsId(v string) *DhcpOptionsSet {
+func (s *DhcpOptionsSetItem) SetDhcpOptionsId(v string) *DhcpOptionsSetItem {
 	s.DhcpOptionsId = &v
 	return s
 }
@@ -20761,7 +23431,7 @@ func (s *DhcpOptionsSet) SetDhcpOptionsId(v string) *DhcpOptionsSet {
 type DhcpStatusInformationSetItem struct {
 	_ struct{} `type:"structure"`
 
-	DhcpIpAddressInformationSet *DhcpIpAddressInformationSet `locationName:"dhcpIpAddressInformationSet" type:"structure"`
+	DhcpIpAddressInformation *DhcpIpAddressInformation `locationName:"dhcpIpAddressInformation" type:"structure"`
 
 	NetworkId *string `locationName:"networkId" type:"string"`
 
@@ -20778,9 +23448,9 @@ func (s DhcpStatusInformationSetItem) GoString() string {
 	return s.String()
 }
 
-// SetDhcpIpAddressInformationSet sets the DhcpIpAddressInformationSet field's value.
-func (s *DhcpStatusInformationSetItem) SetDhcpIpAddressInformationSet(v *DhcpIpAddressInformationSet) *DhcpStatusInformationSetItem {
-	s.DhcpIpAddressInformationSet = v
+// SetDhcpIpAddressInformation sets the DhcpIpAddressInformation field's value.
+func (s *DhcpStatusInformationSetItem) SetDhcpIpAddressInformation(v *DhcpIpAddressInformation) *DhcpStatusInformationSetItem {
+	s.DhcpIpAddressInformation = v
 	return s
 }
 
@@ -21215,7 +23885,7 @@ func (s *ELBVersionInformation) SetVersion(v bool) *ELBVersionInformation {
 type Ebs struct {
 	_ struct{} `type:"structure"`
 
-	AttachTime *time.Time `locationName:"attachTime" type:"timestamp" timestampFormat:""`
+	AttachTime *string `locationName:"attachTime" type:"string"`
 
 	DeleteOnTermination *bool `locationName:"deleteOnTermination" type:"boolean"`
 
@@ -21239,7 +23909,7 @@ func (s Ebs) GoString() string {
 }
 
 // SetAttachTime sets the AttachTime field's value.
-func (s *Ebs) SetAttachTime(v time.Time) *Ebs {
+func (s *Ebs) SetAttachTime(v string) *Ebs {
 	s.AttachTime = &v
 	return s
 }
@@ -21372,6 +24042,60 @@ func (s *ElasticIpSetItem) SetValue(v int64) *ElasticIpSetItem {
 	return s
 }
 
+type ElasticLoadBalancerAssociationSetItem struct {
+	_ struct{} `type:"structure"`
+
+	ElasticLoadBalancerId *string `locationName:"elasticLoadBalancerId" type:"string"`
+
+	ElasticLoadBalancerName *string `locationName:"elasticLoadBalancerName" type:"string"`
+
+	Main *bool `locationName:"main" type:"boolean"`
+
+	RouteTableAssociationId *string `locationName:"routeTableAssociationId" type:"string"`
+
+	RouteTableId *string `locationName:"routeTableId" type:"string"`
+}
+
+// String returns the string representation
+func (s ElasticLoadBalancerAssociationSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ElasticLoadBalancerAssociationSetItem) GoString() string {
+	return s.String()
+}
+
+// SetElasticLoadBalancerId sets the ElasticLoadBalancerId field's value.
+func (s *ElasticLoadBalancerAssociationSetItem) SetElasticLoadBalancerId(v string) *ElasticLoadBalancerAssociationSetItem {
+	s.ElasticLoadBalancerId = &v
+	return s
+}
+
+// SetElasticLoadBalancerName sets the ElasticLoadBalancerName field's value.
+func (s *ElasticLoadBalancerAssociationSetItem) SetElasticLoadBalancerName(v string) *ElasticLoadBalancerAssociationSetItem {
+	s.ElasticLoadBalancerName = &v
+	return s
+}
+
+// SetMain sets the Main field's value.
+func (s *ElasticLoadBalancerAssociationSetItem) SetMain(v bool) *ElasticLoadBalancerAssociationSetItem {
+	s.Main = &v
+	return s
+}
+
+// SetRouteTableAssociationId sets the RouteTableAssociationId field's value.
+func (s *ElasticLoadBalancerAssociationSetItem) SetRouteTableAssociationId(v string) *ElasticLoadBalancerAssociationSetItem {
+	s.RouteTableAssociationId = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *ElasticLoadBalancerAssociationSetItem) SetRouteTableId(v string) *ElasticLoadBalancerAssociationSetItem {
+	s.RouteTableId = &v
+	return s
+}
+
 type ElasticLoadBalancerDescriptionsMemberItem struct {
 	_ struct{} `type:"structure"`
 
@@ -21379,7 +24103,7 @@ type ElasticLoadBalancerDescriptionsMemberItem struct {
 
 	AvailabilityZones []*string `locationName:"AvailabilityZones" locationNameList:"member" type:"list"`
 
-	CreatedTime *time.Time `locationName:"CreatedTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"CreatedTime" type:"string"`
 
 	DNSName *string `locationName:"DNSName" type:"string"`
 
@@ -21396,6 +24120,10 @@ type ElasticLoadBalancerDescriptionsMemberItem struct {
 	NetworkVolume *string `locationName:"NetworkVolume" type:"string"`
 
 	NextMonthAccountingType *string `locationName:"NextMonthAccountingType" type:"string"`
+
+	RouteTableAssociationId *string `locationName:"RouteTableAssociationId" type:"string"`
+
+	RouteTableId *string `locationName:"RouteTableId" type:"string"`
 
 	State *string `locationName:"State" type:"string"`
 }
@@ -21423,7 +24151,7 @@ func (s *ElasticLoadBalancerDescriptionsMemberItem) SetAvailabilityZones(v []*st
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *ElasticLoadBalancerDescriptionsMemberItem) SetCreatedTime(v time.Time) *ElasticLoadBalancerDescriptionsMemberItem {
+func (s *ElasticLoadBalancerDescriptionsMemberItem) SetCreatedTime(v string) *ElasticLoadBalancerDescriptionsMemberItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -21473,6 +24201,18 @@ func (s *ElasticLoadBalancerDescriptionsMemberItem) SetNetworkVolume(v string) *
 // SetNextMonthAccountingType sets the NextMonthAccountingType field's value.
 func (s *ElasticLoadBalancerDescriptionsMemberItem) SetNextMonthAccountingType(v string) *ElasticLoadBalancerDescriptionsMemberItem {
 	s.NextMonthAccountingType = &v
+	return s
+}
+
+// SetRouteTableAssociationId sets the RouteTableAssociationId field's value.
+func (s *ElasticLoadBalancerDescriptionsMemberItem) SetRouteTableAssociationId(v string) *ElasticLoadBalancerDescriptionsMemberItem {
+	s.RouteTableAssociationId = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *ElasticLoadBalancerDescriptionsMemberItem) SetRouteTableId(v string) *ElasticLoadBalancerDescriptionsMemberItem {
+	s.RouteTableId = &v
 	return s
 }
 
@@ -21599,6 +24339,28 @@ func (s EmailAddressSetItem) GoString() string {
 // SetEmailAddress sets the EmailAddress field's value.
 func (s *EmailAddressSetItem) SetEmailAddress(v string) *EmailAddressSetItem {
 	s.EmailAddress = &v
+	return s
+}
+
+type ExpectationMemberItem struct {
+	_ struct{} `type:"structure"`
+
+	HttpCode *int64 `locationName:"HttpCode" type:"integer"`
+}
+
+// String returns the string representation
+func (s ExpectationMemberItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ExpectationMemberItem) GoString() string {
+	return s.String()
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *ExpectationMemberItem) SetHttpCode(v int64) *ExpectationMemberItem {
+	s.HttpCode = &v
 	return s
 }
 
@@ -21777,11 +24539,15 @@ func (s *GroupsSetItem) SetUserId(v string) *GroupsSetItem {
 type HealthCheck struct {
 	_ struct{} `type:"structure"`
 
+	Expectation []*ExpectationMemberItem `locationName:"Expectation" locationNameList:"member" type:"list"`
+
 	HealthyThreshold *int64 `locationName:"HealthyThreshold" type:"integer"`
 
 	InstanceStates []*InstanceStatesMemberItem `locationName:"InstanceStates" locationNameList:"member" type:"list"`
 
 	Interval *int64 `locationName:"Interval" type:"integer"`
+
+	Path *string `locationName:"Path" type:"string"`
 
 	Target *string `locationName:"Target" type:"string"`
 
@@ -21800,6 +24566,12 @@ func (s HealthCheck) GoString() string {
 	return s.String()
 }
 
+// SetExpectation sets the Expectation field's value.
+func (s *HealthCheck) SetExpectation(v []*ExpectationMemberItem) *HealthCheck {
+	s.Expectation = v
+	return s
+}
+
 // SetHealthyThreshold sets the HealthyThreshold field's value.
 func (s *HealthCheck) SetHealthyThreshold(v int64) *HealthCheck {
 	s.HealthyThreshold = &v
@@ -21815,6 +24587,12 @@ func (s *HealthCheck) SetInstanceStates(v []*InstanceStatesMemberItem) *HealthCh
 // SetInterval sets the Interval field's value.
 func (s *HealthCheck) SetInterval(v int64) *HealthCheck {
 	s.Interval = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *HealthCheck) SetPath(v string) *HealthCheck {
+	s.Path = &v
 	return s
 }
 
@@ -21961,7 +24739,7 @@ type ImagesSetItem struct {
 
 	KernelId *string `locationName:"kernelId" type:"string"`
 
-	LaunchTime *time.Time `locationName:"launchTime" type:"timestamp" timestampFormat:""`
+	LaunchTime *string `locationName:"launchTime" type:"string"`
 
 	Name *string `locationName:"name" type:"string"`
 
@@ -22073,7 +24851,7 @@ func (s *ImagesSetItem) SetKernelId(v string) *ImagesSetItem {
 }
 
 // SetLaunchTime sets the LaunchTime field's value.
-func (s *ImagesSetItem) SetLaunchTime(v time.Time) *ImagesSetItem {
+func (s *ImagesSetItem) SetLaunchTime(v string) *ImagesSetItem {
 	s.LaunchTime = &v
 	return s
 }
@@ -22537,6 +25315,640 @@ func (s *InboundInterface) SetNetworkId(v string) *InboundInterface {
 // SetNetworkName sets the NetworkName field's value.
 func (s *InboundInterface) SetNetworkName(v string) *InboundInterface {
 	s.NetworkName = &v
+	return s
+}
+
+type Instance struct {
+	_ struct{} `type:"structure"`
+
+	AccountingType *string `locationName:"accountingType" type:"string"`
+
+	Admin *string `locationName:"admin" type:"string"`
+
+	AmiLaunchIndex *string `locationName:"amiLaunchIndex" type:"string"`
+
+	Architecture *string `locationName:"architecture" type:"string"`
+
+	BlockDeviceMapping []*BlockDeviceMappingSetItem `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
+
+	Description *string `locationName:"description" type:"string"`
+
+	DnsName *string `locationName:"dnsName" type:"string"`
+
+	ImageId *string `locationName:"imageId" type:"string"`
+
+	InstanceId *string `locationName:"instanceId" type:"string"`
+
+	InstanceLifecycle *string `locationName:"instanceLifecycle" type:"string"`
+
+	InstanceState *InstanceState `locationName:"instanceState" type:"structure"`
+
+	InstanceType *string `locationName:"instanceType" type:"string"`
+
+	InstanceUniqueId *string `locationName:"instanceUniqueId" type:"string"`
+
+	IpAddress *string `locationName:"ipAddress" type:"string"`
+
+	IpAddressV6 *string `locationName:"ipAddressV6" type:"string"`
+
+	IpType *string `locationName:"ipType" type:"string"`
+
+	KernelId *string `locationName:"kernelId" type:"string"`
+
+	KeyName *string `locationName:"keyName" type:"string"`
+
+	LaunchTime *string `locationName:"launchTime" type:"string"`
+
+	Monitoring *Monitoring `locationName:"monitoring" type:"structure"`
+
+	NetworkInterfaceSet []*NetworkInterfaceSetItem `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+
+	NiftyPrivateIpType *string `locationName:"niftyPrivateIpType" type:"string"`
+
+	Placement *Placement `locationName:"placement" type:"structure"`
+
+	Platform *string `locationName:"platform" type:"string"`
+
+	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+
+	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+
+	PrivateIpAddressV6 *string `locationName:"privateIpAddressV6" type:"string"`
+
+	ProductCodes []*ProductCodesSetItem `locationName:"productCodes" locationNameList:"item" type:"list"`
+
+	RamdiskId *string `locationName:"ramdiskId" type:"string"`
+
+	Reason *string `locationName:"reason" type:"string"`
+
+	RootDeviceName *string `locationName:"rootDeviceName" type:"string"`
+
+	RootDeviceType *string `locationName:"rootDeviceType" type:"string"`
+
+	SpotInstanceRequestId *string `locationName:"spotInstanceRequestId" type:"string"`
+
+	StateReason *StateReason `locationName:"stateReason" type:"structure"`
+
+	SubnetId *string `locationName:"subnetId" type:"string"`
+
+	VpcId *string `locationName:"vpcId" type:"string"`
+}
+
+// String returns the string representation
+func (s Instance) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Instance) GoString() string {
+	return s.String()
+}
+
+// SetAccountingType sets the AccountingType field's value.
+func (s *Instance) SetAccountingType(v string) *Instance {
+	s.AccountingType = &v
+	return s
+}
+
+// SetAdmin sets the Admin field's value.
+func (s *Instance) SetAdmin(v string) *Instance {
+	s.Admin = &v
+	return s
+}
+
+// SetAmiLaunchIndex sets the AmiLaunchIndex field's value.
+func (s *Instance) SetAmiLaunchIndex(v string) *Instance {
+	s.AmiLaunchIndex = &v
+	return s
+}
+
+// SetArchitecture sets the Architecture field's value.
+func (s *Instance) SetArchitecture(v string) *Instance {
+	s.Architecture = &v
+	return s
+}
+
+// SetBlockDeviceMapping sets the BlockDeviceMapping field's value.
+func (s *Instance) SetBlockDeviceMapping(v []*BlockDeviceMappingSetItem) *Instance {
+	s.BlockDeviceMapping = v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *Instance) SetDescription(v string) *Instance {
+	s.Description = &v
+	return s
+}
+
+// SetDnsName sets the DnsName field's value.
+func (s *Instance) SetDnsName(v string) *Instance {
+	s.DnsName = &v
+	return s
+}
+
+// SetImageId sets the ImageId field's value.
+func (s *Instance) SetImageId(v string) *Instance {
+	s.ImageId = &v
+	return s
+}
+
+// SetInstanceId sets the InstanceId field's value.
+func (s *Instance) SetInstanceId(v string) *Instance {
+	s.InstanceId = &v
+	return s
+}
+
+// SetInstanceLifecycle sets the InstanceLifecycle field's value.
+func (s *Instance) SetInstanceLifecycle(v string) *Instance {
+	s.InstanceLifecycle = &v
+	return s
+}
+
+// SetInstanceState sets the InstanceState field's value.
+func (s *Instance) SetInstanceState(v *InstanceState) *Instance {
+	s.InstanceState = v
+	return s
+}
+
+// SetInstanceType sets the InstanceType field's value.
+func (s *Instance) SetInstanceType(v string) *Instance {
+	s.InstanceType = &v
+	return s
+}
+
+// SetInstanceUniqueId sets the InstanceUniqueId field's value.
+func (s *Instance) SetInstanceUniqueId(v string) *Instance {
+	s.InstanceUniqueId = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *Instance) SetIpAddress(v string) *Instance {
+	s.IpAddress = &v
+	return s
+}
+
+// SetIpAddressV6 sets the IpAddressV6 field's value.
+func (s *Instance) SetIpAddressV6(v string) *Instance {
+	s.IpAddressV6 = &v
+	return s
+}
+
+// SetIpType sets the IpType field's value.
+func (s *Instance) SetIpType(v string) *Instance {
+	s.IpType = &v
+	return s
+}
+
+// SetKernelId sets the KernelId field's value.
+func (s *Instance) SetKernelId(v string) *Instance {
+	s.KernelId = &v
+	return s
+}
+
+// SetKeyName sets the KeyName field's value.
+func (s *Instance) SetKeyName(v string) *Instance {
+	s.KeyName = &v
+	return s
+}
+
+// SetLaunchTime sets the LaunchTime field's value.
+func (s *Instance) SetLaunchTime(v string) *Instance {
+	s.LaunchTime = &v
+	return s
+}
+
+// SetMonitoring sets the Monitoring field's value.
+func (s *Instance) SetMonitoring(v *Monitoring) *Instance {
+	s.Monitoring = v
+	return s
+}
+
+// SetNetworkInterfaceSet sets the NetworkInterfaceSet field's value.
+func (s *Instance) SetNetworkInterfaceSet(v []*NetworkInterfaceSetItem) *Instance {
+	s.NetworkInterfaceSet = v
+	return s
+}
+
+// SetNiftyPrivateIpType sets the NiftyPrivateIpType field's value.
+func (s *Instance) SetNiftyPrivateIpType(v string) *Instance {
+	s.NiftyPrivateIpType = &v
+	return s
+}
+
+// SetPlacement sets the Placement field's value.
+func (s *Instance) SetPlacement(v *Placement) *Instance {
+	s.Placement = v
+	return s
+}
+
+// SetPlatform sets the Platform field's value.
+func (s *Instance) SetPlatform(v string) *Instance {
+	s.Platform = &v
+	return s
+}
+
+// SetPrivateDnsName sets the PrivateDnsName field's value.
+func (s *Instance) SetPrivateDnsName(v string) *Instance {
+	s.PrivateDnsName = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *Instance) SetPrivateIpAddress(v string) *Instance {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddressV6 sets the PrivateIpAddressV6 field's value.
+func (s *Instance) SetPrivateIpAddressV6(v string) *Instance {
+	s.PrivateIpAddressV6 = &v
+	return s
+}
+
+// SetProductCodes sets the ProductCodes field's value.
+func (s *Instance) SetProductCodes(v []*ProductCodesSetItem) *Instance {
+	s.ProductCodes = v
+	return s
+}
+
+// SetRamdiskId sets the RamdiskId field's value.
+func (s *Instance) SetRamdiskId(v string) *Instance {
+	s.RamdiskId = &v
+	return s
+}
+
+// SetReason sets the Reason field's value.
+func (s *Instance) SetReason(v string) *Instance {
+	s.Reason = &v
+	return s
+}
+
+// SetRootDeviceName sets the RootDeviceName field's value.
+func (s *Instance) SetRootDeviceName(v string) *Instance {
+	s.RootDeviceName = &v
+	return s
+}
+
+// SetRootDeviceType sets the RootDeviceType field's value.
+func (s *Instance) SetRootDeviceType(v string) *Instance {
+	s.RootDeviceType = &v
+	return s
+}
+
+// SetSpotInstanceRequestId sets the SpotInstanceRequestId field's value.
+func (s *Instance) SetSpotInstanceRequestId(v string) *Instance {
+	s.SpotInstanceRequestId = &v
+	return s
+}
+
+// SetStateReason sets the StateReason field's value.
+func (s *Instance) SetStateReason(v *StateReason) *Instance {
+	s.StateReason = v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *Instance) SetSubnetId(v string) *Instance {
+	s.SubnetId = &v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *Instance) SetVpcId(v string) *Instance {
+	s.VpcId = &v
+	return s
+}
+
+type InstanceBackupBaseSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Type *string `locationName:"type" type:"string"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceBackupBaseSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupBaseSetItem) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *InstanceBackupBaseSetItem) SetCharge(v int64) *InstanceBackupBaseSetItem {
+	s.Charge = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InstanceBackupBaseSetItem) SetType(v string) *InstanceBackupBaseSetItem {
+	s.Type = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *InstanceBackupBaseSetItem) SetUnit(v string) *InstanceBackupBaseSetItem {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceBackupBaseSetItem) SetValue(v int64) *InstanceBackupBaseSetItem {
+	s.Value = &v
+	return s
+}
+
+type InstanceBackupImportInstanceDiskSet struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceBackupImportInstanceDiskSet) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupImportInstanceDiskSet) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *InstanceBackupImportInstanceDiskSet) SetCharge(v int64) *InstanceBackupImportInstanceDiskSet {
+	s.Charge = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *InstanceBackupImportInstanceDiskSet) SetUnit(v string) *InstanceBackupImportInstanceDiskSet {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceBackupImportInstanceDiskSet) SetValue(v int64) *InstanceBackupImportInstanceDiskSet {
+	s.Value = &v
+	return s
+}
+
+type InstanceBackupInfo struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupBaseSet []*InstanceBackupBaseSetItem `locationName:"instanceBackupBaseSet" locationNameList:"item" type:"list"`
+
+	InstanceBackupImportInstanceDiskSet *InstanceBackupImportInstanceDiskSet `locationName:"instanceBackupImportInstanceDiskSet" type:"structure"`
+
+	InstanceBackupVolumeSet *InstanceBackupVolumeSet `locationName:"instanceBackupVolumeSet" type:"structure"`
+}
+
+// String returns the string representation
+func (s InstanceBackupInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupInfo) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupBaseSet sets the InstanceBackupBaseSet field's value.
+func (s *InstanceBackupInfo) SetInstanceBackupBaseSet(v []*InstanceBackupBaseSetItem) *InstanceBackupInfo {
+	s.InstanceBackupBaseSet = v
+	return s
+}
+
+// SetInstanceBackupImportInstanceDiskSet sets the InstanceBackupImportInstanceDiskSet field's value.
+func (s *InstanceBackupInfo) SetInstanceBackupImportInstanceDiskSet(v *InstanceBackupImportInstanceDiskSet) *InstanceBackupInfo {
+	s.InstanceBackupImportInstanceDiskSet = v
+	return s
+}
+
+// SetInstanceBackupVolumeSet sets the InstanceBackupVolumeSet field's value.
+func (s *InstanceBackupInfo) SetInstanceBackupVolumeSet(v *InstanceBackupVolumeSet) *InstanceBackupInfo {
+	s.InstanceBackupVolumeSet = v
+	return s
+}
+
+type InstanceBackupRule struct {
+	_ struct{} `type:"structure"`
+
+	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+
+	BackupInstanceMaxCount *int64 `locationName:"backupInstanceMaxCount" type:"integer"`
+
+	Description *string `locationName:"description" type:"string"`
+
+	InstanceBackupRuleId *string `locationName:"instanceBackupRuleId" type:"string"`
+
+	InstanceBackupRuleName *string `locationName:"instanceBackupRuleName" type:"string"`
+
+	InstancesSet []*InstancesSetItem `locationName:"instancesSet" locationNameList:"item" type:"list"`
+
+	RegionName *string `locationName:"regionName" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+
+	TimeSlotId *string `locationName:"timeSlotId" type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceBackupRule) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupRule) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *InstanceBackupRule) SetAvailabilityZone(v string) *InstanceBackupRule {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetBackupInstanceMaxCount sets the BackupInstanceMaxCount field's value.
+func (s *InstanceBackupRule) SetBackupInstanceMaxCount(v int64) *InstanceBackupRule {
+	s.BackupInstanceMaxCount = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *InstanceBackupRule) SetDescription(v string) *InstanceBackupRule {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *InstanceBackupRule) SetInstanceBackupRuleId(v string) *InstanceBackupRule {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+// SetInstanceBackupRuleName sets the InstanceBackupRuleName field's value.
+func (s *InstanceBackupRule) SetInstanceBackupRuleName(v string) *InstanceBackupRule {
+	s.InstanceBackupRuleName = &v
+	return s
+}
+
+// SetInstancesSet sets the InstancesSet field's value.
+func (s *InstanceBackupRule) SetInstancesSet(v []*InstancesSetItem) *InstanceBackupRule {
+	s.InstancesSet = v
+	return s
+}
+
+// SetRegionName sets the RegionName field's value.
+func (s *InstanceBackupRule) SetRegionName(v string) *InstanceBackupRule {
+	s.RegionName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *InstanceBackupRule) SetStatus(v string) *InstanceBackupRule {
+	s.Status = &v
+	return s
+}
+
+// SetTimeSlotId sets the TimeSlotId field's value.
+func (s *InstanceBackupRule) SetTimeSlotId(v string) *InstanceBackupRule {
+	s.TimeSlotId = &v
+	return s
+}
+
+type InstanceBackupRulesSetItem struct {
+	_ struct{} `type:"structure"`
+
+	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+
+	BackupInstanceMaxCount *int64 `locationName:"backupInstanceMaxCount" type:"integer"`
+
+	Description *string `locationName:"description" type:"string"`
+
+	InstanceBackupRuleId *string `locationName:"instanceBackupRuleId" type:"string"`
+
+	InstanceBackupRuleName *string `locationName:"instanceBackupRuleName" type:"string"`
+
+	InstancesSet []*InstancesSetItem `locationName:"instancesSet" locationNameList:"item" type:"list"`
+
+	RegionName *string `locationName:"regionName" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+
+	TimeSlotId *string `locationName:"timeSlotId" type:"string"`
+}
+
+// String returns the string representation
+func (s InstanceBackupRulesSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupRulesSetItem) GoString() string {
+	return s.String()
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *InstanceBackupRulesSetItem) SetAvailabilityZone(v string) *InstanceBackupRulesSetItem {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetBackupInstanceMaxCount sets the BackupInstanceMaxCount field's value.
+func (s *InstanceBackupRulesSetItem) SetBackupInstanceMaxCount(v int64) *InstanceBackupRulesSetItem {
+	s.BackupInstanceMaxCount = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *InstanceBackupRulesSetItem) SetDescription(v string) *InstanceBackupRulesSetItem {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *InstanceBackupRulesSetItem) SetInstanceBackupRuleId(v string) *InstanceBackupRulesSetItem {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+// SetInstanceBackupRuleName sets the InstanceBackupRuleName field's value.
+func (s *InstanceBackupRulesSetItem) SetInstanceBackupRuleName(v string) *InstanceBackupRulesSetItem {
+	s.InstanceBackupRuleName = &v
+	return s
+}
+
+// SetInstancesSet sets the InstancesSet field's value.
+func (s *InstanceBackupRulesSetItem) SetInstancesSet(v []*InstancesSetItem) *InstanceBackupRulesSetItem {
+	s.InstancesSet = v
+	return s
+}
+
+// SetRegionName sets the RegionName field's value.
+func (s *InstanceBackupRulesSetItem) SetRegionName(v string) *InstanceBackupRulesSetItem {
+	s.RegionName = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *InstanceBackupRulesSetItem) SetStatus(v string) *InstanceBackupRulesSetItem {
+	s.Status = &v
+	return s
+}
+
+// SetTimeSlotId sets the TimeSlotId field's value.
+func (s *InstanceBackupRulesSetItem) SetTimeSlotId(v string) *InstanceBackupRulesSetItem {
+	s.TimeSlotId = &v
+	return s
+}
+
+type InstanceBackupVolumeSet struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s InstanceBackupVolumeSet) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s InstanceBackupVolumeSet) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *InstanceBackupVolumeSet) SetCharge(v int64) *InstanceBackupVolumeSet {
+	s.Charge = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *InstanceBackupVolumeSet) SetUnit(v string) *InstanceBackupVolumeSet {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *InstanceBackupVolumeSet) SetValue(v int64) *InstanceBackupVolumeSet {
+	s.Value = &v
 	return s
 }
 
@@ -23025,6 +26437,8 @@ type InstancesSetItem struct {
 
 	Autoscaling *Autoscaling `locationName:"autoscaling" type:"structure"`
 
+	BackupInstancesSet []*BackupInstancesSetItem `locationName:"backupInstancesSet" locationNameList:"item" type:"list"`
+
 	BlockDeviceMapping []*BlockDeviceMappingSetItem `locationName:"blockDeviceMapping" locationNameList:"item" type:"list"`
 
 	CopyInfo *string `locationName:"copyInfo" type:"string"`
@@ -23037,13 +26451,15 @@ type InstancesSetItem struct {
 
 	DnsName *string `locationName:"dnsName" type:"string"`
 
-	ExpireTime *time.Time `locationName:"expireTime" type:"timestamp" timestampFormat:""`
+	ExpireTime *string `locationName:"expireTime" type:"string"`
 
 	HotAdd *string `locationName:"hotAdd" type:"string"`
 
 	ImageId *string `locationName:"imageId" type:"string"`
 
 	ImageName *string `locationName:"imageName" type:"string"`
+
+	InstanceBackupRule *InstanceBackupRule `locationName:"instanceBackupRule" type:"structure"`
 
 	InstanceId *string `locationName:"instanceId" type:"string"`
 
@@ -23061,11 +26477,13 @@ type InstancesSetItem struct {
 
 	IpType *string `locationName:"ipType" type:"string"`
 
+	IsoImageSet []*IsoImageSetItem `locationName:"isoImageSet" locationNameList:"item" type:"list"`
+
 	KernelId *string `locationName:"kernelId" type:"string"`
 
 	KeyName *string `locationName:"keyName" type:"string"`
 
-	LaunchTime *time.Time `locationName:"launchTime" type:"timestamp" timestampFormat:""`
+	LaunchTime *string `locationName:"launchTime" type:"string"`
 
 	Loadbalancing []*LoadbalancingSetItem `locationName:"loadbalancing" locationNameList:"item" type:"list"`
 
@@ -23158,6 +26576,12 @@ func (s *InstancesSetItem) SetAutoscaling(v *Autoscaling) *InstancesSetItem {
 	return s
 }
 
+// SetBackupInstancesSet sets the BackupInstancesSet field's value.
+func (s *InstancesSetItem) SetBackupInstancesSet(v []*BackupInstancesSetItem) *InstancesSetItem {
+	s.BackupInstancesSet = v
+	return s
+}
+
 // SetBlockDeviceMapping sets the BlockDeviceMapping field's value.
 func (s *InstancesSetItem) SetBlockDeviceMapping(v []*BlockDeviceMappingSetItem) *InstancesSetItem {
 	s.BlockDeviceMapping = v
@@ -23195,7 +26619,7 @@ func (s *InstancesSetItem) SetDnsName(v string) *InstancesSetItem {
 }
 
 // SetExpireTime sets the ExpireTime field's value.
-func (s *InstancesSetItem) SetExpireTime(v time.Time) *InstancesSetItem {
+func (s *InstancesSetItem) SetExpireTime(v string) *InstancesSetItem {
 	s.ExpireTime = &v
 	return s
 }
@@ -23215,6 +26639,12 @@ func (s *InstancesSetItem) SetImageId(v string) *InstancesSetItem {
 // SetImageName sets the ImageName field's value.
 func (s *InstancesSetItem) SetImageName(v string) *InstancesSetItem {
 	s.ImageName = &v
+	return s
+}
+
+// SetInstanceBackupRule sets the InstanceBackupRule field's value.
+func (s *InstancesSetItem) SetInstanceBackupRule(v *InstanceBackupRule) *InstancesSetItem {
+	s.InstanceBackupRule = v
 	return s
 }
 
@@ -23266,6 +26696,12 @@ func (s *InstancesSetItem) SetIpType(v string) *InstancesSetItem {
 	return s
 }
 
+// SetIsoImageSet sets the IsoImageSet field's value.
+func (s *InstancesSetItem) SetIsoImageSet(v []*IsoImageSetItem) *InstancesSetItem {
+	s.IsoImageSet = v
+	return s
+}
+
 // SetKernelId sets the KernelId field's value.
 func (s *InstancesSetItem) SetKernelId(v string) *InstancesSetItem {
 	s.KernelId = &v
@@ -23279,7 +26715,7 @@ func (s *InstancesSetItem) SetKeyName(v string) *InstancesSetItem {
 }
 
 // SetLaunchTime sets the LaunchTime field's value.
-func (s *InstancesSetItem) SetLaunchTime(v time.Time) *InstancesSetItem {
+func (s *InstancesSetItem) SetLaunchTime(v string) *InstancesSetItem {
 	s.LaunchTime = &v
 	return s
 }
@@ -23469,6 +26905,10 @@ type InternetVpnInitial struct {
 
 	Charge *int64 `locationName:"charge" type:"integer"`
 
+	Type *string `locationName:"type" type:"string"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
 	Value *int64 `locationName:"value" type:"integer"`
 }
 
@@ -23485,6 +26925,18 @@ func (s InternetVpnInitial) GoString() string {
 // SetCharge sets the Charge field's value.
 func (s *InternetVpnInitial) SetCharge(v int64) *InternetVpnInitial {
 	s.Charge = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *InternetVpnInitial) SetType(v string) *InternetVpnInitial {
+	s.Type = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *InternetVpnInitial) SetUnit(v string) *InternetVpnInitial {
+	s.Unit = &v
 	return s
 }
 
@@ -23619,7 +27071,7 @@ func (s *IpAddressPoolsSetItem) SetStopIpAddress(v string) *IpAddressPoolsSetIte
 type IpPermissionsSetItem struct {
 	_ struct{} `type:"structure"`
 
-	AddDatetime *time.Time `locationName:"addDatetime" type:"timestamp" timestampFormat:""`
+	AddDatetime *string `locationName:"addDatetime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
@@ -23647,7 +27099,7 @@ func (s IpPermissionsSetItem) GoString() string {
 }
 
 // SetAddDatetime sets the AddDatetime field's value.
-func (s *IpPermissionsSetItem) SetAddDatetime(v time.Time) *IpPermissionsSetItem {
+func (s *IpPermissionsSetItem) SetAddDatetime(v string) *IpPermissionsSetItem {
 	s.AddDatetime = &v
 	return s
 }
@@ -23735,6 +27187,58 @@ func (s IpType) GoString() string {
 // SetValue sets the Value field's value.
 func (s *IpType) SetValue(v string) *IpType {
 	s.Value = &v
+	return s
+}
+
+type Ipv6AddressesSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Ipv6Address *string `locationName:"ipv6Address" type:"string"`
+}
+
+// String returns the string representation
+func (s Ipv6AddressesSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s Ipv6AddressesSetItem) GoString() string {
+	return s.String()
+}
+
+// SetIpv6Address sets the Ipv6Address field's value.
+func (s *Ipv6AddressesSetItem) SetIpv6Address(v string) *Ipv6AddressesSetItem {
+	s.Ipv6Address = &v
+	return s
+}
+
+type IsoImageSetItem struct {
+	_ struct{} `type:"structure"`
+
+	IsoImageId *string `locationName:"isoImageId" type:"string"`
+
+	IsoImageName *string `locationName:"isoImageName" type:"string"`
+}
+
+// String returns the string representation
+func (s IsoImageSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s IsoImageSetItem) GoString() string {
+	return s.String()
+}
+
+// SetIsoImageId sets the IsoImageId field's value.
+func (s *IsoImageSetItem) SetIsoImageId(v string) *IsoImageSetItem {
+	s.IsoImageId = &v
+	return s
+}
+
+// SetIsoImageName sets the IsoImageName field's value.
+func (s *IsoImageSetItem) SetIsoImageName(v string) *IsoImageSetItem {
+	s.IsoImageName = &v
 	return s
 }
 
@@ -24023,6 +27527,8 @@ type Listener struct {
 
 	SSLCertificateId *string `locationName:"SSLCertificateId" type:"string"`
 
+	SSLPolicy *SSLPolicy `locationName:"SSLPolicy" type:"structure"`
+
 	SessionStickinessPolicy *SessionStickinessPolicy `locationName:"SessionStickinessPolicy" type:"structure"`
 
 	SorryPage *SorryPage `locationName:"SorryPage" type:"structure"`
@@ -24092,6 +27598,12 @@ func (s *Listener) SetSSLCertificateId(v string) *Listener {
 	return s
 }
 
+// SetSSLPolicy sets the SSLPolicy field's value.
+func (s *Listener) SetSSLPolicy(v *SSLPolicy) *Listener {
+	s.SSLPolicy = v
+	return s
+}
+
 // SetSessionStickinessPolicy sets the SessionStickinessPolicy field's value.
 func (s *Listener) SetSessionStickinessPolicy(v *SessionStickinessPolicy) *Listener {
 	s.SessionStickinessPolicy = v
@@ -24108,8 +27620,6 @@ type ListenerDescriptionsMemberItem struct {
 	_ struct{} `type:"structure"`
 
 	Listener *Listener `locationName:"Listener" type:"structure"`
-
-	PolicyNames []*string `locationName:"PolicyNames" locationNameList:"member" type:"list"`
 }
 
 // String returns the string representation
@@ -24128,20 +27638,16 @@ func (s *ListenerDescriptionsMemberItem) SetListener(v *Listener) *ListenerDescr
 	return s
 }
 
-// SetPolicyNames sets the PolicyNames field's value.
-func (s *ListenerDescriptionsMemberItem) SetPolicyNames(v []*string) *ListenerDescriptionsMemberItem {
-	s.PolicyNames = v
-	return s
-}
-
 type ListenersMemberItem struct {
 	_ struct{} `type:"structure"`
 
 	BalancingType *int64 `locationName:"BalancingType" type:"integer"`
 
-	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+	Description *string `locationName:"Description" type:"string"`
 
-	Listener *Listener `locationName:"Listener" type:"structure"`
+	ElasticLoadBalancerPort *int64 `locationName:"ElasticLoadBalancerPort" type:"integer"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
 
 	LoadBalancerPort *int64 `locationName:"LoadBalancerPort" type:"integer"`
 
@@ -24164,15 +27670,21 @@ func (s *ListenersMemberItem) SetBalancingType(v int64) *ListenersMemberItem {
 	return s
 }
 
-// SetInstancePort sets the InstancePort field's value.
-func (s *ListenersMemberItem) SetInstancePort(v int64) *ListenersMemberItem {
-	s.InstancePort = &v
+// SetDescription sets the Description field's value.
+func (s *ListenersMemberItem) SetDescription(v string) *ListenersMemberItem {
+	s.Description = &v
 	return s
 }
 
-// SetListener sets the Listener field's value.
-func (s *ListenersMemberItem) SetListener(v *Listener) *ListenersMemberItem {
-	s.Listener = v
+// SetElasticLoadBalancerPort sets the ElasticLoadBalancerPort field's value.
+func (s *ListenersMemberItem) SetElasticLoadBalancerPort(v int64) *ListenersMemberItem {
+	s.ElasticLoadBalancerPort = &v
+	return s
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *ListenersMemberItem) SetInstancePort(v int64) *ListenersMemberItem {
+	s.InstancePort = &v
 	return s
 }
 
@@ -24195,7 +27707,7 @@ type LoadBalancerDescriptionsMemberItem struct {
 
 	AvailabilityZones []*string `locationName:"AvailabilityZones" locationNameList:"member" type:"list"`
 
-	CreatedTime *time.Time `locationName:"CreatedTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"CreatedTime" type:"string"`
 
 	DNSName *string `locationName:"DNSName" type:"string"`
 
@@ -24218,6 +27730,8 @@ type LoadBalancerDescriptionsMemberItem struct {
 	Option *Option `locationName:"Option" type:"structure"`
 
 	Policies *Policies `locationName:"Policies" type:"structure"`
+
+	PolicyType *string `locationName:"PolicyType" type:"string"`
 }
 
 // String returns the string representation
@@ -24243,7 +27757,7 @@ func (s *LoadBalancerDescriptionsMemberItem) SetAvailabilityZones(v []*string) *
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *LoadBalancerDescriptionsMemberItem) SetCreatedTime(v time.Time) *LoadBalancerDescriptionsMemberItem {
+func (s *LoadBalancerDescriptionsMemberItem) SetCreatedTime(v string) *LoadBalancerDescriptionsMemberItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -24311,6 +27825,12 @@ func (s *LoadBalancerDescriptionsMemberItem) SetOption(v *Option) *LoadBalancerD
 // SetPolicies sets the Policies field's value.
 func (s *LoadBalancerDescriptionsMemberItem) SetPolicies(v *Policies) *LoadBalancerDescriptionsMemberItem {
 	s.Policies = v
+	return s
+}
+
+// SetPolicyType sets the PolicyType field's value.
+func (s *LoadBalancerDescriptionsMemberItem) SetPolicyType(v string) *LoadBalancerDescriptionsMemberItem {
+	s.PolicyType = &v
 	return s
 }
 
@@ -24443,7 +27963,7 @@ type LogSetItem struct {
 
 	Process *string `locationName:"process" type:"string"`
 
-	Time *time.Time `locationName:"time" type:"timestamp" timestampFormat:""`
+	Time *string `locationName:"time" type:"string"`
 }
 
 // String returns the string representation
@@ -24469,7 +27989,7 @@ func (s *LogSetItem) SetProcess(v string) *LogSetItem {
 }
 
 // SetTime sets the Time field's value.
-func (s *LogSetItem) SetTime(v time.Time) *LogSetItem {
+func (s *LogSetItem) SetTime(v string) *LogSetItem {
 	s.Time = &v
 	return s
 }
@@ -24904,6 +28424,158 @@ func (s *ModifyInstanceAttributeOutput) SetRequestId(v string) *ModifyInstanceAt
 
 // SetReturn sets the Return field's value.
 func (s *ModifyInstanceAttributeOutput) SetReturn(v bool) *ModifyInstanceAttributeOutput {
+	s.Return = &v
+	return s
+}
+
+type ModifyInstanceBackupRuleAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	BackupInstanceMaxCount *int64 `locationName:"BackupInstanceMaxCount" type:"integer"`
+
+	Description *string `locationName:"Description" type:"string"`
+
+	InstanceBackupRuleId *string `locationName:"InstanceBackupRuleId" type:"string"`
+
+	InstanceBackupRuleName *string `locationName:"InstanceBackupRuleName" type:"string"`
+
+	TimeSlotId *string `locationName:"TimeSlotId" type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyInstanceBackupRuleAttributeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyInstanceBackupRuleAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetBackupInstanceMaxCount sets the BackupInstanceMaxCount field's value.
+func (s *ModifyInstanceBackupRuleAttributeInput) SetBackupInstanceMaxCount(v int64) *ModifyInstanceBackupRuleAttributeInput {
+	s.BackupInstanceMaxCount = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyInstanceBackupRuleAttributeInput) SetDescription(v string) *ModifyInstanceBackupRuleAttributeInput {
+	s.Description = &v
+	return s
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *ModifyInstanceBackupRuleAttributeInput) SetInstanceBackupRuleId(v string) *ModifyInstanceBackupRuleAttributeInput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+// SetInstanceBackupRuleName sets the InstanceBackupRuleName field's value.
+func (s *ModifyInstanceBackupRuleAttributeInput) SetInstanceBackupRuleName(v string) *ModifyInstanceBackupRuleAttributeInput {
+	s.InstanceBackupRuleName = &v
+	return s
+}
+
+// SetTimeSlotId sets the TimeSlotId field's value.
+func (s *ModifyInstanceBackupRuleAttributeInput) SetTimeSlotId(v string) *ModifyInstanceBackupRuleAttributeInput {
+	s.TimeSlotId = &v
+	return s
+}
+
+type ModifyInstanceBackupRuleAttributeOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s ModifyInstanceBackupRuleAttributeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyInstanceBackupRuleAttributeOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyInstanceBackupRuleAttributeOutput) SetRequestId(v string) *ModifyInstanceBackupRuleAttributeOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *ModifyInstanceBackupRuleAttributeOutput) SetReturn(v bool) *ModifyInstanceBackupRuleAttributeOutput {
+	s.Return = &v
+	return s
+}
+
+type ModifyNetworkInterfaceAttributeInput struct {
+	_ struct{} `type:"structure"`
+
+	Description *string `locationName:"Description" type:"string"`
+
+	IpAddress *string `locationName:"IpAddress" type:"string"`
+
+	NetworkInterfaceId *string `locationName:"NetworkInterfaceId" type:"string"`
+}
+
+// String returns the string representation
+func (s ModifyNetworkInterfaceAttributeInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyNetworkInterfaceAttributeInput) GoString() string {
+	return s.String()
+}
+
+// SetDescription sets the Description field's value.
+func (s *ModifyNetworkInterfaceAttributeInput) SetDescription(v string) *ModifyNetworkInterfaceAttributeInput {
+	s.Description = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *ModifyNetworkInterfaceAttributeInput) SetIpAddress(v string) *ModifyNetworkInterfaceAttributeInput {
+	s.IpAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *ModifyNetworkInterfaceAttributeInput) SetNetworkInterfaceId(v string) *ModifyNetworkInterfaceAttributeInput {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+type ModifyNetworkInterfaceAttributeOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s ModifyNetworkInterfaceAttributeOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s ModifyNetworkInterfaceAttributeOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *ModifyNetworkInterfaceAttributeOutput) SetRequestId(v string) *ModifyNetworkInterfaceAttributeOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *ModifyNetworkInterfaceAttributeOutput) SetReturn(v bool) *ModifyNetworkInterfaceAttributeOutput {
 	s.Return = &v
 	return s
 }
@@ -25518,12 +29190,302 @@ func (s *NetworkInfo) SetNetworkFlowSet(v []*NetworkFlowSetItem) *NetworkInfo {
 	return s
 }
 
+type NetworkInterface struct {
+	_ struct{} `type:"structure"`
+
+	Association *Association `locationName:"association" type:"structure"`
+
+	Attachment *Attachment `locationName:"attachment" type:"structure"`
+
+	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
+
+	Description *string `locationName:"description" type:"string"`
+
+	GroupSet []*GroupSetItem `locationName:"groupSet" locationNameList:"item" type:"list"`
+
+	InterfaceType *string `locationName:"interfaceType" type:"string"`
+
+	Ipv6AddressesSet []*Ipv6AddressesSetItem `locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
+
+	MacAddress *string `locationName:"macAddress" type:"string"`
+
+	NetworkInterfaceId *string `locationName:"networkInterfaceId" type:"string"`
+
+	NiftyNetworkId *string `locationName:"niftyNetworkId" type:"string"`
+
+	NiftyNetworkName *string `locationName:"niftyNetworkName" type:"string"`
+
+	OwnerId *string `locationName:"ownerId" type:"string"`
+
+	PrivateDnsName *string `locationName:"privateDnsName" type:"string"`
+
+	PrivateIpAddress *string `locationName:"privateIpAddress" type:"string"`
+
+	PrivateIpAddressesSet []*PrivateIpAddressesSetItem `locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
+
+	RequesterId *string `locationName:"requesterId" type:"string"`
+
+	RequesterManaged *bool `locationName:"requesterManaged" type:"boolean"`
+
+	SourceDestCheck *string `locationName:"sourceDestCheck" type:"string"`
+
+	Status *string `locationName:"status" type:"string"`
+
+	SubnetId *string `locationName:"subnetId" type:"string"`
+
+	TagSet []*TagSetItem `locationName:"tagSet" locationNameList:"item" type:"list"`
+
+	VpcId *string `locationName:"vpcId" type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterface) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterface) GoString() string {
+	return s.String()
+}
+
+// SetAssociation sets the Association field's value.
+func (s *NetworkInterface) SetAssociation(v *Association) *NetworkInterface {
+	s.Association = v
+	return s
+}
+
+// SetAttachment sets the Attachment field's value.
+func (s *NetworkInterface) SetAttachment(v *Attachment) *NetworkInterface {
+	s.Attachment = v
+	return s
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *NetworkInterface) SetAvailabilityZone(v string) *NetworkInterface {
+	s.AvailabilityZone = &v
+	return s
+}
+
+// SetDescription sets the Description field's value.
+func (s *NetworkInterface) SetDescription(v string) *NetworkInterface {
+	s.Description = &v
+	return s
+}
+
+// SetGroupSet sets the GroupSet field's value.
+func (s *NetworkInterface) SetGroupSet(v []*GroupSetItem) *NetworkInterface {
+	s.GroupSet = v
+	return s
+}
+
+// SetInterfaceType sets the InterfaceType field's value.
+func (s *NetworkInterface) SetInterfaceType(v string) *NetworkInterface {
+	s.InterfaceType = &v
+	return s
+}
+
+// SetIpv6AddressesSet sets the Ipv6AddressesSet field's value.
+func (s *NetworkInterface) SetIpv6AddressesSet(v []*Ipv6AddressesSetItem) *NetworkInterface {
+	s.Ipv6AddressesSet = v
+	return s
+}
+
+// SetMacAddress sets the MacAddress field's value.
+func (s *NetworkInterface) SetMacAddress(v string) *NetworkInterface {
+	s.MacAddress = &v
+	return s
+}
+
+// SetNetworkInterfaceId sets the NetworkInterfaceId field's value.
+func (s *NetworkInterface) SetNetworkInterfaceId(v string) *NetworkInterface {
+	s.NetworkInterfaceId = &v
+	return s
+}
+
+// SetNiftyNetworkId sets the NiftyNetworkId field's value.
+func (s *NetworkInterface) SetNiftyNetworkId(v string) *NetworkInterface {
+	s.NiftyNetworkId = &v
+	return s
+}
+
+// SetNiftyNetworkName sets the NiftyNetworkName field's value.
+func (s *NetworkInterface) SetNiftyNetworkName(v string) *NetworkInterface {
+	s.NiftyNetworkName = &v
+	return s
+}
+
+// SetOwnerId sets the OwnerId field's value.
+func (s *NetworkInterface) SetOwnerId(v string) *NetworkInterface {
+	s.OwnerId = &v
+	return s
+}
+
+// SetPrivateDnsName sets the PrivateDnsName field's value.
+func (s *NetworkInterface) SetPrivateDnsName(v string) *NetworkInterface {
+	s.PrivateDnsName = &v
+	return s
+}
+
+// SetPrivateIpAddress sets the PrivateIpAddress field's value.
+func (s *NetworkInterface) SetPrivateIpAddress(v string) *NetworkInterface {
+	s.PrivateIpAddress = &v
+	return s
+}
+
+// SetPrivateIpAddressesSet sets the PrivateIpAddressesSet field's value.
+func (s *NetworkInterface) SetPrivateIpAddressesSet(v []*PrivateIpAddressesSetItem) *NetworkInterface {
+	s.PrivateIpAddressesSet = v
+	return s
+}
+
+// SetRequesterId sets the RequesterId field's value.
+func (s *NetworkInterface) SetRequesterId(v string) *NetworkInterface {
+	s.RequesterId = &v
+	return s
+}
+
+// SetRequesterManaged sets the RequesterManaged field's value.
+func (s *NetworkInterface) SetRequesterManaged(v bool) *NetworkInterface {
+	s.RequesterManaged = &v
+	return s
+}
+
+// SetSourceDestCheck sets the SourceDestCheck field's value.
+func (s *NetworkInterface) SetSourceDestCheck(v string) *NetworkInterface {
+	s.SourceDestCheck = &v
+	return s
+}
+
+// SetStatus sets the Status field's value.
+func (s *NetworkInterface) SetStatus(v string) *NetworkInterface {
+	s.Status = &v
+	return s
+}
+
+// SetSubnetId sets the SubnetId field's value.
+func (s *NetworkInterface) SetSubnetId(v string) *NetworkInterface {
+	s.SubnetId = &v
+	return s
+}
+
+// SetTagSet sets the TagSet field's value.
+func (s *NetworkInterface) SetTagSet(v []*TagSetItem) *NetworkInterface {
+	s.TagSet = v
+	return s
+}
+
+// SetVpcId sets the VpcId field's value.
+func (s *NetworkInterface) SetVpcId(v string) *NetworkInterface {
+	s.VpcId = &v
+	return s
+}
+
+type NetworkInterfaceInfo struct {
+	_ struct{} `type:"structure"`
+
+	NetworkInterfaceMonthlyRateSet []*NetworkInterfaceMonthlyRateSetItem `locationName:"networkInterfaceMonthlyRateSet" locationNameList:"item" type:"list"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceInfo) GoString() string {
+	return s.String()
+}
+
+// SetNetworkInterfaceMonthlyRateSet sets the NetworkInterfaceMonthlyRateSet field's value.
+func (s *NetworkInterfaceInfo) SetNetworkInterfaceMonthlyRateSet(v []*NetworkInterfaceMonthlyRateSetItem) *NetworkInterfaceInfo {
+	s.NetworkInterfaceMonthlyRateSet = v
+	return s
+}
+
+type NetworkInterfaceItemSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Count *int64 `locationName:"count" type:"integer"`
+
+	Type *string `locationName:"type" type:"string"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceItemSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceItemSetItem) GoString() string {
+	return s.String()
+}
+
+// SetCount sets the Count field's value.
+func (s *NetworkInterfaceItemSetItem) SetCount(v int64) *NetworkInterfaceItemSetItem {
+	s.Count = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NetworkInterfaceItemSetItem) SetType(v string) *NetworkInterfaceItemSetItem {
+	s.Type = &v
+	return s
+}
+
+type NetworkInterfaceMonthlyRateSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Type *string `locationName:"type" type:"string"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s NetworkInterfaceMonthlyRateSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NetworkInterfaceMonthlyRateSetItem) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *NetworkInterfaceMonthlyRateSetItem) SetCharge(v int64) *NetworkInterfaceMonthlyRateSetItem {
+	s.Charge = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *NetworkInterfaceMonthlyRateSetItem) SetType(v string) *NetworkInterfaceMonthlyRateSetItem {
+	s.Type = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *NetworkInterfaceMonthlyRateSetItem) SetUnit(v string) *NetworkInterfaceMonthlyRateSetItem {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *NetworkInterfaceMonthlyRateSetItem) SetValue(v int64) *NetworkInterfaceMonthlyRateSetItem {
+	s.Value = &v
+	return s
+}
+
 type NetworkInterfaceSetItem struct {
 	_ struct{} `type:"structure"`
 
 	Association *Association `locationName:"association" type:"structure"`
 
 	Attachment *Attachment `locationName:"attachment" type:"structure"`
+
+	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
 
 	CidrBlock *string `locationName:"cidrBlock" type:"string"`
 
@@ -25539,7 +29501,11 @@ type NetworkInterfaceSetItem struct {
 
 	GroupSet []*GroupSetItem `locationName:"groupSet" locationNameList:"item" type:"list"`
 
+	InterfaceType *string `locationName:"interfaceType" type:"string"`
+
 	IpAddress *string `locationName:"ipAddress" type:"string"`
+
+	Ipv6AddressesSet []*Ipv6AddressesSetItem `locationName:"ipv6AddressesSet" locationNameList:"item" type:"list"`
 
 	MacAddress *string `locationName:"macAddress" type:"string"`
 
@@ -25563,11 +29529,17 @@ type NetworkInterfaceSetItem struct {
 
 	PrivateIpAddressesSet []*PrivateIpAddressesSetItem `locationName:"privateIpAddressesSet" locationNameList:"item" type:"list"`
 
+	RequesterId *string `locationName:"requesterId" type:"string"`
+
+	RequesterManaged *bool `locationName:"requesterManaged" type:"boolean"`
+
 	SourceDestCheck *string `locationName:"sourceDestCheck" type:"string"`
 
 	Status *string `locationName:"status" type:"string"`
 
 	SubnetId *string `locationName:"subnetId" type:"string"`
+
+	TagSet []*TagSetItem `locationName:"tagSet" locationNameList:"item" type:"list"`
 
 	VpcId *string `locationName:"vpcId" type:"string"`
 }
@@ -25591,6 +29563,12 @@ func (s *NetworkInterfaceSetItem) SetAssociation(v *Association) *NetworkInterfa
 // SetAttachment sets the Attachment field's value.
 func (s *NetworkInterfaceSetItem) SetAttachment(v *Attachment) *NetworkInterfaceSetItem {
 	s.Attachment = v
+	return s
+}
+
+// SetAvailabilityZone sets the AvailabilityZone field's value.
+func (s *NetworkInterfaceSetItem) SetAvailabilityZone(v string) *NetworkInterfaceSetItem {
+	s.AvailabilityZone = &v
 	return s
 }
 
@@ -25636,9 +29614,21 @@ func (s *NetworkInterfaceSetItem) SetGroupSet(v []*GroupSetItem) *NetworkInterfa
 	return s
 }
 
+// SetInterfaceType sets the InterfaceType field's value.
+func (s *NetworkInterfaceSetItem) SetInterfaceType(v string) *NetworkInterfaceSetItem {
+	s.InterfaceType = &v
+	return s
+}
+
 // SetIpAddress sets the IpAddress field's value.
 func (s *NetworkInterfaceSetItem) SetIpAddress(v string) *NetworkInterfaceSetItem {
 	s.IpAddress = &v
+	return s
+}
+
+// SetIpv6AddressesSet sets the Ipv6AddressesSet field's value.
+func (s *NetworkInterfaceSetItem) SetIpv6AddressesSet(v []*Ipv6AddressesSetItem) *NetworkInterfaceSetItem {
+	s.Ipv6AddressesSet = v
 	return s
 }
 
@@ -25708,6 +29698,18 @@ func (s *NetworkInterfaceSetItem) SetPrivateIpAddressesSet(v []*PrivateIpAddress
 	return s
 }
 
+// SetRequesterId sets the RequesterId field's value.
+func (s *NetworkInterfaceSetItem) SetRequesterId(v string) *NetworkInterfaceSetItem {
+	s.RequesterId = &v
+	return s
+}
+
+// SetRequesterManaged sets the RequesterManaged field's value.
+func (s *NetworkInterfaceSetItem) SetRequesterManaged(v bool) *NetworkInterfaceSetItem {
+	s.RequesterManaged = &v
+	return s
+}
+
 // SetSourceDestCheck sets the SourceDestCheck field's value.
 func (s *NetworkInterfaceSetItem) SetSourceDestCheck(v string) *NetworkInterfaceSetItem {
 	s.SourceDestCheck = &v
@@ -25723,6 +29725,12 @@ func (s *NetworkInterfaceSetItem) SetStatus(v string) *NetworkInterfaceSetItem {
 // SetSubnetId sets the SubnetId field's value.
 func (s *NetworkInterfaceSetItem) SetSubnetId(v string) *NetworkInterfaceSetItem {
 	s.SubnetId = &v
+	return s
+}
+
+// SetTagSet sets the TagSet field's value.
+func (s *NetworkInterfaceSetItem) SetTagSet(v []*TagSetItem) *NetworkInterfaceSetItem {
+	s.TagSet = v
 	return s
 }
 
@@ -25965,6 +29973,66 @@ func (s *NiftyAssociateNatTableOutput) SetAssociationId(v string) *NiftyAssociat
 // SetRequestId sets the RequestId field's value.
 func (s *NiftyAssociateNatTableOutput) SetRequestId(v string) *NiftyAssociateNatTableOutput {
 	s.RequestId = &v
+	return s
+}
+
+type NiftyAssociateRouteTableWithElasticLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	ElasticLoadBalancerId *string `locationName:"ElasticLoadBalancerId" type:"string"`
+
+	RouteTableId *string `locationName:"RouteTableId" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftyAssociateRouteTableWithElasticLoadBalancerInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyAssociateRouteTableWithElasticLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetElasticLoadBalancerId sets the ElasticLoadBalancerId field's value.
+func (s *NiftyAssociateRouteTableWithElasticLoadBalancerInput) SetElasticLoadBalancerId(v string) *NiftyAssociateRouteTableWithElasticLoadBalancerInput {
+	s.ElasticLoadBalancerId = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *NiftyAssociateRouteTableWithElasticLoadBalancerInput) SetRouteTableId(v string) *NiftyAssociateRouteTableWithElasticLoadBalancerInput {
+	s.RouteTableId = &v
+	return s
+}
+
+type NiftyAssociateRouteTableWithElasticLoadBalancerOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s NiftyAssociateRouteTableWithElasticLoadBalancerOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyAssociateRouteTableWithElasticLoadBalancerOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *NiftyAssociateRouteTableWithElasticLoadBalancerOutput) SetRequestId(v string) *NiftyAssociateRouteTableWithElasticLoadBalancerOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *NiftyAssociateRouteTableWithElasticLoadBalancerOutput) SetReturn(v bool) *NiftyAssociateRouteTableWithElasticLoadBalancerOutput {
+	s.Return = &v
 	return s
 }
 
@@ -27767,9 +31835,9 @@ func (s *NiftyDeleteElasticLoadBalancerOutput) SetResponseMetadata(v *ResponseMe
 type NiftyDeleteInstanceSnapshotInput struct {
 	_ struct{} `type:"structure"`
 
-	InstanceSnapshotId []*string `locationName:"InstanceSnapshotId" type:"list"`
+	InstanceSnapshotId *string `locationName:"InstanceSnapshotId" type:"string"`
 
-	SnapshotName []*string `locationName:"SnapshotName" type:"list"`
+	SnapshotName *string `locationName:"SnapshotName" type:"string"`
 }
 
 // String returns the string representation
@@ -27783,14 +31851,14 @@ func (s NiftyDeleteInstanceSnapshotInput) GoString() string {
 }
 
 // SetInstanceSnapshotId sets the InstanceSnapshotId field's value.
-func (s *NiftyDeleteInstanceSnapshotInput) SetInstanceSnapshotId(v []*string) *NiftyDeleteInstanceSnapshotInput {
-	s.InstanceSnapshotId = v
+func (s *NiftyDeleteInstanceSnapshotInput) SetInstanceSnapshotId(v string) *NiftyDeleteInstanceSnapshotInput {
+	s.InstanceSnapshotId = &v
 	return s
 }
 
 // SetSnapshotName sets the SnapshotName field's value.
-func (s *NiftyDeleteInstanceSnapshotInput) SetSnapshotName(v []*string) *NiftyDeleteInstanceSnapshotInput {
-	s.SnapshotName = v
+func (s *NiftyDeleteInstanceSnapshotInput) SetSnapshotName(v string) *NiftyDeleteInstanceSnapshotInput {
+	s.SnapshotName = &v
 	return s
 }
 
@@ -28249,10 +32317,6 @@ func (s *NiftyDeregisterInstancesFromElasticLoadBalancerInput) SetProtocol(v str
 type NiftyDeregisterInstancesFromElasticLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
-	Instances []*InstancesMemberItem `locationName:"Instances" locationNameList:"member" type:"list"`
-
-	NiftyDeregisterInstancesFromElasticLoadBalancerResult *NiftyDeregisterInstancesFromElasticLoadBalancerOutput `locationName:"NiftyDeregisterInstancesFromElasticLoadBalancerResult" type:"structure"`
-
 	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
 }
 
@@ -28264,18 +32328,6 @@ func (s NiftyDeregisterInstancesFromElasticLoadBalancerOutput) String() string {
 // GoString returns the string representation
 func (s NiftyDeregisterInstancesFromElasticLoadBalancerOutput) GoString() string {
 	return s.String()
-}
-
-// SetInstances sets the Instances field's value.
-func (s *NiftyDeregisterInstancesFromElasticLoadBalancerOutput) SetInstances(v []*InstancesMemberItem) *NiftyDeregisterInstancesFromElasticLoadBalancerOutput {
-	s.Instances = v
-	return s
-}
-
-// SetNiftyDeregisterInstancesFromElasticLoadBalancerResult sets the NiftyDeregisterInstancesFromElasticLoadBalancerResult field's value.
-func (s *NiftyDeregisterInstancesFromElasticLoadBalancerOutput) SetNiftyDeregisterInstancesFromElasticLoadBalancerResult(v *NiftyDeregisterInstancesFromElasticLoadBalancerOutput) *NiftyDeregisterInstancesFromElasticLoadBalancerOutput {
-	s.NiftyDeregisterInstancesFromElasticLoadBalancerResult = v
-	return s
 }
 
 // SetResponseMetadata sets the ResponseMetadata field's value.
@@ -28417,7 +32469,7 @@ type NiftyDeregisterVpnGatewaysFromSecurityGroupInput struct {
 
 	GroupName *string `locationName:"GroupName" type:"string"`
 
-	RouterSet []*RequestRouterSetStruct `locationName:"RouterSet" type:"list"`
+	VpnGatewaySet []*RequestVpnGatewaySetStruct `locationName:"VpnGatewaySet" type:"list"`
 }
 
 // String returns the string representation
@@ -28436,9 +32488,9 @@ func (s *NiftyDeregisterVpnGatewaysFromSecurityGroupInput) SetGroupName(v string
 	return s
 }
 
-// SetRouterSet sets the RouterSet field's value.
-func (s *NiftyDeregisterVpnGatewaysFromSecurityGroupInput) SetRouterSet(v []*RequestRouterSetStruct) *NiftyDeregisterVpnGatewaysFromSecurityGroupInput {
-	s.RouterSet = v
+// SetVpnGatewaySet sets the VpnGatewaySet field's value.
+func (s *NiftyDeregisterVpnGatewaysFromSecurityGroupInput) SetVpnGatewaySet(v []*RequestVpnGatewaySetStruct) *NiftyDeregisterVpnGatewaysFromSecurityGroupInput {
+	s.VpnGatewaySet = v
 	return s
 }
 
@@ -28891,7 +32943,7 @@ func (s *NiftyDescribeCorporateInfoForCertificateOutput) SetZip2(v string) *Nift
 type NiftyDescribeDhcpConfigsInput struct {
 	_ struct{} `type:"structure"`
 
-	DhcpConfigId *string `locationName:"DhcpConfigId" type:"string"`
+	DhcpConfigId []*string `locationName:"DhcpConfigId" type:"list"`
 
 	Filter []*RequestFilterStruct `locationName:"Filter" type:"list"`
 }
@@ -28907,8 +32959,8 @@ func (s NiftyDescribeDhcpConfigsInput) GoString() string {
 }
 
 // SetDhcpConfigId sets the DhcpConfigId field's value.
-func (s *NiftyDescribeDhcpConfigsInput) SetDhcpConfigId(v string) *NiftyDescribeDhcpConfigsInput {
-	s.DhcpConfigId = &v
+func (s *NiftyDescribeDhcpConfigsInput) SetDhcpConfigId(v []*string) *NiftyDescribeDhcpConfigsInput {
+	s.DhcpConfigId = v
 	return s
 }
 
@@ -29249,6 +33301,74 @@ func (s *NiftyDescribeInstanceSnapshotsOutput) SetRequestId(v string) *NiftyDesc
 // SetSnapshotInfoSet sets the SnapshotInfoSet field's value.
 func (s *NiftyDescribeInstanceSnapshotsOutput) SetSnapshotInfoSet(v []*SnapshotInfoSetItem) *NiftyDescribeInstanceSnapshotsOutput {
 	s.SnapshotInfoSet = v
+	return s
+}
+
+type NiftyDescribeLoadBalancerSSLPoliciesInput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftyDescribeLoadBalancerSSLPoliciesInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyDescribeLoadBalancerSSLPoliciesInput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *NiftyDescribeLoadBalancerSSLPoliciesInput) SetLoadBalancerName(v string) *NiftyDescribeLoadBalancerSSLPoliciesInput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+type NiftyDescribeLoadBalancerSSLPoliciesOutput struct {
+	_ struct{} `type:"structure"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	NiftyDescribeLoadBalancerSSLPoliciesResult *NiftyDescribeLoadBalancerSSLPoliciesOutput `locationName:"NiftyDescribeLoadBalancerSSLPoliciesResult" type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+
+	SSLPoliciesDescriptions []*SSLPoliciesDescriptionsMemberItem `locationName:"SSLPoliciesDescriptions" locationNameList:"member" type:"list"`
+}
+
+// String returns the string representation
+func (s NiftyDescribeLoadBalancerSSLPoliciesOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyDescribeLoadBalancerSSLPoliciesOutput) GoString() string {
+	return s.String()
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *NiftyDescribeLoadBalancerSSLPoliciesOutput) SetLoadBalancerName(v string) *NiftyDescribeLoadBalancerSSLPoliciesOutput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetNiftyDescribeLoadBalancerSSLPoliciesResult sets the NiftyDescribeLoadBalancerSSLPoliciesResult field's value.
+func (s *NiftyDescribeLoadBalancerSSLPoliciesOutput) SetNiftyDescribeLoadBalancerSSLPoliciesResult(v *NiftyDescribeLoadBalancerSSLPoliciesOutput) *NiftyDescribeLoadBalancerSSLPoliciesOutput {
+	s.NiftyDescribeLoadBalancerSSLPoliciesResult = v
+	return s
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *NiftyDescribeLoadBalancerSSLPoliciesOutput) SetResponseMetadata(v *ResponseMetadata) *NiftyDescribeLoadBalancerSSLPoliciesOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+// SetSSLPoliciesDescriptions sets the SSLPoliciesDescriptions field's value.
+func (s *NiftyDescribeLoadBalancerSSLPoliciesOutput) SetSSLPoliciesDescriptions(v []*SSLPoliciesDescriptionsMemberItem) *NiftyDescribeLoadBalancerSSLPoliciesOutput {
+	s.SSLPoliciesDescriptions = v
 	return s
 }
 
@@ -29996,6 +34116,58 @@ func (s *NiftyDisassociateNatTableOutput) SetReturn(v bool) *NiftyDisassociateNa
 	return s
 }
 
+type NiftyDisassociateRouteTableFromElasticLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	AssociationId *string `locationName:"AssociationId" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftyDisassociateRouteTableFromElasticLoadBalancerInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyDisassociateRouteTableFromElasticLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetAssociationId sets the AssociationId field's value.
+func (s *NiftyDisassociateRouteTableFromElasticLoadBalancerInput) SetAssociationId(v string) *NiftyDisassociateRouteTableFromElasticLoadBalancerInput {
+	s.AssociationId = &v
+	return s
+}
+
+type NiftyDisassociateRouteTableFromElasticLoadBalancerOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s NiftyDisassociateRouteTableFromElasticLoadBalancerOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyDisassociateRouteTableFromElasticLoadBalancerOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *NiftyDisassociateRouteTableFromElasticLoadBalancerOutput) SetRequestId(v string) *NiftyDisassociateRouteTableFromElasticLoadBalancerOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *NiftyDisassociateRouteTableFromElasticLoadBalancerOutput) SetReturn(v bool) *NiftyDisassociateRouteTableFromElasticLoadBalancerOutput {
+	s.Return = &v
+	return s
+}
+
 type NiftyDisassociateRouteTableFromVpnGatewayInput struct {
 	_ struct{} `type:"structure"`
 
@@ -30235,11 +34407,21 @@ func (s *NiftyEnableDhcpOutput) SetReturn(v bool) *NiftyEnableDhcpOutput {
 type NiftyIpsecConfiguration struct {
 	_ struct{} `type:"structure"`
 
+	DiffieHellmanGroup *int64 `locationName:"diffieHellmanGroup" type:"integer"`
+
+	EncapsulatingSecurityPayloadLifeTime *int64 `locationName:"encapsulatingSecurityPayloadLifeTime" type:"integer"`
+
+	EncapsulationSecurityPayloadLifetime *int64 `locationName:"encapsulationSecurityPayloadLifetime" type:"integer"`
+
 	EncryptionAlgorithm *string `locationName:"encryptionAlgorithm" type:"string"`
 
 	HashingAlgorithm *string `locationName:"hashingAlgorithm" type:"string"`
 
 	InternetKeyExchange *string `locationName:"internetKeyExchange" type:"string"`
+
+	InternetKeyExchangeLifeTime *int64 `locationName:"internetKeyExchangeLifeTime" type:"integer"`
+
+	InternetKeyExchangeLifetime *int64 `locationName:"internetKeyExchangeLifetime" type:"integer"`
 
 	Mtu *string `locationName:"mtu" type:"string"`
 
@@ -30254,6 +34436,24 @@ func (s NiftyIpsecConfiguration) String() string {
 // GoString returns the string representation
 func (s NiftyIpsecConfiguration) GoString() string {
 	return s.String()
+}
+
+// SetDiffieHellmanGroup sets the DiffieHellmanGroup field's value.
+func (s *NiftyIpsecConfiguration) SetDiffieHellmanGroup(v int64) *NiftyIpsecConfiguration {
+	s.DiffieHellmanGroup = &v
+	return s
+}
+
+// SetEncapsulatingSecurityPayloadLifeTime sets the EncapsulatingSecurityPayloadLifeTime field's value.
+func (s *NiftyIpsecConfiguration) SetEncapsulatingSecurityPayloadLifeTime(v int64) *NiftyIpsecConfiguration {
+	s.EncapsulatingSecurityPayloadLifeTime = &v
+	return s
+}
+
+// SetEncapsulationSecurityPayloadLifetime sets the EncapsulationSecurityPayloadLifetime field's value.
+func (s *NiftyIpsecConfiguration) SetEncapsulationSecurityPayloadLifetime(v int64) *NiftyIpsecConfiguration {
+	s.EncapsulationSecurityPayloadLifetime = &v
+	return s
 }
 
 // SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
@@ -30271,6 +34471,18 @@ func (s *NiftyIpsecConfiguration) SetHashingAlgorithm(v string) *NiftyIpsecConfi
 // SetInternetKeyExchange sets the InternetKeyExchange field's value.
 func (s *NiftyIpsecConfiguration) SetInternetKeyExchange(v string) *NiftyIpsecConfiguration {
 	s.InternetKeyExchange = &v
+	return s
+}
+
+// SetInternetKeyExchangeLifeTime sets the InternetKeyExchangeLifeTime field's value.
+func (s *NiftyIpsecConfiguration) SetInternetKeyExchangeLifeTime(v int64) *NiftyIpsecConfiguration {
+	s.InternetKeyExchangeLifeTime = &v
+	return s
+}
+
+// SetInternetKeyExchangeLifetime sets the InternetKeyExchangeLifetime field's value.
+func (s *NiftyIpsecConfiguration) SetInternetKeyExchangeLifetime(v int64) *NiftyIpsecConfiguration {
+	s.InternetKeyExchangeLifetime = &v
 	return s
 }
 
@@ -31201,10 +35413,6 @@ func (s *NiftyRegisterInstancesWithElasticLoadBalancerInput) SetProtocol(v strin
 type NiftyRegisterInstancesWithElasticLoadBalancerOutput struct {
 	_ struct{} `type:"structure"`
 
-	Instances []*InstancesMemberItem `locationName:"Instances" locationNameList:"member" type:"list"`
-
-	NiftyRegisterInstancesWithElasticLoadBalancerResult *NiftyRegisterInstancesWithElasticLoadBalancerOutput `locationName:"NiftyRegisterInstancesWithElasticLoadBalancerResult" type:"structure"`
-
 	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
 }
 
@@ -31216,18 +35424,6 @@ func (s NiftyRegisterInstancesWithElasticLoadBalancerOutput) String() string {
 // GoString returns the string representation
 func (s NiftyRegisterInstancesWithElasticLoadBalancerOutput) GoString() string {
 	return s.String()
-}
-
-// SetInstances sets the Instances field's value.
-func (s *NiftyRegisterInstancesWithElasticLoadBalancerOutput) SetInstances(v []*InstancesMemberItem) *NiftyRegisterInstancesWithElasticLoadBalancerOutput {
-	s.Instances = v
-	return s
-}
-
-// SetNiftyRegisterInstancesWithElasticLoadBalancerResult sets the NiftyRegisterInstancesWithElasticLoadBalancerResult field's value.
-func (s *NiftyRegisterInstancesWithElasticLoadBalancerOutput) SetNiftyRegisterInstancesWithElasticLoadBalancerResult(v *NiftyRegisterInstancesWithElasticLoadBalancerOutput) *NiftyRegisterInstancesWithElasticLoadBalancerOutput {
-	s.NiftyRegisterInstancesWithElasticLoadBalancerResult = v
-	return s
 }
 
 // SetResponseMetadata sets the ResponseMetadata field's value.
@@ -31856,6 +36052,90 @@ func (s *NiftyReplaceElasticLoadBalancerLatestVersionOutput) SetResponseMetadata
 	return s
 }
 
+type NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	ElasticLoadBalancerId *string `locationName:"ElasticLoadBalancerId" type:"string"`
+
+	ElasticLoadBalancerName *string `locationName:"ElasticLoadBalancerName" type:"string"`
+
+	ElasticLoadBalancerPort *int64 `locationName:"ElasticLoadBalancerPort" type:"integer"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+
+	Protocol *string `locationName:"Protocol" type:"string"`
+
+	SSLCertificateId *string `locationName:"SSLCertificateId" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetElasticLoadBalancerId sets the ElasticLoadBalancerId field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetElasticLoadBalancerId(v string) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.ElasticLoadBalancerId = &v
+	return s
+}
+
+// SetElasticLoadBalancerName sets the ElasticLoadBalancerName field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetElasticLoadBalancerName(v string) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.ElasticLoadBalancerName = &v
+	return s
+}
+
+// SetElasticLoadBalancerPort sets the ElasticLoadBalancerPort field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetElasticLoadBalancerPort(v int64) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.ElasticLoadBalancerPort = &v
+	return s
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetInstancePort(v int64) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.InstancePort = &v
+	return s
+}
+
+// SetProtocol sets the Protocol field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetProtocol(v string) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.Protocol = &v
+	return s
+}
+
+// SetSSLCertificateId sets the SSLCertificateId field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) SetSSLCertificateId(v string) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput {
+	s.SSLCertificateId = &v
+	return s
+}
+
+type NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+}
+
+// String returns the string representation
+func (s NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput) SetResponseMetadata(v *ResponseMetadata) *NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
 type NiftyReplaceNatRuleInput struct {
 	_ struct{} `type:"structure"`
 
@@ -32053,6 +36333,66 @@ func (s *NiftyReplaceNatTableAssociationOutput) SetNewAssociationId(v string) *N
 // SetRequestId sets the RequestId field's value.
 func (s *NiftyReplaceNatTableAssociationOutput) SetRequestId(v string) *NiftyReplaceNatTableAssociationOutput {
 	s.RequestId = &v
+	return s
+}
+
+type NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput struct {
+	_ struct{} `type:"structure"`
+
+	AssociationId *string `locationName:"AssociationId" type:"string"`
+
+	RouteTableId *string `locationName:"RouteTableId" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) GoString() string {
+	return s.String()
+}
+
+// SetAssociationId sets the AssociationId field's value.
+func (s *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) SetAssociationId(v string) *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput {
+	s.AssociationId = &v
+	return s
+}
+
+// SetRouteTableId sets the RouteTableId field's value.
+func (s *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) SetRouteTableId(v string) *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput {
+	s.RouteTableId = &v
+	return s
+}
+
+type NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput) SetRequestId(v string) *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput) SetReturn(v bool) *NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput {
+	s.Return = &v
 	return s
 }
 
@@ -32508,6 +36848,82 @@ func (s *NiftyRetryImportInstanceOutput) SetRequestId(v string) *NiftyRetryImpor
 	return s
 }
 
+type NiftySetLoadBalancerSSLPoliciesOfListenerInput struct {
+	_ struct{} `type:"structure"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	LoadBalancerPort *int64 `locationName:"LoadBalancerPort" type:"integer"`
+
+	SSLPolicyId *string `locationName:"SSLPolicyId" type:"string"`
+
+	SSLPolicyName *string `locationName:"SSLPolicyName" type:"string"`
+}
+
+// String returns the string representation
+func (s NiftySetLoadBalancerSSLPoliciesOfListenerInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftySetLoadBalancerSSLPoliciesOfListenerInput) GoString() string {
+	return s.String()
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerInput) SetInstancePort(v int64) *NiftySetLoadBalancerSSLPoliciesOfListenerInput {
+	s.InstancePort = &v
+	return s
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerInput) SetLoadBalancerName(v string) *NiftySetLoadBalancerSSLPoliciesOfListenerInput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerPort sets the LoadBalancerPort field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerInput) SetLoadBalancerPort(v int64) *NiftySetLoadBalancerSSLPoliciesOfListenerInput {
+	s.LoadBalancerPort = &v
+	return s
+}
+
+// SetSSLPolicyId sets the SSLPolicyId field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerInput) SetSSLPolicyId(v string) *NiftySetLoadBalancerSSLPoliciesOfListenerInput {
+	s.SSLPolicyId = &v
+	return s
+}
+
+// SetSSLPolicyName sets the SSLPolicyName field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerInput) SetSSLPolicyName(v string) *NiftySetLoadBalancerSSLPoliciesOfListenerInput {
+	s.SSLPolicyName = &v
+	return s
+}
+
+type NiftySetLoadBalancerSSLPoliciesOfListenerOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+}
+
+// String returns the string representation
+func (s NiftySetLoadBalancerSSLPoliciesOfListenerOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftySetLoadBalancerSSLPoliciesOfListenerOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *NiftySetLoadBalancerSSLPoliciesOfListenerOutput) SetResponseMetadata(v *ResponseMetadata) *NiftySetLoadBalancerSSLPoliciesOfListenerOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
 type NiftySnapshottingSetItem struct {
 	_ struct{} `type:"structure"`
 
@@ -32613,6 +37029,66 @@ func (s *NiftyTunnel) SetTunnelId(v string) *NiftyTunnel {
 // SetType sets the Type field's value.
 func (s *NiftyTunnel) SetType(v string) *NiftyTunnel {
 	s.Type = &v
+	return s
+}
+
+type NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput struct {
+	_ struct{} `type:"structure"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	LoadBalancerPort *int64 `locationName:"LoadBalancerPort" type:"integer"`
+}
+
+// String returns the string representation
+func (s NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) GoString() string {
+	return s.String()
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) SetInstancePort(v int64) *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput {
+	s.InstancePort = &v
+	return s
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) SetLoadBalancerName(v string) *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerPort sets the LoadBalancerPort field's value.
+func (s *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) SetLoadBalancerPort(v int64) *NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput {
+	s.LoadBalancerPort = &v
+	return s
+}
+
+type NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+}
+
+// String returns the string representation
+func (s NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput) SetResponseMetadata(v *ResponseMetadata) *NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput {
+	s.ResponseMetadata = v
 	return s
 }
 
@@ -33811,9 +38287,9 @@ func (s *PerformanceChartSetItem) SetResourceName(v string) *PerformanceChartSet
 type Period struct {
 	_ struct{} `type:"structure"`
 
-	EndDate *time.Time `locationName:"endDate" type:"timestamp" timestampFormat:""`
+	EndDate *string `locationName:"endDate" type:"string"`
 
-	StartDate *time.Time `locationName:"startDate" type:"timestamp" timestampFormat:""`
+	StartDate *string `locationName:"startDate" type:"string"`
 
 	ValidityTerm *int64 `locationName:"validityTerm" type:"integer"`
 }
@@ -33829,13 +38305,13 @@ func (s Period) GoString() string {
 }
 
 // SetEndDate sets the EndDate field's value.
-func (s *Period) SetEndDate(v time.Time) *Period {
+func (s *Period) SetEndDate(v string) *Period {
 	s.EndDate = &v
 	return s
 }
 
 // SetStartDate sets the StartDate field's value.
-func (s *Period) SetStartDate(v time.Time) *Period {
+func (s *Period) SetStartDate(v string) *Period {
 	s.StartDate = &v
 	return s
 }
@@ -34069,13 +38545,13 @@ type PrivateLan struct {
 
 	CidrBlock *string `locationName:"cidrBlock" type:"string"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
 	InstancesSet []*InstancesSetItem `locationName:"instancesSet" locationNameList:"item" type:"list"`
 
-	PrivateLanId *string `locationName:"privateLanId" type:"string"`
+	NetworkId *string `locationName:"networkId" type:"string"`
 
 	PrivateLanName *string `locationName:"privateLanName" type:"string"`
 
@@ -34129,7 +38605,7 @@ func (s *PrivateLan) SetCidrBlock(v string) *PrivateLan {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *PrivateLan) SetCreatedTime(v time.Time) *PrivateLan {
+func (s *PrivateLan) SetCreatedTime(v string) *PrivateLan {
 	s.CreatedTime = &v
 	return s
 }
@@ -34146,9 +38622,9 @@ func (s *PrivateLan) SetInstancesSet(v []*InstancesSetItem) *PrivateLan {
 	return s
 }
 
-// SetPrivateLanId sets the PrivateLanId field's value.
-func (s *PrivateLan) SetPrivateLanId(v string) *PrivateLan {
-	s.PrivateLanId = &v
+// SetNetworkId sets the NetworkId field's value.
+func (s *PrivateLan) SetNetworkId(v string) *PrivateLan {
+	s.NetworkId = &v
 	return s
 }
 
@@ -34231,7 +38707,7 @@ type PrivateLanSetItem struct {
 
 	CidrBlock *string `locationName:"cidrBlock" type:"string"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
@@ -34241,7 +38717,13 @@ type PrivateLanSetItem struct {
 
 	NetworkId *string `locationName:"networkId" type:"string"`
 
+	NetworkInterfaceSet []*NetworkInterfaceSetItem `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
+
+	NextMonthAccountingType *string `locationName:"nextMonthAccountingType" type:"string"`
+
 	PrivateLanName *string `locationName:"privateLanName" type:"string"`
+
+	RemoteAccessVpnGatewaySet []*RemoteAccessVpnGatewaySetItem `locationName:"remoteAccessVpnGatewaySet" locationNameList:"item" type:"list"`
 
 	RouterSet []*RouterSetItem `locationName:"routerSet" locationNameList:"item" type:"list"`
 
@@ -34283,7 +38765,7 @@ func (s *PrivateLanSetItem) SetCidrBlock(v string) *PrivateLanSetItem {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *PrivateLanSetItem) SetCreatedTime(v time.Time) *PrivateLanSetItem {
+func (s *PrivateLanSetItem) SetCreatedTime(v string) *PrivateLanSetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -34312,9 +38794,27 @@ func (s *PrivateLanSetItem) SetNetworkId(v string) *PrivateLanSetItem {
 	return s
 }
 
+// SetNetworkInterfaceSet sets the NetworkInterfaceSet field's value.
+func (s *PrivateLanSetItem) SetNetworkInterfaceSet(v []*NetworkInterfaceSetItem) *PrivateLanSetItem {
+	s.NetworkInterfaceSet = v
+	return s
+}
+
+// SetNextMonthAccountingType sets the NextMonthAccountingType field's value.
+func (s *PrivateLanSetItem) SetNextMonthAccountingType(v string) *PrivateLanSetItem {
+	s.NextMonthAccountingType = &v
+	return s
+}
+
 // SetPrivateLanName sets the PrivateLanName field's value.
 func (s *PrivateLanSetItem) SetPrivateLanName(v string) *PrivateLanSetItem {
 	s.PrivateLanName = &v
+	return s
+}
+
+// SetRemoteAccessVpnGatewaySet sets the RemoteAccessVpnGatewaySet field's value.
+func (s *PrivateLanSetItem) SetRemoteAccessVpnGatewaySet(v []*RemoteAccessVpnGatewaySetItem) *PrivateLanSetItem {
+	s.RemoteAccessVpnGatewaySet = v
 	return s
 }
 
@@ -34632,6 +39132,58 @@ func (s *RebootInstancesOutput) SetRequestId(v string) *RebootInstancesOutput {
 
 // SetReturn sets the Return field's value.
 func (s *RebootInstancesOutput) SetReturn(v bool) *RebootInstancesOutput {
+	s.Return = &v
+	return s
+}
+
+type RefreshInstanceBackupRuleInput struct {
+	_ struct{} `type:"structure"`
+
+	InstanceBackupRuleId *string `locationName:"InstanceBackupRuleId" type:"string"`
+}
+
+// String returns the string representation
+func (s RefreshInstanceBackupRuleInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RefreshInstanceBackupRuleInput) GoString() string {
+	return s.String()
+}
+
+// SetInstanceBackupRuleId sets the InstanceBackupRuleId field's value.
+func (s *RefreshInstanceBackupRuleInput) SetInstanceBackupRuleId(v string) *RefreshInstanceBackupRuleInput {
+	s.InstanceBackupRuleId = &v
+	return s
+}
+
+type RefreshInstanceBackupRuleOutput struct {
+	_ struct{} `type:"structure"`
+
+	RequestId *string `locationName:"requestId" type:"string"`
+
+	Return *bool `locationName:"return" type:"boolean"`
+}
+
+// String returns the string representation
+func (s RefreshInstanceBackupRuleOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RefreshInstanceBackupRuleOutput) GoString() string {
+	return s.String()
+}
+
+// SetRequestId sets the RequestId field's value.
+func (s *RefreshInstanceBackupRuleOutput) SetRequestId(v string) *RefreshInstanceBackupRuleOutput {
+	s.RequestId = &v
+	return s
+}
+
+// SetReturn sets the Return field's value.
+func (s *RefreshInstanceBackupRuleOutput) SetReturn(v bool) *RefreshInstanceBackupRuleOutput {
 	s.Return = &v
 	return s
 }
@@ -35270,6 +39822,174 @@ func (s *ReleaseAddressOutput) SetReturn(v bool) *ReleaseAddressOutput {
 	return s
 }
 
+type RemoteAccessVpnGatewayInfo struct {
+	_ struct{} `type:"structure"`
+
+	RemoteAccessVpnGatewayMeasuredRateSet []*RemoteAccessVpnGatewayMeasuredRateSetItem `locationName:"remoteAccessVpnGatewayMeasuredRateSet" locationNameList:"item" type:"list"`
+
+	RemoteAccessVpnGatewayMonthlyRateSet []*RemoteAccessVpnGatewayMonthlyRateSetItem `locationName:"remoteAccessVpnGatewayMonthlyRateSet" locationNameList:"item" type:"list"`
+}
+
+// String returns the string representation
+func (s RemoteAccessVpnGatewayInfo) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemoteAccessVpnGatewayInfo) GoString() string {
+	return s.String()
+}
+
+// SetRemoteAccessVpnGatewayMeasuredRateSet sets the RemoteAccessVpnGatewayMeasuredRateSet field's value.
+func (s *RemoteAccessVpnGatewayInfo) SetRemoteAccessVpnGatewayMeasuredRateSet(v []*RemoteAccessVpnGatewayMeasuredRateSetItem) *RemoteAccessVpnGatewayInfo {
+	s.RemoteAccessVpnGatewayMeasuredRateSet = v
+	return s
+}
+
+// SetRemoteAccessVpnGatewayMonthlyRateSet sets the RemoteAccessVpnGatewayMonthlyRateSet field's value.
+func (s *RemoteAccessVpnGatewayInfo) SetRemoteAccessVpnGatewayMonthlyRateSet(v []*RemoteAccessVpnGatewayMonthlyRateSetItem) *RemoteAccessVpnGatewayInfo {
+	s.RemoteAccessVpnGatewayMonthlyRateSet = v
+	return s
+}
+
+type RemoteAccessVpnGatewayMeasuredRateSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Type *string `locationName:"type" type:"string"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s RemoteAccessVpnGatewayMeasuredRateSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemoteAccessVpnGatewayMeasuredRateSetItem) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *RemoteAccessVpnGatewayMeasuredRateSetItem) SetCharge(v int64) *RemoteAccessVpnGatewayMeasuredRateSetItem {
+	s.Charge = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RemoteAccessVpnGatewayMeasuredRateSetItem) SetType(v string) *RemoteAccessVpnGatewayMeasuredRateSetItem {
+	s.Type = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *RemoteAccessVpnGatewayMeasuredRateSetItem) SetUnit(v string) *RemoteAccessVpnGatewayMeasuredRateSetItem {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RemoteAccessVpnGatewayMeasuredRateSetItem) SetValue(v int64) *RemoteAccessVpnGatewayMeasuredRateSetItem {
+	s.Value = &v
+	return s
+}
+
+type RemoteAccessVpnGatewayMonthlyRateSetItem struct {
+	_ struct{} `type:"structure"`
+
+	Charge *int64 `locationName:"charge" type:"integer"`
+
+	Type *string `locationName:"type" type:"string"`
+
+	Unit *string `locationName:"unit" type:"string"`
+
+	Value *int64 `locationName:"value" type:"integer"`
+}
+
+// String returns the string representation
+func (s RemoteAccessVpnGatewayMonthlyRateSetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemoteAccessVpnGatewayMonthlyRateSetItem) GoString() string {
+	return s.String()
+}
+
+// SetCharge sets the Charge field's value.
+func (s *RemoteAccessVpnGatewayMonthlyRateSetItem) SetCharge(v int64) *RemoteAccessVpnGatewayMonthlyRateSetItem {
+	s.Charge = &v
+	return s
+}
+
+// SetType sets the Type field's value.
+func (s *RemoteAccessVpnGatewayMonthlyRateSetItem) SetType(v string) *RemoteAccessVpnGatewayMonthlyRateSetItem {
+	s.Type = &v
+	return s
+}
+
+// SetUnit sets the Unit field's value.
+func (s *RemoteAccessVpnGatewayMonthlyRateSetItem) SetUnit(v string) *RemoteAccessVpnGatewayMonthlyRateSetItem {
+	s.Unit = &v
+	return s
+}
+
+// SetValue sets the Value field's value.
+func (s *RemoteAccessVpnGatewayMonthlyRateSetItem) SetValue(v int64) *RemoteAccessVpnGatewayMonthlyRateSetItem {
+	s.Value = &v
+	return s
+}
+
+type RemoteAccessVpnGatewaySetItem struct {
+	_ struct{} `type:"structure"`
+
+	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
+
+	IpAddress *string `locationName:"ipAddress" type:"string"`
+
+	RemoteAccessVpnGatewayId *string `locationName:"remoteAccessVpnGatewayId" type:"string"`
+
+	RemoteAccessVpnGatewayName *string `locationName:"remoteAccessVpnGatewayName" type:"string"`
+}
+
+// String returns the string representation
+func (s RemoteAccessVpnGatewaySetItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RemoteAccessVpnGatewaySetItem) GoString() string {
+	return s.String()
+}
+
+// SetDeviceIndex sets the DeviceIndex field's value.
+func (s *RemoteAccessVpnGatewaySetItem) SetDeviceIndex(v int64) *RemoteAccessVpnGatewaySetItem {
+	s.DeviceIndex = &v
+	return s
+}
+
+// SetIpAddress sets the IpAddress field's value.
+func (s *RemoteAccessVpnGatewaySetItem) SetIpAddress(v string) *RemoteAccessVpnGatewaySetItem {
+	s.IpAddress = &v
+	return s
+}
+
+// SetRemoteAccessVpnGatewayId sets the RemoteAccessVpnGatewayId field's value.
+func (s *RemoteAccessVpnGatewaySetItem) SetRemoteAccessVpnGatewayId(v string) *RemoteAccessVpnGatewaySetItem {
+	s.RemoteAccessVpnGatewayId = &v
+	return s
+}
+
+// SetRemoteAccessVpnGatewayName sets the RemoteAccessVpnGatewayName field's value.
+func (s *RemoteAccessVpnGatewaySetItem) SetRemoteAccessVpnGatewayName(v string) *RemoteAccessVpnGatewaySetItem {
+	s.RemoteAccessVpnGatewayName = &v
+	return s
+}
+
 type ReplaceRouteInput struct {
 	_ struct{} `type:"structure"`
 
@@ -35826,6 +40546,28 @@ func (s *RequestElasticLoadBalancersStruct) SetRequestProtocol(v []*string) *Req
 	return s
 }
 
+type RequestExpectationStruct struct {
+	_ struct{} `type:"structure"`
+
+	HttpCode *int64 `locationName:"HttpCode" type:"integer"`
+}
+
+// String returns the string representation
+func (s RequestExpectationStruct) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s RequestExpectationStruct) GoString() string {
+	return s.String()
+}
+
+// SetHttpCode sets the HttpCode field's value.
+func (s *RequestExpectationStruct) SetHttpCode(v int64) *RequestExpectationStruct {
+	s.HttpCode = &v
+	return s
+}
+
 type RequestFilterStruct struct {
 	_ struct{} `type:"structure"`
 
@@ -35883,6 +40625,10 @@ type RequestHealthCheckStruct struct {
 
 	Interval *int64 `locationName:"Interval" type:"integer"`
 
+	Path *string `locationName:"Path" type:"string"`
+
+	RequestExpectation []*RequestExpectationStruct `locationName:"Expectation" locationNameList:"member" type:"list"`
+
 	Target *string `locationName:"Target" type:"string"`
 
 	UnhealthyThreshold *int64 `locationName:"UnhealthyThreshold" type:"integer"`
@@ -35901,6 +40647,18 @@ func (s RequestHealthCheckStruct) GoString() string {
 // SetInterval sets the Interval field's value.
 func (s *RequestHealthCheckStruct) SetInterval(v int64) *RequestHealthCheckStruct {
 	s.Interval = &v
+	return s
+}
+
+// SetPath sets the Path field's value.
+func (s *RequestHealthCheckStruct) SetPath(v string) *RequestHealthCheckStruct {
+	s.Path = &v
+	return s
+}
+
+// SetRequestExpectation sets the RequestExpectation field's value.
+func (s *RequestHealthCheckStruct) SetRequestExpectation(v []*RequestExpectationStruct) *RequestHealthCheckStruct {
+	s.RequestExpectation = v
 	return s
 }
 
@@ -36161,7 +40919,7 @@ func (s *RequestListenInterfaceStruct) SetNetworkName(v string) *RequestListenIn
 type RequestListenerStruct struct {
 	_ struct{} `type:"structure"`
 
-	BalancingType *string `locationName:"BalancingType" type:"string"`
+	BalancingType *int64 `locationName:"BalancingType" type:"integer"`
 
 	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
 
@@ -36181,7 +40939,7 @@ func (s RequestListenerStruct) GoString() string {
 }
 
 // SetBalancingType sets the BalancingType field's value.
-func (s *RequestListenerStruct) SetBalancingType(v string) *RequestListenerStruct {
+func (s *RequestListenerStruct) SetBalancingType(v int64) *RequestListenerStruct {
 	s.BalancingType = &v
 	return s
 }
@@ -36245,7 +41003,7 @@ func (s *RequestListenerUpdateStruct) SetRequestListenerStruct(v *RequestListene
 type RequestListenersStruct struct {
 	_ struct{} `type:"structure"`
 
-	BalancingType *string `locationName:"BalancingType" type:"string"`
+	BalancingType *int64 `locationName:"BalancingType" type:"integer"`
 
 	Description *string `locationName:"Description" type:"string"`
 
@@ -36279,7 +41037,7 @@ func (s RequestListenersStruct) GoString() string {
 }
 
 // SetBalancingType sets the BalancingType field's value.
-func (s *RequestListenersStruct) SetBalancingType(v string) *RequestListenersStruct {
+func (s *RequestListenersStruct) SetBalancingType(v int64) *RequestListenersStruct {
 	s.BalancingType = &v
 	return s
 }
@@ -36582,48 +41340,22 @@ func (s *RequestNetworkInterfaceStruct) SetRequestSecurityGroupId(v []*string) *
 	return s
 }
 
-type RequestNiftyIPsecConfigurationStruct struct {
+type RequestNiftyIpsecConfigurationStruct struct {
 	_ struct{} `type:"structure"`
+
+	DiffieHellmanGroup *int64 `locationName:"DiffieHellmanGroup" type:"integer"`
+
+	EncapsulatingSecurityPayloadLifeTime *int64 `locationName:"EncapsulatingSecurityPayloadLifeTime" type:"integer"`
 
 	EncryptionAlgorithm *string `locationName:"EncryptionAlgorithm" type:"string"`
 
 	HashAlgorithm *string `locationName:"HashAlgorithm" type:"string"`
 
-	PreSharedKey *string `locationName:"PreSharedKey" type:"string"`
-}
-
-// String returns the string representation
-func (s RequestNiftyIPsecConfigurationStruct) String() string {
-	return awsutil.Prettify(s)
-}
-
-// GoString returns the string representation
-func (s RequestNiftyIPsecConfigurationStruct) GoString() string {
-	return s.String()
-}
-
-// SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
-func (s *RequestNiftyIPsecConfigurationStruct) SetEncryptionAlgorithm(v string) *RequestNiftyIPsecConfigurationStruct {
-	s.EncryptionAlgorithm = &v
-	return s
-}
-
-// SetHashAlgorithm sets the HashAlgorithm field's value.
-func (s *RequestNiftyIPsecConfigurationStruct) SetHashAlgorithm(v string) *RequestNiftyIPsecConfigurationStruct {
-	s.HashAlgorithm = &v
-	return s
-}
-
-// SetPreSharedKey sets the PreSharedKey field's value.
-func (s *RequestNiftyIPsecConfigurationStruct) SetPreSharedKey(v string) *RequestNiftyIPsecConfigurationStruct {
-	s.PreSharedKey = &v
-	return s
-}
-
-type RequestNiftyIpsecConfigurationStruct struct {
-	_ struct{} `type:"structure"`
-
 	InternetKeyExchange *string `locationName:"InternetKeyExchange" type:"string"`
+
+	InternetKeyExchangeLifeTime *int64 `locationName:"InternetKeyExchangeLifeTime" type:"integer"`
+
+	PreSharedKey *string `locationName:"PreSharedKey" type:"string"`
 }
 
 // String returns the string representation
@@ -36636,9 +41368,45 @@ func (s RequestNiftyIpsecConfigurationStruct) GoString() string {
 	return s.String()
 }
 
+// SetDiffieHellmanGroup sets the DiffieHellmanGroup field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetDiffieHellmanGroup(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.DiffieHellmanGroup = &v
+	return s
+}
+
+// SetEncapsulatingSecurityPayloadLifeTime sets the EncapsulatingSecurityPayloadLifeTime field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulatingSecurityPayloadLifeTime(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.EncapsulatingSecurityPayloadLifeTime = &v
+	return s
+}
+
+// SetEncryptionAlgorithm sets the EncryptionAlgorithm field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetEncryptionAlgorithm(v string) *RequestNiftyIpsecConfigurationStruct {
+	s.EncryptionAlgorithm = &v
+	return s
+}
+
+// SetHashAlgorithm sets the HashAlgorithm field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetHashAlgorithm(v string) *RequestNiftyIpsecConfigurationStruct {
+	s.HashAlgorithm = &v
+	return s
+}
+
 // SetInternetKeyExchange sets the InternetKeyExchange field's value.
 func (s *RequestNiftyIpsecConfigurationStruct) SetInternetKeyExchange(v string) *RequestNiftyIpsecConfigurationStruct {
 	s.InternetKeyExchange = &v
+	return s
+}
+
+// SetInternetKeyExchangeLifeTime sets the InternetKeyExchangeLifeTime field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetInternetKeyExchangeLifeTime(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.InternetKeyExchangeLifeTime = &v
+	return s
+}
+
+// SetPreSharedKey sets the PreSharedKey field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetPreSharedKey(v string) *RequestNiftyIpsecConfigurationStruct {
+	s.PreSharedKey = &v
 	return s
 }
 
@@ -37459,7 +42227,7 @@ type ReservationSetItem struct {
 
 	AlarmTargetsSet []*AlarmTargetsSetItem `locationName:"alarmTargetsSet" locationNameList:"item" type:"list"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
@@ -37523,7 +42291,7 @@ func (s *ReservationSetItem) SetAlarmTargetsSet(v []*AlarmTargetsSetItem) *Reser
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *ReservationSetItem) SetCreatedTime(v time.Time) *ReservationSetItem {
+func (s *ReservationSetItem) SetCreatedTime(v string) *ReservationSetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -37605,6 +42373,8 @@ type ResourceInfo struct {
 
 	ElasticLoadBalancerCount *int64 `locationName:"elasticLoadBalancerCount" type:"integer"`
 
+	InstanceBackupRuleCount *int64 `locationName:"instanceBackupRuleCount" type:"integer"`
+
 	InstanceItemSet []*InstanceItemSetItem `locationName:"instanceItemSet" locationNameList:"item" type:"list"`
 
 	LoadBalancerCount *int64 `locationName:"loadBalancerCount" type:"integer"`
@@ -37612,6 +42382,8 @@ type ResourceInfo struct {
 	MonitoringRuleCount *int64 `locationName:"monitoringRuleCount" type:"integer"`
 
 	NetworkFlowAmount *int64 `locationName:"networkFlowAmount" type:"integer"`
+
+	NetworkInterfaceItemSet []*NetworkInterfaceItemSetItem `locationName:"networkInterfaceItemSet" locationNameList:"item" type:"list"`
 
 	PremiumSupportSet []*PremiumSupportSetItem `locationName:"premiumSupportSet" locationNameList:"item" type:"list"`
 
@@ -37680,6 +42452,12 @@ func (s *ResourceInfo) SetElasticLoadBalancerCount(v int64) *ResourceInfo {
 	return s
 }
 
+// SetInstanceBackupRuleCount sets the InstanceBackupRuleCount field's value.
+func (s *ResourceInfo) SetInstanceBackupRuleCount(v int64) *ResourceInfo {
+	s.InstanceBackupRuleCount = &v
+	return s
+}
+
 // SetInstanceItemSet sets the InstanceItemSet field's value.
 func (s *ResourceInfo) SetInstanceItemSet(v []*InstanceItemSetItem) *ResourceInfo {
 	s.InstanceItemSet = v
@@ -37701,6 +42479,12 @@ func (s *ResourceInfo) SetMonitoringRuleCount(v int64) *ResourceInfo {
 // SetNetworkFlowAmount sets the NetworkFlowAmount field's value.
 func (s *ResourceInfo) SetNetworkFlowAmount(v int64) *ResourceInfo {
 	s.NetworkFlowAmount = &v
+	return s
+}
+
+// SetNetworkInterfaceItemSet sets the NetworkInterfaceItemSet field's value.
+func (s *ResourceInfo) SetNetworkInterfaceItemSet(v []*NetworkInterfaceItemSetItem) *ResourceInfo {
+	s.NetworkInterfaceItemSet = v
 	return s
 }
 
@@ -37971,6 +42755,8 @@ type RouteTableSetItem struct {
 
 	AssociationSet []*AssociationSetItem `locationName:"associationSet" locationNameList:"item" type:"list"`
 
+	ElasticLoadBalancerAssociationSet []*ElasticLoadBalancerAssociationSetItem `locationName:"elasticLoadBalancerAssociationSet" locationNameList:"item" type:"list"`
+
 	PropagatingVgwSet []*PropagatingVgwSetItem `locationName:"propagatingVgwSet" locationNameList:"item" type:"list"`
 
 	RouteSet []*RouteSetItem `locationName:"routeSet" locationNameList:"item" type:"list"`
@@ -37995,6 +42781,12 @@ func (s RouteTableSetItem) GoString() string {
 // SetAssociationSet sets the AssociationSet field's value.
 func (s *RouteTableSetItem) SetAssociationSet(v []*AssociationSetItem) *RouteTableSetItem {
 	s.AssociationSet = v
+	return s
+}
+
+// SetElasticLoadBalancerAssociationSet sets the ElasticLoadBalancerAssociationSet field's value.
+func (s *RouteTableSetItem) SetElasticLoadBalancerAssociationSet(v []*ElasticLoadBalancerAssociationSetItem) *RouteTableSetItem {
+	s.ElasticLoadBalancerAssociationSet = v
 	return s
 }
 
@@ -38037,7 +42829,7 @@ type Router struct {
 
 	BackupInformation *BackupInformation `locationName:"backupInformation" type:"structure"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
@@ -38095,7 +42887,7 @@ func (s *Router) SetBackupInformation(v *BackupInformation) *Router {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *Router) SetCreatedTime(v time.Time) *Router {
+func (s *Router) SetCreatedTime(v string) *Router {
 	s.CreatedTime = &v
 	return s
 }
@@ -38391,7 +43183,7 @@ type RouterSetItem struct {
 
 	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	Description *string `locationName:"description" type:"string"`
 
@@ -38447,7 +43239,7 @@ func (s *RouterSetItem) SetAvailabilityZone(v string) *RouterSetItem {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *RouterSetItem) SetCreatedTime(v time.Time) *RouterSetItem {
+func (s *RouterSetItem) SetCreatedTime(v string) *RouterSetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -38973,6 +43765,96 @@ func (s *RunningScaleOutOsSetItem) SetUnit(v string) *RunningScaleOutOsSetItem {
 // SetValue sets the Value field's value.
 func (s *RunningScaleOutOsSetItem) SetValue(v int64) *RunningScaleOutOsSetItem {
 	s.Value = &v
+	return s
+}
+
+type SSLPoliciesDescriptionsMemberItem struct {
+	_ struct{} `type:"structure"`
+
+	SSLPolicyId *int64 `locationName:"SSLPolicyId" type:"integer"`
+
+	SSLPolicyName *string `locationName:"SSLPolicyName" type:"string"`
+
+	SSLPolicySet []*SSLPolicySetMemberItem `locationName:"SSLPolicySet" locationNameList:"member" type:"list"`
+}
+
+// String returns the string representation
+func (s SSLPoliciesDescriptionsMemberItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SSLPoliciesDescriptionsMemberItem) GoString() string {
+	return s.String()
+}
+
+// SetSSLPolicyId sets the SSLPolicyId field's value.
+func (s *SSLPoliciesDescriptionsMemberItem) SetSSLPolicyId(v int64) *SSLPoliciesDescriptionsMemberItem {
+	s.SSLPolicyId = &v
+	return s
+}
+
+// SetSSLPolicyName sets the SSLPolicyName field's value.
+func (s *SSLPoliciesDescriptionsMemberItem) SetSSLPolicyName(v string) *SSLPoliciesDescriptionsMemberItem {
+	s.SSLPolicyName = &v
+	return s
+}
+
+// SetSSLPolicySet sets the SSLPolicySet field's value.
+func (s *SSLPoliciesDescriptionsMemberItem) SetSSLPolicySet(v []*SSLPolicySetMemberItem) *SSLPoliciesDescriptionsMemberItem {
+	s.SSLPolicySet = v
+	return s
+}
+
+type SSLPolicy struct {
+	_ struct{} `type:"structure"`
+
+	SSLPolicyId *string `locationName:"SSLPolicyId" type:"string"`
+
+	SSLPolicyName *string `locationName:"SSLPolicyName" type:"string"`
+}
+
+// String returns the string representation
+func (s SSLPolicy) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SSLPolicy) GoString() string {
+	return s.String()
+}
+
+// SetSSLPolicyId sets the SSLPolicyId field's value.
+func (s *SSLPolicy) SetSSLPolicyId(v string) *SSLPolicy {
+	s.SSLPolicyId = &v
+	return s
+}
+
+// SetSSLPolicyName sets the SSLPolicyName field's value.
+func (s *SSLPolicy) SetSSLPolicyName(v string) *SSLPolicy {
+	s.SSLPolicyName = &v
+	return s
+}
+
+type SSLPolicySetMemberItem struct {
+	_ struct{} `type:"structure"`
+
+	Cipher *string `locationName:"Cipher" type:"string"`
+}
+
+// String returns the string representation
+func (s SSLPolicySetMemberItem) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SSLPolicySetMemberItem) GoString() string {
+	return s.String()
+}
+
+// SetCipher sets the Cipher field's value.
+func (s *SSLPolicySetMemberItem) SetCipher(v string) *SSLPolicySetMemberItem {
+	s.Cipher = &v
 	return s
 }
 
@@ -39578,7 +44460,75 @@ func (s *SetFilterForLoadBalancerOutput) SetSetFilterForLoadBalancerResult(v *Se
 	return s
 }
 
-type Snapshot struct {
+type SetLoadBalancerListenerSSLCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	LoadBalancerPort *int64 `locationName:"LoadBalancerPort" type:"integer"`
+
+	SSLCertificateId *string `locationName:"SSLCertificateId" type:"string"`
+}
+
+// String returns the string representation
+func (s SetLoadBalancerListenerSSLCertificateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetLoadBalancerListenerSSLCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *SetLoadBalancerListenerSSLCertificateInput) SetInstancePort(v int64) *SetLoadBalancerListenerSSLCertificateInput {
+	s.InstancePort = &v
+	return s
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *SetLoadBalancerListenerSSLCertificateInput) SetLoadBalancerName(v string) *SetLoadBalancerListenerSSLCertificateInput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerPort sets the LoadBalancerPort field's value.
+func (s *SetLoadBalancerListenerSSLCertificateInput) SetLoadBalancerPort(v int64) *SetLoadBalancerListenerSSLCertificateInput {
+	s.LoadBalancerPort = &v
+	return s
+}
+
+// SetSSLCertificateId sets the SSLCertificateId field's value.
+func (s *SetLoadBalancerListenerSSLCertificateInput) SetSSLCertificateId(v string) *SetLoadBalancerListenerSSLCertificateInput {
+	s.SSLCertificateId = &v
+	return s
+}
+
+type SetLoadBalancerListenerSSLCertificateOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+}
+
+// String returns the string representation
+func (s SetLoadBalancerListenerSSLCertificateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s SetLoadBalancerListenerSSLCertificateOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *SetLoadBalancerListenerSSLCertificateOutput) SetResponseMetadata(v *ResponseMetadata) *SetLoadBalancerListenerSSLCertificateOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
+type SnapShot struct {
 	_ struct{} `type:"structure"`
 
 	Charge *int64 `locationName:"charge" type:"integer"`
@@ -39591,35 +44541,35 @@ type Snapshot struct {
 }
 
 // String returns the string representation
-func (s Snapshot) String() string {
+func (s SnapShot) String() string {
 	return awsutil.Prettify(s)
 }
 
 // GoString returns the string representation
-func (s Snapshot) GoString() string {
+func (s SnapShot) GoString() string {
 	return s.String()
 }
 
 // SetCharge sets the Charge field's value.
-func (s *Snapshot) SetCharge(v int64) *Snapshot {
+func (s *SnapShot) SetCharge(v int64) *SnapShot {
 	s.Charge = &v
 	return s
 }
 
 // SetType sets the Type field's value.
-func (s *Snapshot) SetType(v string) *Snapshot {
+func (s *SnapShot) SetType(v string) *SnapShot {
 	s.Type = &v
 	return s
 }
 
 // SetUnit sets the Unit field's value.
-func (s *Snapshot) SetUnit(v string) *Snapshot {
+func (s *SnapShot) SetUnit(v string) *SnapShot {
 	s.Unit = &v
 	return s
 }
 
 // SetValue sets the Value field's value.
-func (s *Snapshot) SetValue(v int64) *Snapshot {
+func (s *SnapShot) SetValue(v int64) *SnapShot {
 	s.Value = &v
 	return s
 }
@@ -39627,7 +44577,7 @@ func (s *Snapshot) SetValue(v int64) *Snapshot {
 type SnapshotInfo struct {
 	_ struct{} `type:"structure"`
 
-	Snapshot *Snapshot `locationName:"snapshot" type:"structure"`
+	SnapShot *SnapShot `locationName:"snapShot" type:"structure"`
 }
 
 // String returns the string representation
@@ -39640,9 +44590,9 @@ func (s SnapshotInfo) GoString() string {
 	return s.String()
 }
 
-// SetSnapshot sets the Snapshot field's value.
-func (s *SnapshotInfo) SetSnapshot(v *Snapshot) *SnapshotInfo {
-	s.Snapshot = v
+// SetSnapShot sets the SnapShot field's value.
+func (s *SnapshotInfo) SetSnapShot(v *SnapShot) *SnapshotInfo {
+	s.SnapShot = v
 	return s
 }
 
@@ -40490,6 +45440,66 @@ func (s *TriggerSetItem) SetUpperThreshold(v float64) *TriggerSetItem {
 	return s
 }
 
+type UnsetLoadBalancerListenerSSLCertificateInput struct {
+	_ struct{} `type:"structure"`
+
+	InstancePort *int64 `locationName:"InstancePort" type:"integer"`
+
+	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	LoadBalancerPort *int64 `locationName:"LoadBalancerPort" type:"integer"`
+}
+
+// String returns the string representation
+func (s UnsetLoadBalancerListenerSSLCertificateInput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnsetLoadBalancerListenerSSLCertificateInput) GoString() string {
+	return s.String()
+}
+
+// SetInstancePort sets the InstancePort field's value.
+func (s *UnsetLoadBalancerListenerSSLCertificateInput) SetInstancePort(v int64) *UnsetLoadBalancerListenerSSLCertificateInput {
+	s.InstancePort = &v
+	return s
+}
+
+// SetLoadBalancerName sets the LoadBalancerName field's value.
+func (s *UnsetLoadBalancerListenerSSLCertificateInput) SetLoadBalancerName(v string) *UnsetLoadBalancerListenerSSLCertificateInput {
+	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerPort sets the LoadBalancerPort field's value.
+func (s *UnsetLoadBalancerListenerSSLCertificateInput) SetLoadBalancerPort(v int64) *UnsetLoadBalancerListenerSSLCertificateInput {
+	s.LoadBalancerPort = &v
+	return s
+}
+
+type UnsetLoadBalancerListenerSSLCertificateOutput struct {
+	_ struct{} `type:"structure"`
+
+	ResponseMetadata *ResponseMetadata `locationName:"ResponseMetadata" type:"structure"`
+}
+
+// String returns the string representation
+func (s UnsetLoadBalancerListenerSSLCertificateOutput) String() string {
+	return awsutil.Prettify(s)
+}
+
+// GoString returns the string representation
+func (s UnsetLoadBalancerListenerSSLCertificateOutput) GoString() string {
+	return s.String()
+}
+
+// SetResponseMetadata sets the ResponseMetadata field's value.
+func (s *UnsetLoadBalancerListenerSSLCertificateOutput) SetResponseMetadata(v *ResponseMetadata) *UnsetLoadBalancerListenerSSLCertificateOutput {
+	s.ResponseMetadata = v
+	return s
+}
+
 type UpdateLoadBalancerInput struct {
 	_ struct{} `type:"structure"`
 
@@ -40498,6 +45508,8 @@ type UpdateLoadBalancerInput struct {
 	ListenerUpdate *RequestListenerUpdateStruct `locationName:"ListenerUpdate" type:"structure"`
 
 	LoadBalancerName *string `locationName:"LoadBalancerName" type:"string"`
+
+	LoadBalancerNameUpdate *string `locationName:"LoadBalancerNameUpdate" type:"string"`
 
 	NetworkVolumeUpdate *int64 `locationName:"NetworkVolumeUpdate" type:"integer"`
 }
@@ -40527,6 +45539,12 @@ func (s *UpdateLoadBalancerInput) SetListenerUpdate(v *RequestListenerUpdateStru
 // SetLoadBalancerName sets the LoadBalancerName field's value.
 func (s *UpdateLoadBalancerInput) SetLoadBalancerName(v string) *UpdateLoadBalancerInput {
 	s.LoadBalancerName = &v
+	return s
+}
+
+// SetLoadBalancerNameUpdate sets the LoadBalancerNameUpdate field's value.
+func (s *UpdateLoadBalancerInput) SetLoadBalancerNameUpdate(v string) *UpdateLoadBalancerInput {
+	s.LoadBalancerNameUpdate = &v
 	return s
 }
 
@@ -40765,9 +45783,9 @@ func (s *UpdateSecurityGroupOutput) SetReturn(v bool) *UpdateSecurityGroupOutput
 type UploadSslCertificateInput struct {
 	_ struct{} `type:"structure"`
 
-	CA *string `locationName:"CA" type:"string"`
-
 	Certificate *string `locationName:"Certificate" type:"string"`
+
+	CertificateAuthority *string `locationName:"Ca" type:"string"`
 
 	Key *string `locationName:"Key" type:"string"`
 }
@@ -40782,15 +45800,15 @@ func (s UploadSslCertificateInput) GoString() string {
 	return s.String()
 }
 
-// SetCA sets the CA field's value.
-func (s *UploadSslCertificateInput) SetCA(v string) *UploadSslCertificateInput {
-	s.CA = &v
-	return s
-}
-
 // SetCertificate sets the Certificate field's value.
 func (s *UploadSslCertificateInput) SetCertificate(v string) *UploadSslCertificateInput {
 	s.Certificate = &v
+	return s
+}
+
+// SetCertificateAuthority sets the CertificateAuthority field's value.
+func (s *UploadSslCertificateInput) SetCertificateAuthority(v string) *UploadSslCertificateInput {
+	s.CertificateAuthority = &v
 	return s
 }
 
@@ -40911,7 +45929,7 @@ type UserActivitiesSetItem struct {
 
 	CategoryName *string `locationName:"categoryName" type:"string"`
 
-	DateTime *time.Time `locationName:"dateTime" type:"timestamp" timestampFormat:""`
+	DateTime *string `locationName:"dateTime" type:"string"`
 
 	IpAddress *string `locationName:"ipAddress" type:"string"`
 
@@ -40939,7 +45957,7 @@ func (s *UserActivitiesSetItem) SetCategoryName(v string) *UserActivitiesSetItem
 }
 
 // SetDateTime sets the DateTime field's value.
-func (s *UserActivitiesSetItem) SetDateTime(v time.Time) *UserActivitiesSetItem {
+func (s *UserActivitiesSetItem) SetDateTime(v string) *UserActivitiesSetItem {
 	s.DateTime = &v
 	return s
 }
@@ -41069,7 +46087,7 @@ type VgwTelemetrySetItem struct {
 
 	AcceptedRouteCount *int64 `locationName:"acceptedRouteCount" type:"integer"`
 
-	LastStatusChange *time.Time `locationName:"lastStatusChange" type:"timestamp" timestampFormat:""`
+	LastStatusChange *string `locationName:"lastStatusChange" type:"string"`
 
 	OutsideIpAddress *string `locationName:"outsideIpAddress" type:"string"`
 
@@ -41095,7 +46113,7 @@ func (s *VgwTelemetrySetItem) SetAcceptedRouteCount(v int64) *VgwTelemetrySetIte
 }
 
 // SetLastStatusChange sets the LastStatusChange field's value.
-func (s *VgwTelemetrySetItem) SetLastStatusChange(v time.Time) *VgwTelemetrySetItem {
+func (s *VgwTelemetrySetItem) SetLastStatusChange(v string) *VgwTelemetrySetItem {
 	s.LastStatusChange = &v
 	return s
 }
@@ -41343,7 +46361,7 @@ type VolumeSetItem struct {
 
 	Charge *int64 `locationName:"charge" type:"integer"`
 
-	CreateTime *time.Time `locationName:"createTime" type:"timestamp" timestampFormat:""`
+	CreateTime *string `locationName:"createTime" type:"string"`
 
 	DiskType *string `locationName:"diskType" type:"string"`
 
@@ -41399,7 +46417,7 @@ func (s *VolumeSetItem) SetCharge(v int64) *VolumeSetItem {
 }
 
 // SetCreateTime sets the CreateTime field's value.
-func (s *VolumeSetItem) SetCreateTime(v time.Time) *VolumeSetItem {
+func (s *VolumeSetItem) SetCreateTime(v string) *VolumeSetItem {
 	s.CreateTime = &v
 	return s
 }
@@ -41577,7 +46595,7 @@ func (s *VpnConnectMeasuredRateSetItem) SetValue(v int64) *VpnConnectMeasuredRat
 type VpnConnection struct {
 	_ struct{} `type:"structure"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	CustomerGatewayConfiguration *string `locationName:"customerGatewayConfiguration" type:"string"`
 
@@ -41621,7 +46639,7 @@ func (s VpnConnection) GoString() string {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *VpnConnection) SetCreatedTime(v time.Time) *VpnConnection {
+func (s *VpnConnection) SetCreatedTime(v string) *VpnConnection {
 	s.CreatedTime = &v
 	return s
 }
@@ -41719,7 +46737,7 @@ func (s *VpnConnection) SetVpnGatewayId(v string) *VpnConnection {
 type VpnConnectionSetItem struct {
 	_ struct{} `type:"structure"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	CustomerGatewayConfiguration *string `locationName:"customerGatewayConfiguration" type:"string"`
 
@@ -41763,7 +46781,7 @@ func (s VpnConnectionSetItem) GoString() string {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *VpnConnectionSetItem) SetCreatedTime(v time.Time) *VpnConnectionSetItem {
+func (s *VpnConnectionSetItem) SetCreatedTime(v string) *VpnConnectionSetItem {
 	s.CreatedTime = &v
 	return s
 }
@@ -41867,7 +46885,7 @@ type VpnGateway struct {
 
 	AvailabilityZone *string `locationName:"availabilityZone" type:"string"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	GroupSet []*GroupSetItem `locationName:"groupSet" locationNameList:"item" type:"list"`
 
@@ -41921,7 +46939,7 @@ func (s *VpnGateway) SetAvailabilityZone(v string) *VpnGateway {
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *VpnGateway) SetCreatedTime(v time.Time) *VpnGateway {
+func (s *VpnGateway) SetCreatedTime(v string) *VpnGateway {
 	s.CreatedTime = &v
 	return s
 }
@@ -42209,7 +47227,7 @@ type VpnGatewaySetItem struct {
 
 	BackupInformation *BackupInformation `locationName:"backupInformation" type:"structure"`
 
-	CreatedTime *time.Time `locationName:"createdTime" type:"timestamp" timestampFormat:""`
+	CreatedTime *string `locationName:"createdTime" type:"string"`
 
 	DeviceIndex *int64 `locationName:"deviceIndex" type:"integer"`
 
@@ -42277,7 +47295,7 @@ func (s *VpnGatewaySetItem) SetBackupInformation(v *BackupInformation) *VpnGatew
 }
 
 // SetCreatedTime sets the CreatedTime field's value.
-func (s *VpnGatewaySetItem) SetCreatedTime(v time.Time) *VpnGatewaySetItem {
+func (s *VpnGatewaySetItem) SetCreatedTime(v string) *VpnGatewaySetItem {
 	s.CreatedTime = &v
 	return s
 }

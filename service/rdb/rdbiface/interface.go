@@ -116,6 +116,10 @@ type RdbAPI interface {
 	DeleteEventSubscriptionWithContext(nifcloud.Context, *rdb.DeleteEventSubscriptionInput, ...request.Option) (*rdb.DeleteEventSubscriptionOutput, error)
 	DeleteEventSubscriptionRequest(*rdb.DeleteEventSubscriptionInput) (*request.Request, *rdb.DeleteEventSubscriptionOutput)
 
+	DescribeCertificates(*rdb.DescribeCertificatesInput) (*rdb.DescribeCertificatesOutput, error)
+	DescribeCertificatesWithContext(nifcloud.Context, *rdb.DescribeCertificatesInput, ...request.Option) (*rdb.DescribeCertificatesOutput, error)
+	DescribeCertificatesRequest(*rdb.DescribeCertificatesInput) (*request.Request, *rdb.DescribeCertificatesOutput)
+
 	DescribeDBEngineVersions(*rdb.DescribeDBEngineVersionsInput) (*rdb.DescribeDBEngineVersionsOutput, error)
 	DescribeDBEngineVersionsWithContext(nifcloud.Context, *rdb.DescribeDBEngineVersionsInput, ...request.Option) (*rdb.DescribeDBEngineVersionsOutput, error)
 	DescribeDBEngineVersionsRequest(*rdb.DescribeDBEngineVersionsInput) (*request.Request, *rdb.DescribeDBEngineVersionsOutput)
@@ -200,6 +204,10 @@ type RdbAPI interface {
 	ResetDBParameterGroupWithContext(nifcloud.Context, *rdb.ResetDBParameterGroupInput, ...request.Option) (*rdb.ResetDBParameterGroupOutput, error)
 	ResetDBParameterGroupRequest(*rdb.ResetDBParameterGroupInput) (*request.Request, *rdb.ResetDBParameterGroupOutput)
 
+	ResetExternalMaster(*rdb.ResetExternalMasterInput) (*rdb.ResetExternalMasterOutput, error)
+	ResetExternalMasterWithContext(nifcloud.Context, *rdb.ResetExternalMasterInput, ...request.Option) (*rdb.ResetExternalMasterOutput, error)
+	ResetExternalMasterRequest(*rdb.ResetExternalMasterInput) (*request.Request, *rdb.ResetExternalMasterOutput)
+
 	RestoreDBInstanceFromDBSnapshot(*rdb.RestoreDBInstanceFromDBSnapshotInput) (*rdb.RestoreDBInstanceFromDBSnapshotOutput, error)
 	RestoreDBInstanceFromDBSnapshotWithContext(nifcloud.Context, *rdb.RestoreDBInstanceFromDBSnapshotInput, ...request.Option) (*rdb.RestoreDBInstanceFromDBSnapshotOutput, error)
 	RestoreDBInstanceFromDBSnapshotRequest(*rdb.RestoreDBInstanceFromDBSnapshotInput) (*request.Request, *rdb.RestoreDBInstanceFromDBSnapshotOutput)
@@ -211,6 +219,18 @@ type RdbAPI interface {
 	RevokeDBSecurityGroupIngress(*rdb.RevokeDBSecurityGroupIngressInput) (*rdb.RevokeDBSecurityGroupIngressOutput, error)
 	RevokeDBSecurityGroupIngressWithContext(nifcloud.Context, *rdb.RevokeDBSecurityGroupIngressInput, ...request.Option) (*rdb.RevokeDBSecurityGroupIngressOutput, error)
 	RevokeDBSecurityGroupIngressRequest(*rdb.RevokeDBSecurityGroupIngressInput) (*request.Request, *rdb.RevokeDBSecurityGroupIngressOutput)
+
+	SetExternalMaster(*rdb.SetExternalMasterInput) (*rdb.SetExternalMasterOutput, error)
+	SetExternalMasterWithContext(nifcloud.Context, *rdb.SetExternalMasterInput, ...request.Option) (*rdb.SetExternalMasterOutput, error)
+	SetExternalMasterRequest(*rdb.SetExternalMasterInput) (*request.Request, *rdb.SetExternalMasterOutput)
+
+	StartReplication(*rdb.StartReplicationInput) (*rdb.StartReplicationOutput, error)
+	StartReplicationWithContext(nifcloud.Context, *rdb.StartReplicationInput, ...request.Option) (*rdb.StartReplicationOutput, error)
+	StartReplicationRequest(*rdb.StartReplicationInput) (*request.Request, *rdb.StartReplicationOutput)
+
+	StopReplication(*rdb.StopReplicationInput) (*rdb.StopReplicationOutput, error)
+	StopReplicationWithContext(nifcloud.Context, *rdb.StopReplicationInput, ...request.Option) (*rdb.StopReplicationOutput, error)
+	StopReplicationRequest(*rdb.StopReplicationInput) (*request.Request, *rdb.StopReplicationOutput)
 }
 
 var _ RdbAPI = (*rdb.Rdb)(nil)

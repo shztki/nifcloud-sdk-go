@@ -76,6 +76,10 @@ type ComputingAPI interface {
 	AssociateUsersWithContext(nifcloud.Context, *computing.AssociateUsersInput, ...request.Option) (*computing.AssociateUsersOutput, error)
 	AssociateUsersRequest(*computing.AssociateUsersInput) (*request.Request, *computing.AssociateUsersOutput)
 
+	AttachNetworkInterface(*computing.AttachNetworkInterfaceInput) (*computing.AttachNetworkInterfaceOutput, error)
+	AttachNetworkInterfaceWithContext(nifcloud.Context, *computing.AttachNetworkInterfaceInput, ...request.Option) (*computing.AttachNetworkInterfaceOutput, error)
+	AttachNetworkInterfaceRequest(*computing.AttachNetworkInterfaceInput) (*request.Request, *computing.AttachNetworkInterfaceOutput)
+
 	AttachVolume(*computing.AttachVolumeInput) (*computing.AttachVolumeOutput, error)
 	AttachVolumeWithContext(nifcloud.Context, *computing.AttachVolumeInput, ...request.Option) (*computing.AttachVolumeOutput, error)
 	AttachVolumeRequest(*computing.AttachVolumeInput) (*request.Request, *computing.AttachVolumeOutput)
@@ -100,9 +104,17 @@ type ComputingAPI interface {
 	ConfigureHealthCheckWithContext(nifcloud.Context, *computing.ConfigureHealthCheckInput, ...request.Option) (*computing.ConfigureHealthCheckOutput, error)
 	ConfigureHealthCheckRequest(*computing.ConfigureHealthCheckInput) (*request.Request, *computing.ConfigureHealthCheckOutput)
 
+	CopyFromBackupInstance(*computing.CopyFromBackupInstanceInput) (*computing.CopyFromBackupInstanceOutput, error)
+	CopyFromBackupInstanceWithContext(nifcloud.Context, *computing.CopyFromBackupInstanceInput, ...request.Option) (*computing.CopyFromBackupInstanceOutput, error)
+	CopyFromBackupInstanceRequest(*computing.CopyFromBackupInstanceInput) (*request.Request, *computing.CopyFromBackupInstanceOutput)
+
 	CopyInstances(*computing.CopyInstancesInput) (*computing.CopyInstancesOutput, error)
 	CopyInstancesWithContext(nifcloud.Context, *computing.CopyInstancesInput, ...request.Option) (*computing.CopyInstancesOutput, error)
 	CopyInstancesRequest(*computing.CopyInstancesInput) (*request.Request, *computing.CopyInstancesOutput)
+
+	CreateBackupInstances(*computing.CreateBackupInstancesInput) (*computing.CreateBackupInstancesOutput, error)
+	CreateBackupInstancesWithContext(nifcloud.Context, *computing.CreateBackupInstancesInput, ...request.Option) (*computing.CreateBackupInstancesOutput, error)
+	CreateBackupInstancesRequest(*computing.CreateBackupInstancesInput) (*request.Request, *computing.CreateBackupInstancesOutput)
 
 	CreateCustomerGateway(*computing.CreateCustomerGatewayInput) (*computing.CreateCustomerGatewayOutput, error)
 	CreateCustomerGatewayWithContext(nifcloud.Context, *computing.CreateCustomerGatewayInput, ...request.Option) (*computing.CreateCustomerGatewayOutput, error)
@@ -116,6 +128,10 @@ type ComputingAPI interface {
 	CreateImageWithContext(nifcloud.Context, *computing.CreateImageInput, ...request.Option) (*computing.CreateImageOutput, error)
 	CreateImageRequest(*computing.CreateImageInput) (*request.Request, *computing.CreateImageOutput)
 
+	CreateInstanceBackupRule(*computing.CreateInstanceBackupRuleInput) (*computing.CreateInstanceBackupRuleOutput, error)
+	CreateInstanceBackupRuleWithContext(nifcloud.Context, *computing.CreateInstanceBackupRuleInput, ...request.Option) (*computing.CreateInstanceBackupRuleOutput, error)
+	CreateInstanceBackupRuleRequest(*computing.CreateInstanceBackupRuleInput) (*request.Request, *computing.CreateInstanceBackupRuleOutput)
+
 	CreateKeyPair(*computing.CreateKeyPairInput) (*computing.CreateKeyPairOutput, error)
 	CreateKeyPairWithContext(nifcloud.Context, *computing.CreateKeyPairInput, ...request.Option) (*computing.CreateKeyPairOutput, error)
 	CreateKeyPairRequest(*computing.CreateKeyPairInput) (*request.Request, *computing.CreateKeyPairOutput)
@@ -123,6 +139,10 @@ type ComputingAPI interface {
 	CreateLoadBalancer(*computing.CreateLoadBalancerInput) (*computing.CreateLoadBalancerOutput, error)
 	CreateLoadBalancerWithContext(nifcloud.Context, *computing.CreateLoadBalancerInput, ...request.Option) (*computing.CreateLoadBalancerOutput, error)
 	CreateLoadBalancerRequest(*computing.CreateLoadBalancerInput) (*request.Request, *computing.CreateLoadBalancerOutput)
+
+	CreateNetworkInterface(*computing.CreateNetworkInterfaceInput) (*computing.CreateNetworkInterfaceOutput, error)
+	CreateNetworkInterfaceWithContext(nifcloud.Context, *computing.CreateNetworkInterfaceInput, ...request.Option) (*computing.CreateNetworkInterfaceOutput, error)
+	CreateNetworkInterfaceRequest(*computing.CreateNetworkInterfaceInput) (*request.Request, *computing.CreateNetworkInterfaceOutput)
 
 	CreateRoute(*computing.CreateRouteInput) (*computing.CreateRouteOutput, error)
 	CreateRouteWithContext(nifcloud.Context, *computing.CreateRouteInput, ...request.Option) (*computing.CreateRouteOutput, error)
@@ -164,6 +184,10 @@ type ComputingAPI interface {
 	DeleteImageWithContext(nifcloud.Context, *computing.DeleteImageInput, ...request.Option) (*computing.DeleteImageOutput, error)
 	DeleteImageRequest(*computing.DeleteImageInput) (*request.Request, *computing.DeleteImageOutput)
 
+	DeleteInstanceBackupRule(*computing.DeleteInstanceBackupRuleInput) (*computing.DeleteInstanceBackupRuleOutput, error)
+	DeleteInstanceBackupRuleWithContext(nifcloud.Context, *computing.DeleteInstanceBackupRuleInput, ...request.Option) (*computing.DeleteInstanceBackupRuleOutput, error)
+	DeleteInstanceBackupRuleRequest(*computing.DeleteInstanceBackupRuleInput) (*request.Request, *computing.DeleteInstanceBackupRuleOutput)
+
 	DeleteKeyPair(*computing.DeleteKeyPairInput) (*computing.DeleteKeyPairOutput, error)
 	DeleteKeyPairWithContext(nifcloud.Context, *computing.DeleteKeyPairInput, ...request.Option) (*computing.DeleteKeyPairOutput, error)
 	DeleteKeyPairRequest(*computing.DeleteKeyPairInput) (*request.Request, *computing.DeleteKeyPairOutput)
@@ -171,6 +195,10 @@ type ComputingAPI interface {
 	DeleteLoadBalancer(*computing.DeleteLoadBalancerInput) (*computing.DeleteLoadBalancerOutput, error)
 	DeleteLoadBalancerWithContext(nifcloud.Context, *computing.DeleteLoadBalancerInput, ...request.Option) (*computing.DeleteLoadBalancerOutput, error)
 	DeleteLoadBalancerRequest(*computing.DeleteLoadBalancerInput) (*request.Request, *computing.DeleteLoadBalancerOutput)
+
+	DeleteNetworkInterface(*computing.DeleteNetworkInterfaceInput) (*computing.DeleteNetworkInterfaceOutput, error)
+	DeleteNetworkInterfaceWithContext(nifcloud.Context, *computing.DeleteNetworkInterfaceInput, ...request.Option) (*computing.DeleteNetworkInterfaceOutput, error)
+	DeleteNetworkInterfaceRequest(*computing.DeleteNetworkInterfaceInput) (*request.Request, *computing.DeleteNetworkInterfaceOutput)
 
 	DeleteRoute(*computing.DeleteRouteInput) (*computing.DeleteRouteOutput, error)
 	DeleteRouteWithContext(nifcloud.Context, *computing.DeleteRouteInput, ...request.Option) (*computing.DeleteRouteOutput, error)
@@ -236,6 +264,14 @@ type ComputingAPI interface {
 	DescribeInstanceAttributeWithContext(nifcloud.Context, *computing.DescribeInstanceAttributeInput, ...request.Option) (*computing.DescribeInstanceAttributeOutput, error)
 	DescribeInstanceAttributeRequest(*computing.DescribeInstanceAttributeInput) (*request.Request, *computing.DescribeInstanceAttributeOutput)
 
+	DescribeInstanceBackupRuleActivities(*computing.DescribeInstanceBackupRuleActivitiesInput) (*computing.DescribeInstanceBackupRuleActivitiesOutput, error)
+	DescribeInstanceBackupRuleActivitiesWithContext(nifcloud.Context, *computing.DescribeInstanceBackupRuleActivitiesInput, ...request.Option) (*computing.DescribeInstanceBackupRuleActivitiesOutput, error)
+	DescribeInstanceBackupRuleActivitiesRequest(*computing.DescribeInstanceBackupRuleActivitiesInput) (*request.Request, *computing.DescribeInstanceBackupRuleActivitiesOutput)
+
+	DescribeInstanceBackupRules(*computing.DescribeInstanceBackupRulesInput) (*computing.DescribeInstanceBackupRulesOutput, error)
+	DescribeInstanceBackupRulesWithContext(nifcloud.Context, *computing.DescribeInstanceBackupRulesInput, ...request.Option) (*computing.DescribeInstanceBackupRulesOutput, error)
+	DescribeInstanceBackupRulesRequest(*computing.DescribeInstanceBackupRulesInput) (*request.Request, *computing.DescribeInstanceBackupRulesOutput)
+
 	DescribeInstanceHealth(*computing.DescribeInstanceHealthInput) (*computing.DescribeInstanceHealthOutput, error)
 	DescribeInstanceHealthWithContext(nifcloud.Context, *computing.DescribeInstanceHealthInput, ...request.Option) (*computing.DescribeInstanceHealthOutput, error)
 	DescribeInstanceHealthRequest(*computing.DescribeInstanceHealthInput) (*request.Request, *computing.DescribeInstanceHealthOutput)
@@ -251,6 +287,10 @@ type ComputingAPI interface {
 	DescribeLoadBalancers(*computing.DescribeLoadBalancersInput) (*computing.DescribeLoadBalancersOutput, error)
 	DescribeLoadBalancersWithContext(nifcloud.Context, *computing.DescribeLoadBalancersInput, ...request.Option) (*computing.DescribeLoadBalancersOutput, error)
 	DescribeLoadBalancersRequest(*computing.DescribeLoadBalancersInput) (*request.Request, *computing.DescribeLoadBalancersOutput)
+
+	DescribeNetworkInterfaces(*computing.DescribeNetworkInterfacesInput) (*computing.DescribeNetworkInterfacesOutput, error)
+	DescribeNetworkInterfacesWithContext(nifcloud.Context, *computing.DescribeNetworkInterfacesInput, ...request.Option) (*computing.DescribeNetworkInterfacesOutput, error)
+	DescribeNetworkInterfacesRequest(*computing.DescribeNetworkInterfacesInput) (*request.Request, *computing.DescribeNetworkInterfacesOutput)
 
 	DescribeRegions(*computing.DescribeRegionsInput) (*computing.DescribeRegionsOutput, error)
 	DescribeRegionsWithContext(nifcloud.Context, *computing.DescribeRegionsInput, ...request.Option) (*computing.DescribeRegionsOutput, error)
@@ -312,6 +352,10 @@ type ComputingAPI interface {
 	DescribeVpnGatewaysWithContext(nifcloud.Context, *computing.DescribeVpnGatewaysInput, ...request.Option) (*computing.DescribeVpnGatewaysOutput, error)
 	DescribeVpnGatewaysRequest(*computing.DescribeVpnGatewaysInput) (*request.Request, *computing.DescribeVpnGatewaysOutput)
 
+	DetachNetworkInterface(*computing.DetachNetworkInterfaceInput) (*computing.DetachNetworkInterfaceOutput, error)
+	DetachNetworkInterfaceWithContext(nifcloud.Context, *computing.DetachNetworkInterfaceInput, ...request.Option) (*computing.DetachNetworkInterfaceOutput, error)
+	DetachNetworkInterfaceRequest(*computing.DetachNetworkInterfaceInput) (*request.Request, *computing.DetachNetworkInterfaceOutput)
+
 	DetachVolume(*computing.DetachVolumeInput) (*computing.DetachVolumeOutput, error)
 	DetachVolumeWithContext(nifcloud.Context, *computing.DetachVolumeInput, ...request.Option) (*computing.DetachVolumeOutput, error)
 	DetachVolumeRequest(*computing.DetachVolumeInput) (*request.Request, *computing.DetachVolumeOutput)
@@ -348,6 +392,14 @@ type ComputingAPI interface {
 	ModifyInstanceAttributeWithContext(nifcloud.Context, *computing.ModifyInstanceAttributeInput, ...request.Option) (*computing.ModifyInstanceAttributeOutput, error)
 	ModifyInstanceAttributeRequest(*computing.ModifyInstanceAttributeInput) (*request.Request, *computing.ModifyInstanceAttributeOutput)
 
+	ModifyInstanceBackupRuleAttribute(*computing.ModifyInstanceBackupRuleAttributeInput) (*computing.ModifyInstanceBackupRuleAttributeOutput, error)
+	ModifyInstanceBackupRuleAttributeWithContext(nifcloud.Context, *computing.ModifyInstanceBackupRuleAttributeInput, ...request.Option) (*computing.ModifyInstanceBackupRuleAttributeOutput, error)
+	ModifyInstanceBackupRuleAttributeRequest(*computing.ModifyInstanceBackupRuleAttributeInput) (*request.Request, *computing.ModifyInstanceBackupRuleAttributeOutput)
+
+	ModifyNetworkInterfaceAttribute(*computing.ModifyNetworkInterfaceAttributeInput) (*computing.ModifyNetworkInterfaceAttributeOutput, error)
+	ModifyNetworkInterfaceAttributeWithContext(nifcloud.Context, *computing.ModifyNetworkInterfaceAttributeInput, ...request.Option) (*computing.ModifyNetworkInterfaceAttributeOutput, error)
+	ModifyNetworkInterfaceAttributeRequest(*computing.ModifyNetworkInterfaceAttributeInput) (*request.Request, *computing.ModifyNetworkInterfaceAttributeOutput)
+
 	ModifySslCertificateAttribute(*computing.ModifySslCertificateAttributeInput) (*computing.ModifySslCertificateAttributeOutput, error)
 	ModifySslCertificateAttributeWithContext(nifcloud.Context, *computing.ModifySslCertificateAttributeInput, ...request.Option) (*computing.ModifySslCertificateAttributeOutput, error)
 	ModifySslCertificateAttributeRequest(*computing.ModifySslCertificateAttributeInput) (*request.Request, *computing.ModifySslCertificateAttributeOutput)
@@ -363,6 +415,10 @@ type ComputingAPI interface {
 	NiftyAssociateNatTable(*computing.NiftyAssociateNatTableInput) (*computing.NiftyAssociateNatTableOutput, error)
 	NiftyAssociateNatTableWithContext(nifcloud.Context, *computing.NiftyAssociateNatTableInput, ...request.Option) (*computing.NiftyAssociateNatTableOutput, error)
 	NiftyAssociateNatTableRequest(*computing.NiftyAssociateNatTableInput) (*request.Request, *computing.NiftyAssociateNatTableOutput)
+
+	NiftyAssociateRouteTableWithElasticLoadBalancer(*computing.NiftyAssociateRouteTableWithElasticLoadBalancerInput) (*computing.NiftyAssociateRouteTableWithElasticLoadBalancerOutput, error)
+	NiftyAssociateRouteTableWithElasticLoadBalancerWithContext(nifcloud.Context, *computing.NiftyAssociateRouteTableWithElasticLoadBalancerInput, ...request.Option) (*computing.NiftyAssociateRouteTableWithElasticLoadBalancerOutput, error)
+	NiftyAssociateRouteTableWithElasticLoadBalancerRequest(*computing.NiftyAssociateRouteTableWithElasticLoadBalancerInput) (*request.Request, *computing.NiftyAssociateRouteTableWithElasticLoadBalancerOutput)
 
 	NiftyAssociateRouteTableWithVpnGateway(*computing.NiftyAssociateRouteTableWithVpnGatewayInput) (*computing.NiftyAssociateRouteTableWithVpnGatewayOutput, error)
 	NiftyAssociateRouteTableWithVpnGatewayWithContext(nifcloud.Context, *computing.NiftyAssociateRouteTableWithVpnGatewayInput, ...request.Option) (*computing.NiftyAssociateRouteTableWithVpnGatewayOutput, error)
@@ -536,6 +592,10 @@ type ComputingAPI interface {
 	NiftyDescribeInstanceSnapshotsWithContext(nifcloud.Context, *computing.NiftyDescribeInstanceSnapshotsInput, ...request.Option) (*computing.NiftyDescribeInstanceSnapshotsOutput, error)
 	NiftyDescribeInstanceSnapshotsRequest(*computing.NiftyDescribeInstanceSnapshotsInput) (*request.Request, *computing.NiftyDescribeInstanceSnapshotsOutput)
 
+	NiftyDescribeLoadBalancerSSLPolicies(*computing.NiftyDescribeLoadBalancerSSLPoliciesInput) (*computing.NiftyDescribeLoadBalancerSSLPoliciesOutput, error)
+	NiftyDescribeLoadBalancerSSLPoliciesWithContext(nifcloud.Context, *computing.NiftyDescribeLoadBalancerSSLPoliciesInput, ...request.Option) (*computing.NiftyDescribeLoadBalancerSSLPoliciesOutput, error)
+	NiftyDescribeLoadBalancerSSLPoliciesRequest(*computing.NiftyDescribeLoadBalancerSSLPoliciesInput) (*request.Request, *computing.NiftyDescribeLoadBalancerSSLPoliciesOutput)
+
 	NiftyDescribeNatTables(*computing.NiftyDescribeNatTablesInput) (*computing.NiftyDescribeNatTablesOutput, error)
 	NiftyDescribeNatTablesWithContext(nifcloud.Context, *computing.NiftyDescribeNatTablesInput, ...request.Option) (*computing.NiftyDescribeNatTablesOutput, error)
 	NiftyDescribeNatTablesRequest(*computing.NiftyDescribeNatTablesInput) (*request.Request, *computing.NiftyDescribeNatTablesOutput)
@@ -575,6 +635,10 @@ type ComputingAPI interface {
 	NiftyDisassociateNatTable(*computing.NiftyDisassociateNatTableInput) (*computing.NiftyDisassociateNatTableOutput, error)
 	NiftyDisassociateNatTableWithContext(nifcloud.Context, *computing.NiftyDisassociateNatTableInput, ...request.Option) (*computing.NiftyDisassociateNatTableOutput, error)
 	NiftyDisassociateNatTableRequest(*computing.NiftyDisassociateNatTableInput) (*request.Request, *computing.NiftyDisassociateNatTableOutput)
+
+	NiftyDisassociateRouteTableFromElasticLoadBalancer(*computing.NiftyDisassociateRouteTableFromElasticLoadBalancerInput) (*computing.NiftyDisassociateRouteTableFromElasticLoadBalancerOutput, error)
+	NiftyDisassociateRouteTableFromElasticLoadBalancerWithContext(nifcloud.Context, *computing.NiftyDisassociateRouteTableFromElasticLoadBalancerInput, ...request.Option) (*computing.NiftyDisassociateRouteTableFromElasticLoadBalancerOutput, error)
+	NiftyDisassociateRouteTableFromElasticLoadBalancerRequest(*computing.NiftyDisassociateRouteTableFromElasticLoadBalancerInput) (*request.Request, *computing.NiftyDisassociateRouteTableFromElasticLoadBalancerOutput)
 
 	NiftyDisassociateRouteTableFromVpnGateway(*computing.NiftyDisassociateRouteTableFromVpnGatewayInput) (*computing.NiftyDisassociateRouteTableFromVpnGatewayOutput, error)
 	NiftyDisassociateRouteTableFromVpnGatewayWithContext(nifcloud.Context, *computing.NiftyDisassociateRouteTableFromVpnGatewayInput, ...request.Option) (*computing.NiftyDisassociateRouteTableFromVpnGatewayOutput, error)
@@ -668,6 +732,10 @@ type ComputingAPI interface {
 	NiftyReplaceElasticLoadBalancerLatestVersionWithContext(nifcloud.Context, *computing.NiftyReplaceElasticLoadBalancerLatestVersionInput, ...request.Option) (*computing.NiftyReplaceElasticLoadBalancerLatestVersionOutput, error)
 	NiftyReplaceElasticLoadBalancerLatestVersionRequest(*computing.NiftyReplaceElasticLoadBalancerLatestVersionInput) (*request.Request, *computing.NiftyReplaceElasticLoadBalancerLatestVersionOutput)
 
+	NiftyReplaceElasticLoadBalancerListenerSSLCertificate(*computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) (*computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput, error)
+	NiftyReplaceElasticLoadBalancerListenerSSLCertificateWithContext(nifcloud.Context, *computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput, ...request.Option) (*computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput, error)
+	NiftyReplaceElasticLoadBalancerListenerSSLCertificateRequest(*computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateInput) (*request.Request, *computing.NiftyReplaceElasticLoadBalancerListenerSSLCertificateOutput)
+
 	NiftyReplaceNatRule(*computing.NiftyReplaceNatRuleInput) (*computing.NiftyReplaceNatRuleOutput, error)
 	NiftyReplaceNatRuleWithContext(nifcloud.Context, *computing.NiftyReplaceNatRuleInput, ...request.Option) (*computing.NiftyReplaceNatRuleOutput, error)
 	NiftyReplaceNatRuleRequest(*computing.NiftyReplaceNatRuleInput) (*request.Request, *computing.NiftyReplaceNatRuleOutput)
@@ -675,6 +743,10 @@ type ComputingAPI interface {
 	NiftyReplaceNatTableAssociation(*computing.NiftyReplaceNatTableAssociationInput) (*computing.NiftyReplaceNatTableAssociationOutput, error)
 	NiftyReplaceNatTableAssociationWithContext(nifcloud.Context, *computing.NiftyReplaceNatTableAssociationInput, ...request.Option) (*computing.NiftyReplaceNatTableAssociationOutput, error)
 	NiftyReplaceNatTableAssociationRequest(*computing.NiftyReplaceNatTableAssociationInput) (*request.Request, *computing.NiftyReplaceNatTableAssociationOutput)
+
+	NiftyReplaceRouteTableAssociationWithElasticLoadBalancer(*computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) (*computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput, error)
+	NiftyReplaceRouteTableAssociationWithElasticLoadBalancerWithContext(nifcloud.Context, *computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput, ...request.Option) (*computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput, error)
+	NiftyReplaceRouteTableAssociationWithElasticLoadBalancerRequest(*computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerInput) (*request.Request, *computing.NiftyReplaceRouteTableAssociationWithElasticLoadBalancerOutput)
 
 	NiftyReplaceRouteTableAssociationWithVpnGateway(*computing.NiftyReplaceRouteTableAssociationWithVpnGatewayInput) (*computing.NiftyReplaceRouteTableAssociationWithVpnGatewayOutput, error)
 	NiftyReplaceRouteTableAssociationWithVpnGatewayWithContext(nifcloud.Context, *computing.NiftyReplaceRouteTableAssociationWithVpnGatewayInput, ...request.Option) (*computing.NiftyReplaceRouteTableAssociationWithVpnGatewayOutput, error)
@@ -703,6 +775,14 @@ type ComputingAPI interface {
 	NiftyRetryImportInstance(*computing.NiftyRetryImportInstanceInput) (*computing.NiftyRetryImportInstanceOutput, error)
 	NiftyRetryImportInstanceWithContext(nifcloud.Context, *computing.NiftyRetryImportInstanceInput, ...request.Option) (*computing.NiftyRetryImportInstanceOutput, error)
 	NiftyRetryImportInstanceRequest(*computing.NiftyRetryImportInstanceInput) (*request.Request, *computing.NiftyRetryImportInstanceOutput)
+
+	NiftySetLoadBalancerSSLPoliciesOfListener(*computing.NiftySetLoadBalancerSSLPoliciesOfListenerInput) (*computing.NiftySetLoadBalancerSSLPoliciesOfListenerOutput, error)
+	NiftySetLoadBalancerSSLPoliciesOfListenerWithContext(nifcloud.Context, *computing.NiftySetLoadBalancerSSLPoliciesOfListenerInput, ...request.Option) (*computing.NiftySetLoadBalancerSSLPoliciesOfListenerOutput, error)
+	NiftySetLoadBalancerSSLPoliciesOfListenerRequest(*computing.NiftySetLoadBalancerSSLPoliciesOfListenerInput) (*request.Request, *computing.NiftySetLoadBalancerSSLPoliciesOfListenerOutput)
+
+	NiftyUnsetLoadBalancerSSLPoliciesOfListener(*computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) (*computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput, error)
+	NiftyUnsetLoadBalancerSSLPoliciesOfListenerWithContext(nifcloud.Context, *computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput, ...request.Option) (*computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput, error)
+	NiftyUnsetLoadBalancerSSLPoliciesOfListenerRequest(*computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerInput) (*request.Request, *computing.NiftyUnsetLoadBalancerSSLPoliciesOfListenerOutput)
 
 	NiftyUpdateAlarm(*computing.NiftyUpdateAlarmInput) (*computing.NiftyUpdateAlarmOutput, error)
 	NiftyUpdateAlarmWithContext(nifcloud.Context, *computing.NiftyUpdateAlarmInput, ...request.Option) (*computing.NiftyUpdateAlarmOutput, error)
@@ -735,6 +815,10 @@ type ComputingAPI interface {
 	RebootInstances(*computing.RebootInstancesInput) (*computing.RebootInstancesOutput, error)
 	RebootInstancesWithContext(nifcloud.Context, *computing.RebootInstancesInput, ...request.Option) (*computing.RebootInstancesOutput, error)
 	RebootInstancesRequest(*computing.RebootInstancesInput) (*request.Request, *computing.RebootInstancesOutput)
+
+	RefreshInstanceBackupRule(*computing.RefreshInstanceBackupRuleInput) (*computing.RefreshInstanceBackupRuleOutput, error)
+	RefreshInstanceBackupRuleWithContext(nifcloud.Context, *computing.RefreshInstanceBackupRuleInput, ...request.Option) (*computing.RefreshInstanceBackupRuleOutput, error)
+	RefreshInstanceBackupRuleRequest(*computing.RefreshInstanceBackupRuleInput) (*request.Request, *computing.RefreshInstanceBackupRuleOutput)
 
 	RegisterCorporateInfoForCertificate(*computing.RegisterCorporateInfoForCertificateInput) (*computing.RegisterCorporateInfoForCertificateOutput, error)
 	RegisterCorporateInfoForCertificateWithContext(nifcloud.Context, *computing.RegisterCorporateInfoForCertificateInput, ...request.Option) (*computing.RegisterCorporateInfoForCertificateOutput, error)
@@ -776,6 +860,10 @@ type ComputingAPI interface {
 	SetFilterForLoadBalancerWithContext(nifcloud.Context, *computing.SetFilterForLoadBalancerInput, ...request.Option) (*computing.SetFilterForLoadBalancerOutput, error)
 	SetFilterForLoadBalancerRequest(*computing.SetFilterForLoadBalancerInput) (*request.Request, *computing.SetFilterForLoadBalancerOutput)
 
+	SetLoadBalancerListenerSSLCertificate(*computing.SetLoadBalancerListenerSSLCertificateInput) (*computing.SetLoadBalancerListenerSSLCertificateOutput, error)
+	SetLoadBalancerListenerSSLCertificateWithContext(nifcloud.Context, *computing.SetLoadBalancerListenerSSLCertificateInput, ...request.Option) (*computing.SetLoadBalancerListenerSSLCertificateOutput, error)
+	SetLoadBalancerListenerSSLCertificateRequest(*computing.SetLoadBalancerListenerSSLCertificateInput) (*request.Request, *computing.SetLoadBalancerListenerSSLCertificateOutput)
+
 	StartInstances(*computing.StartInstancesInput) (*computing.StartInstancesOutput, error)
 	StartInstancesWithContext(nifcloud.Context, *computing.StartInstancesInput, ...request.Option) (*computing.StartInstancesOutput, error)
 	StartInstancesRequest(*computing.StartInstancesInput) (*request.Request, *computing.StartInstancesOutput)
@@ -787,6 +875,10 @@ type ComputingAPI interface {
 	TerminateInstances(*computing.TerminateInstancesInput) (*computing.TerminateInstancesOutput, error)
 	TerminateInstancesWithContext(nifcloud.Context, *computing.TerminateInstancesInput, ...request.Option) (*computing.TerminateInstancesOutput, error)
 	TerminateInstancesRequest(*computing.TerminateInstancesInput) (*request.Request, *computing.TerminateInstancesOutput)
+
+	UnsetLoadBalancerListenerSSLCertificate(*computing.UnsetLoadBalancerListenerSSLCertificateInput) (*computing.UnsetLoadBalancerListenerSSLCertificateOutput, error)
+	UnsetLoadBalancerListenerSSLCertificateWithContext(nifcloud.Context, *computing.UnsetLoadBalancerListenerSSLCertificateInput, ...request.Option) (*computing.UnsetLoadBalancerListenerSSLCertificateOutput, error)
+	UnsetLoadBalancerListenerSSLCertificateRequest(*computing.UnsetLoadBalancerListenerSSLCertificateInput) (*request.Request, *computing.UnsetLoadBalancerListenerSSLCertificateOutput)
 
 	UpdateLoadBalancer(*computing.UpdateLoadBalancerInput) (*computing.UpdateLoadBalancerOutput, error)
 	UpdateLoadBalancerWithContext(nifcloud.Context, *computing.UpdateLoadBalancerInput, ...request.Option) (*computing.UpdateLoadBalancerOutput, error)

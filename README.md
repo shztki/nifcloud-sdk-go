@@ -10,6 +10,21 @@ This repository was forked from [aws-sdk-go](https://github.com/aws/aws-sdk-go) 
 * Add signature version `v2computing` for NIFCLOUD Computing.
 * Add protocol `computing` and `script`.
 * Fix datetime format.
+* [nifcloud-sdk-go][1]を利用させていただきました。
+* [nifcloud-sdk-python/nifcloud/data/][2]にある各API の `service-2.json` を、 `nifcloud-sdk-go/models/apis/` にある各API の `api-2.json` として上書きコピーしました。
+* path を shztki に変更させていただきました。
+* `models/apis/computing/3.0/api-2.json` については、以下の変更を実施しました。
+	* `PrivateLanSetItem` structure に NextMonthAccountingType を追加しました。
+	* `TStamp` にしている変数をすべて `String` に変更しました。ただし一括置換してしまうと以下定義部分まで書き換えてしまうのでこの定義は変更しないように注意
+
+```
+    "TStamp": {
+      "name": "TStamp",
+      "type": "timestamp"
+    },
+```
+
+* 上記対応後、 `go generate ./service` で再生成しました。
 
 ## Features
 
@@ -69,3 +84,7 @@ $ go run main.go
 This SDK is distributed under the
 [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0),
 see LICENSE.txt and NOTICE.txt for more information.
+
+
+[1]:https://github.com/alice02/nifcloud-sdk-go
+[2]:https://github.com/nifcloud/nifcloud-sdk-python
