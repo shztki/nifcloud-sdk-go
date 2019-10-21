@@ -19781,6 +19781,10 @@
           "locationName": "networkInterfaceSet",
           "shape": "NetworkInterfaceSet"
         },
+        "NextMonthAccountingType": {
+          "locationName": "nextMonthAccountingType",
+          "shape": "String"
+        },
         "NiftyRedundancy": {
           "locationName": "niftyRedundancy",
           "shape": "Boolean"

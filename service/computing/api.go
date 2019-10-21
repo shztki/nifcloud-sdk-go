@@ -47237,6 +47237,8 @@ type VpnGatewaySetItem struct {
 
 	NetworkInterfaceSet []*NetworkInterfaceSetItem `locationName:"networkInterfaceSet" locationNameList:"item" type:"list"`
 
+	NextMonthAccountingType *string `locationName:"nextMonthAccountingType" type:"string"`
+
 	NiftyRedundancy *bool `locationName:"niftyRedundancy" type:"boolean"`
 
 	NiftyVpnGatewayDescription *string `locationName:"niftyVpnGatewayDescription" type:"string"`
@@ -47321,6 +47323,12 @@ func (s *VpnGatewaySetItem) SetIpAddress(v string) *VpnGatewaySetItem {
 // SetNetworkInterfaceSet sets the NetworkInterfaceSet field's value.
 func (s *VpnGatewaySetItem) SetNetworkInterfaceSet(v []*NetworkInterfaceSetItem) *VpnGatewaySetItem {
 	s.NetworkInterfaceSet = v
+	return s
+}
+
+// SetNextMonthAccountingType sets the NextMonthAccountingType field's value.
+func (s *VpnGatewaySetItem) SetNextMonthAccountingType(v string) *VpnGatewaySetItem {
+	s.NextMonthAccountingType = &v
 	return s
 }
 
