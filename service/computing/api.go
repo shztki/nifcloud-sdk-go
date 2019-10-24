@@ -34411,7 +34411,7 @@ type NiftyIpsecConfiguration struct {
 
 	EncapsulatingSecurityPayloadLifeTime *int64 `locationName:"encapsulatingSecurityPayloadLifeTime" type:"integer"`
 
-	EncapsulationSecurityPayloadLifetime *int64 `locationName:"encapsulationSecurityPayloadLifetime" type:"integer"`
+	EncapsulatingSecurityPayloadLifetime *int64 `locationName:"encapsulatingSecurityPayloadLifetime" type:"integer"`
 
 	EncryptionAlgorithm *string `locationName:"encryptionAlgorithm" type:"string"`
 
@@ -34450,9 +34450,9 @@ func (s *NiftyIpsecConfiguration) SetEncapsulatingSecurityPayloadLifeTime(v int6
 	return s
 }
 
-// SetEncapsulationSecurityPayloadLifetime sets the EncapsulationSecurityPayloadLifetime field's value.
-func (s *NiftyIpsecConfiguration) SetEncapsulationSecurityPayloadLifetime(v int64) *NiftyIpsecConfiguration {
-	s.EncapsulationSecurityPayloadLifetime = &v
+// SetEncapsulatingSecurityPayloadLifetime sets the EncapsulatingSecurityPayloadLifetime field's value.
+func (s *NiftyIpsecConfiguration) SetEncapsulatingSecurityPayloadLifetime(v int64) *NiftyIpsecConfiguration {
+	s.EncapsulatingSecurityPayloadLifetime = &v
 	return s
 }
 
@@ -41347,7 +41347,7 @@ type RequestNiftyIpsecConfigurationStruct struct {
 
 	EncapsulatingSecurityPayloadLifeTime *int64 `locationName:"EncapsulatingSecurityPayloadLifeTime" type:"integer"`
 
-	EncapsulationSecurityPayloadLifetime *int64 `locationName:"EncapsulationSecurityPayloadLifetime" type:"integer"`
+	EncapsulatingSecurityPayloadLifetime *int64 `locationName:"EncapsulatingSecurityPayloadLifetime" type:"integer"`
 
 	EncryptionAlgorithm *string `locationName:"EncryptionAlgorithm" type:"string"`
 
@@ -41356,6 +41356,8 @@ type RequestNiftyIpsecConfigurationStruct struct {
 	InternetKeyExchange *string `locationName:"InternetKeyExchange" type:"string"`
 
 	InternetKeyExchangeLifeTime *int64 `locationName:"InternetKeyExchangeLifeTime" type:"integer"`
+
+	InternetKeyExchangeLifetime *int64 `locationName:"InternetKeyExchangeLifetime" type:"integer"`
 
 	PreSharedKey *string `locationName:"PreSharedKey" type:"string"`
 }
@@ -41382,9 +41384,9 @@ func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulatingSecurityPayloadLi
 	return s
 }
 
-// SetEncapsulationSecurityPayloadLifetime sets the EncapsulationSecurityPayloadLifetime field's value.
-func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulationSecurityPayloadLifetime(v int64) *RequestNiftyIpsecConfigurationStruct {
-	s.EncapsulationSecurityPayloadLifetime = &v
+// SetEncapsulatingSecurityPayloadLifetime sets the EncapsulatingSecurityPayloadLifetime field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulatingSecurityPayloadLifetime(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.EncapsulatingSecurityPayloadLifetime = &v
 	return s
 }
 
@@ -41409,6 +41411,12 @@ func (s *RequestNiftyIpsecConfigurationStruct) SetInternetKeyExchange(v string) 
 // SetInternetKeyExchangeLifeTime sets the InternetKeyExchangeLifeTime field's value.
 func (s *RequestNiftyIpsecConfigurationStruct) SetInternetKeyExchangeLifeTime(v int64) *RequestNiftyIpsecConfigurationStruct {
 	s.InternetKeyExchangeLifeTime = &v
+	return s
+}
+
+// SetInternetKeyExchangeLifetime sets the InternetKeyExchangeLifetime field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetInternetKeyExchangeLifetime(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.InternetKeyExchangeLifetime = &v
 	return s
 }
 

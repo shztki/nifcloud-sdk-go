@@ -12601,8 +12601,8 @@
           "locationName": "encapsulatingSecurityPayloadLifeTime",
           "shape": "Integer"
         },
-        "EncapsulationSecurityPayloadLifetime": {
-          "locationName": "encapsulationSecurityPayloadLifetime",
+        "EncapsulatingSecurityPayloadLifetime": {
+          "locationName": "encapsulatingSecurityPayloadLifetime",
           "shape": "Integer"
         },
         "EncryptionAlgorithm": {
@@ -16382,8 +16382,8 @@
           "locationName": "EncapsulatingSecurityPayloadLifeTime",
           "shape": "Integer"
         },
-        "EncapsulationSecurityPayloadLifetime": {
-          "locationName": "EncapsulationSecurityPayloadLifetime",
+        "EncapsulatingSecurityPayloadLifetime": {
+          "locationName": "EncapsulatingSecurityPayloadLifetime",
           "shape": "Integer"
         },
         "EncryptionAlgorithm": {
@@ -16400,6 +16400,10 @@
         },
         "InternetKeyExchangeLifeTime": {
           "locationName": "InternetKeyExchangeLifeTime",
+          "shape": "Integer"
+        },
+        "InternetKeyExchangeLifetime": {
+          "locationName": "InternetKeyExchangeLifetime",
           "shape": "Integer"
         },
         "PreSharedKey": {
