@@ -16382,6 +16382,10 @@
           "locationName": "EncapsulatingSecurityPayloadLifeTime",
           "shape": "Integer"
         },
+        "EncapsulationSecurityPayloadLifetime": {
+          "locationName": "EncapsulationSecurityPayloadLifetime",
+          "shape": "Integer"
+        },
         "EncryptionAlgorithm": {
           "locationName": "EncryptionAlgorithm",
           "shape": "String"

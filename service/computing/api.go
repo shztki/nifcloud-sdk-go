@@ -41347,6 +41347,8 @@ type RequestNiftyIpsecConfigurationStruct struct {
 
 	EncapsulatingSecurityPayloadLifeTime *int64 `locationName:"EncapsulatingSecurityPayloadLifeTime" type:"integer"`
 
+	EncapsulationSecurityPayloadLifetime *int64 `locationName:"EncapsulationSecurityPayloadLifetime" type:"integer"`
+
 	EncryptionAlgorithm *string `locationName:"EncryptionAlgorithm" type:"string"`
 
 	HashAlgorithm *string `locationName:"HashAlgorithm" type:"string"`
@@ -41377,6 +41379,12 @@ func (s *RequestNiftyIpsecConfigurationStruct) SetDiffieHellmanGroup(v int64) *R
 // SetEncapsulatingSecurityPayloadLifeTime sets the EncapsulatingSecurityPayloadLifeTime field's value.
 func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulatingSecurityPayloadLifeTime(v int64) *RequestNiftyIpsecConfigurationStruct {
 	s.EncapsulatingSecurityPayloadLifeTime = &v
+	return s
+}
+
+// SetEncapsulationSecurityPayloadLifetime sets the EncapsulationSecurityPayloadLifetime field's value.
+func (s *RequestNiftyIpsecConfigurationStruct) SetEncapsulationSecurityPayloadLifetime(v int64) *RequestNiftyIpsecConfigurationStruct {
+	s.EncapsulationSecurityPayloadLifetime = &v
 	return s
 }
 
