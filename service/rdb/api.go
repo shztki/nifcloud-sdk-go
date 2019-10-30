@@ -1479,7 +1479,7 @@ func (c *Rdb) DescribeDBParametersWithContext(ctx nifcloud.Context, input *Descr
 //            return pageNum <= 3
 //        })
 //
-func (c *RDB) DescribeDBParametersPages(input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool) error {
+func (c *Rdb) DescribeDBParametersPages(input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool) error {
 	return c.DescribeDBParametersPagesWithContext(nifcloud.BackgroundContext(), input, fn)
 }
 
@@ -1490,7 +1490,7 @@ func (c *RDB) DescribeDBParametersPages(input *DescribeDBParametersInput, fn fun
 // the context is nil a panic will occur. In the future the SDK may create
 // sub-contexts for http.Requests. See https://golang.org/pkg/context/
 // for more information on using Contexts.
-func (c *RDB) DescribeDBParametersPagesWithContext(ctx nifcloud.Context, input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool, opts ...request.Option) error {
+func (c *Rdb) DescribeDBParametersPagesWithContext(ctx nifcloud.Context, input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool, opts ...request.Option) error {
 	p := request.Pagination{
 		NewRequest: func() (*request.Request, error) {
 			var inCpy *DescribeDBParametersInput
