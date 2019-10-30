@@ -1415,6 +1415,12 @@ func (c *Rdb) DescribeDBParametersRequest(input *DescribeDBParametersInput) (req
 		Name:       opDescribeDBParameters,
 		HTTPMethod: "POST",
 		HTTPPath:   "/",
+		Paginator: &request.Paginator{
+			InputTokens:     []string{"Marker"},
+			OutputTokens:    []string{"Marker"},
+			LimitToken:      "MaxRecords",
+			TruncationToken: "",
+		},
 	}
 
 	if input == nil {
@@ -1454,6 +1460,56 @@ func (c *Rdb) DescribeDBParametersWithContext(ctx nifcloud.Context, input *Descr
 	req.SetContext(ctx)
 	req.ApplyOptions(opts...)
 	return out, req.Send()
+}
+
+// DescribeDBParametersPages iterates over the pages of a DescribeDBParameters operation,
+// calling the "fn" function with the response data for each page. To stop
+// iterating, return false from the fn function.
+//
+// See DescribeDBParameters method for more information on how to use this operation.
+//
+// Note: This operation can generate multiple requests to a service.
+//
+//    // Example iterating over at most 3 pages of a DescribeDBParameters operation.
+//    pageNum := 0
+//    err := client.DescribeDBParametersPages(params,
+//        func(page *rds.DescribeDBParametersOutput, lastPage bool) bool {
+//            pageNum++
+//            fmt.Println(page)
+//            return pageNum <= 3
+//        })
+//
+func (c *RDB) DescribeDBParametersPages(input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool) error {
+	return c.DescribeDBParametersPagesWithContext(nifcloud.BackgroundContext(), input, fn)
+}
+
+// DescribeDBParametersPagesWithContext same as DescribeDBParametersPages except
+// it takes a Context and allows setting request options on the pages.
+//
+// The context must be non-nil and will be used for request cancellation. If
+// the context is nil a panic will occur. In the future the SDK may create
+// sub-contexts for http.Requests. See https://golang.org/pkg/context/
+// for more information on using Contexts.
+func (c *RDB) DescribeDBParametersPagesWithContext(ctx nifcloud.Context, input *DescribeDBParametersInput, fn func(*DescribeDBParametersOutput, bool) bool, opts ...request.Option) error {
+	p := request.Pagination{
+		NewRequest: func() (*request.Request, error) {
+			var inCpy *DescribeDBParametersInput
+			if input != nil {
+				tmp := *input
+				inCpy = &tmp
+			}
+			req, _ := c.DescribeDBParametersRequest(inCpy)
+			req.SetContext(ctx)
+			req.ApplyOptions(opts...)
+			return req, nil
+		},
+	}
+
+	cont := true
+	for p.Next() && cont {
+		cont = fn(p.Page().(*DescribeDBParametersOutput), !p.HasNextPage())
+	}
+	return p.Err()
 }
 
 const opDescribeDBSecurityGroups = "DescribeDBSecurityGroups"
