@@ -7439,7 +7439,7 @@ type RestoreDBInstanceFromDBSnapshotInput struct {
 
 	NiftyNetworkId *string `locationName:"NiftyNetworkId" type:"string"`
 
-	NiftyReadReplicaDBInstanceIdentifier *int64 `locationName:"NiftyReadReplicaDBInstanceIdentifier" type:"integer"`
+	NiftyReadReplicaDBInstanceIdentifier *string `locationName:"NiftyReadReplicaDBInstanceIdentifier" type:"string"`
 
 	NiftyReadReplicaPrivateAddress *string `locationName:"NiftyReadReplicaPrivateAddress" type:"string"`
 
@@ -7543,7 +7543,7 @@ func (s *RestoreDBInstanceFromDBSnapshotInput) SetNiftyNetworkId(v string) *Rest
 }
 
 // SetNiftyReadReplicaDBInstanceIdentifier sets the NiftyReadReplicaDBInstanceIdentifier field's value.
-func (s *RestoreDBInstanceFromDBSnapshotInput) SetNiftyReadReplicaDBInstanceIdentifier(v int64) *RestoreDBInstanceFromDBSnapshotInput {
+func (s *RestoreDBInstanceFromDBSnapshotInput) SetNiftyReadReplicaDBInstanceIdentifier(v string) *RestoreDBInstanceFromDBSnapshotInput {
 	s.NiftyReadReplicaDBInstanceIdentifier = &v
 	return s
 }
