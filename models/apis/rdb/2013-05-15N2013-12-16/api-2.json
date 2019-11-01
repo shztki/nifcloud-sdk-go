@@ -1041,7 +1041,7 @@
     "DBInstance": {
       "members": {
         "AllocatedStorage": {
-          "shape": "String"
+          "shape": "Integer"
         },
         "AutoMinorVersionUpgrade": {
           "shape": "Boolean"
@@ -1050,7 +1050,7 @@
           "shape": "String"
         },
         "BackupRetentionPeriod": {
-          "shape": "String"
+          "shape": "Integer"
         },
         "BinlogRetentionPeriod": {
           "shape": "String"
@@ -1101,13 +1101,13 @@
           "shape": "String"
         },
         "MultiAZ": {
-          "shape": "String"
+          "shape": "Boolean"
         },
         "NiftyMasterPrivateAddress": {
           "shape": "String"
         },
         "NiftyMultiAZType": {
-          "shape": "String"
+          "shape": "Integer"
         },
         "NiftyNetworkId": {
           "shape": "String"
@@ -1922,7 +1922,7 @@
           "shape": "String"
         },
         "Port": {
-          "shape": "String"
+          "shape": "Integer"
         }
       },
       "name": "Endpoint",

@@ -4065,13 +4065,13 @@ func (s *DBEngineVersion) SetEngineVersion(v string) *DBEngineVersion {
 type DBInstance struct {
 	_ struct{} `type:"structure"`
 
-	AllocatedStorage *string `type:"string"`
+	AllocatedStorage *int64 `type:"integer"`
 
 	AutoMinorVersionUpgrade *bool `type:"boolean"`
 
 	AvailabilityZone *string `type:"string"`
 
-	BackupRetentionPeriod *string `type:"string"`
+	BackupRetentionPeriod *int64 `type:"integer"`
 
 	BinlogRetentionPeriod *string `type:"string"`
 
@@ -4105,11 +4105,11 @@ type DBInstance struct {
 
 	MasterUsername *string `type:"string"`
 
-	MultiAZ *string `type:"string"`
+	MultiAZ *bool `type:"boolean"`
 
 	NiftyMasterPrivateAddress *string `type:"string"`
 
-	NiftyMultiAZType *string `type:"string"`
+	NiftyMultiAZType *int64 `type:"integer"`
 
 	NiftyNetworkId *string `type:"string"`
 
@@ -4149,7 +4149,7 @@ func (s DBInstance) GoString() string {
 }
 
 // SetAllocatedStorage sets the AllocatedStorage field's value.
-func (s *DBInstance) SetAllocatedStorage(v string) *DBInstance {
+func (s *DBInstance) SetAllocatedStorage(v int64) *DBInstance {
 	s.AllocatedStorage = &v
 	return s
 }
@@ -4167,7 +4167,7 @@ func (s *DBInstance) SetAvailabilityZone(v string) *DBInstance {
 }
 
 // SetBackupRetentionPeriod sets the BackupRetentionPeriod field's value.
-func (s *DBInstance) SetBackupRetentionPeriod(v string) *DBInstance {
+func (s *DBInstance) SetBackupRetentionPeriod(v int64) *DBInstance {
 	s.BackupRetentionPeriod = &v
 	return s
 }
@@ -4269,7 +4269,7 @@ func (s *DBInstance) SetMasterUsername(v string) *DBInstance {
 }
 
 // SetMultiAZ sets the MultiAZ field's value.
-func (s *DBInstance) SetMultiAZ(v string) *DBInstance {
+func (s *DBInstance) SetMultiAZ(v bool) *DBInstance {
 	s.MultiAZ = &v
 	return s
 }
@@ -4281,7 +4281,7 @@ func (s *DBInstance) SetNiftyMasterPrivateAddress(v string) *DBInstance {
 }
 
 // SetNiftyMultiAZType sets the NiftyMultiAZType field's value.
-func (s *DBInstance) SetNiftyMultiAZType(v string) *DBInstance {
+func (s *DBInstance) SetNiftyMultiAZType(v int64) *DBInstance {
 	s.NiftyMultiAZType = &v
 	return s
 }
@@ -6011,7 +6011,7 @@ type Endpoint struct {
 
 	NiftyPrivateAddress *string `type:"string"`
 
-	Port *string `type:"string"`
+	Port *int64 `type:"integer"`
 }
 
 // String returns the string representation
@@ -6037,7 +6037,7 @@ func (s *Endpoint) SetNiftyPrivateAddress(v string) *Endpoint {
 }
 
 // SetPort sets the Port field's value.
-func (s *Endpoint) SetPort(v string) *Endpoint {
+func (s *Endpoint) SetPort(v int64) *Endpoint {
 	s.Port = &v
 	return s
 }
