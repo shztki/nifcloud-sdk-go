@@ -10,12 +10,13 @@ This repository was forked from [aws-sdk-go](https://github.com/aws/aws-sdk-go) 
 * Add signature version `v2computing` for NIFCLOUD Computing.
 * Add protocol `computing` and `script`.
 * Fix datetime format.
+
+## Change
 * [nifcloud-sdk-go][1]を利用させていただきました。
-* [nifcloud-sdk-python/nifcloud/data/][2]にある各API の `service-2.json` を、 `nifcloud-sdk-go/models/apis/` にある各API の `api-2.json` として上書きコピーしました。
+* 最新にしようと考えたため、[nifcloud-sdk-python/nifcloud/data/][2]にある各API の `service-2.json` を、 `nifcloud-sdk-go/models/apis/` にある各API の `api-2.json` として上書きコピーしました。
 * path を shztki に変更させていただきました。
-* `models/apis/computing/3.0/api-2.json` については、以下の変更を実施しました。
-	* `PrivateLanSetItem` structure に NextMonthAccountingType を追加しました。
-	* `TStamp` にしている変数をすべて `String` に変更しました。ただし一括置換してしまうと以下定義部分まで書き換えてしまうのでこの定義は変更しないように注意
+* `models/apis/` 配下の jsonファイルについては、適宜必要な修正を実施しています。
+	* `TStamp` にしている変数をすべて `String` に変更しました。ただし一括置換してしまうと以下定義部分まで書き換えてしまうのでこの定義は変更しないように注意。
 
 ```
     "TStamp": {
@@ -24,7 +25,7 @@ This repository was forked from [aws-sdk-go](https://github.com/aws/aws-sdk-go) 
     },
 ```
 
-* 上記対応後、 `go generate ./service` で再生成しました。
+* 修正したら都度、 `go generate ./service` で再生成し、タグのバージョンを上げています。
 
 ## Features
 

@@ -1473,7 +1473,7 @@ func (c *Rdb) DescribeDBParametersWithContext(ctx nifcloud.Context, input *Descr
 //    // Example iterating over at most 3 pages of a DescribeDBParameters operation.
 //    pageNum := 0
 //    err := client.DescribeDBParametersPages(params,
-//        func(page *rds.DescribeDBParametersOutput, lastPage bool) bool {
+//        func(page *DescribeDBParametersOutput, lastPage bool) bool {
 //            pageNum++
 //            fmt.Println(page)
 //            return pageNum <= 3

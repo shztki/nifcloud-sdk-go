@@ -140,6 +140,9 @@ type RdbAPI interface {
 	DescribeDBParametersWithContext(nifcloud.Context, *rdb.DescribeDBParametersInput, ...request.Option) (*rdb.DescribeDBParametersOutput, error)
 	DescribeDBParametersRequest(*rdb.DescribeDBParametersInput) (*request.Request, *rdb.DescribeDBParametersOutput)
 
+	DescribeDBParametersPages(*rdb.DescribeDBParametersInput, func(*rdb.DescribeDBParametersOutput, bool) bool) error
+	DescribeDBParametersPagesWithContext(nifcloud.Context, *rdb.DescribeDBParametersInput, func(*rdb.DescribeDBParametersOutput, bool) bool, ...request.Option) error
+
 	DescribeDBSecurityGroups(*rdb.DescribeDBSecurityGroupsInput) (*rdb.DescribeDBSecurityGroupsOutput, error)
 	DescribeDBSecurityGroupsWithContext(nifcloud.Context, *rdb.DescribeDBSecurityGroupsInput, ...request.Option) (*rdb.DescribeDBSecurityGroupsOutput, error)
 	DescribeDBSecurityGroupsRequest(*rdb.DescribeDBSecurityGroupsInput) (*request.Request, *rdb.DescribeDBSecurityGroupsOutput)
